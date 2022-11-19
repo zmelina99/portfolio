@@ -1,0 +1,41 @@
+@import '../../../styles/colors.scss';
+
+.TextField {
+  display: flex;
+  flex-direction: column;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background: white;
+  border: 2px solid $secondaryLight-100;
+  padding-left: 1rem;
+  color: $brown-800;
+
+}
+
+.TextField__Input {
+  width: 100%;
+  outline: none;
+  border: none;
+  background: transparent;
+  margin: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  color: $brown-800;
+  justify-content: center;
+}
+.TextField--small {
+  width: 100%
+}
+.TextField--medium {
+}
+.TextField--large {
+  width: 100%;
+}
+.TextField--xLarge {
+  width: 100%;
+  height: 15rem;
+  justify-content: flex-start;
+}

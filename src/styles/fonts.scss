@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
+$mainFont: 'Baloo 2', cursive;
+
+@mixin colossusBold {
+  font: {
+    family: $mainFont;
+    size: 140px;
+    weight: 700;
+  }
+  line-height: 144px;
+}
+
+@mixin colossusRegular {
+  font: {
+    family: $mainFont;
+    size: 140px;
+    weight: 400;
+  }
+  line-height: 144px;
+}
+@mixin uberBold {
+  font: {
+    family: $mainFont;
+    size: 112px;
+    weight: 700;
+  }
+  line-height: 120px;
+}
+@mixin uberRegular {
+  font: {
+    family: $mainFont;
+    size: 112px;
+    weight: 400;
+  }
+  line-height: 120px;
+}
+@mixin heroBold {
+  font: {
+    family: $mainFont;
+    size: 80px;
+    weight: 700;
+  }
+  line-height: 96px;
+}
+@mixin heroRegular {
+  font: {
+    family: $mainFont;
+    size: 80px;
+    weight: 400;
+  }
+  line-height: 96px;
+}
+@mixin displayBold {
+  font: {
+    family: $mainFont;
+    size: 64px;
+    weight: 700;
+  }
+  line-height: 80px;
+}
+@mixin displayRegular {
+  font: {
+    family: $mainFont;
+    size: 64px;
+    weight: 400;
+  }
+  line-height: 80px;
+}
+@mixin headline-1Bold {
+  font: {
+    family: $mainFont;
+    size: 48px;
+    weight: 700;
+  }
+  line-height: 60px;
+}
+
+@mixin headline-1Regular {
+  font: {
+    family: $mainFont;
+    size: 48px;
+    weight: 400;
+  }
+  line-height: 60px;
+}
+@mixin headline-2Bold {
+  font: {
+    family: $mainFont;
+    size: 37px;
+    weight: 500;
+  }
+  line-height: 52px;
+}
+
+@mixin headline-2Regular {
+  font: {
+    family: $mainFont;
+    size: 37px;
+    weight: 400;
+  }
+  line-height: 52px;
+}
+@mixin headline-3Bold {
+  font: {
+    family: $mainFont;
+    size: 31px;
+    weight: 500;
+  }
+  line-height: 48px;
+}
+
+@mixin headline-3Regular {
+  font: {
+    family: $mainFont;
+    size: 31px;
+    weight: 400;
+  }
+  line-height: 48px;
+}
+@mixin headline-4Bold {
+  font: {
+    family: $mainFont;
+    size: 26px;
+    weight: 500;
+  }
+  line-height: 40px;
+}
+
+@mixin headline-4Regular {
+  font: {
+    family: $mainFont;
+    size: 26px;
+    weight: 500;
+  }
+  line-height: 40px;
+}
+@mixin headline-5Bold {
+  font: {
+    family: $mainFont;
+    size: 21px;
+    weight: 500;
+  }
+  line-height: 32px;
+}
+
+@mixin headline-5Regular {
+  font: {
+    family: $mainFont;
+    size: 21px;
+    weight: 400;
+  }
+  line-height: 32px;
+}
+
+@mixin leadBold {
+  font: {
+    family: $mainFont;
+    size: 24px;
+    weight: 500;
+  }
+  line-height: 36px;
+}
+@mixin leadRegular {
+  font: {
+    family: $mainFont;
+    size: 24px;
+    weight: 400;
+  }
+  line-height: 36px;
+}
+@mixin bodyBold {
+  font: {
+    family: $mainFont;
+    size: 18px;
+    weight: 500;
+  }
+  line-height: 32px;
+}
+@mixin bodyRegular {
+  font: {
+    family: $mainFont;
+    size: 18px;
+    weight: 400;
+  }
+  line-height: 32px;
+}
+@mixin smallBold {
+  font: {
+    family: $mainFont;
+    size: 16px;
+    weight: 500;
+  }
+  line-height: 28px;
+}
+@mixin smallRegular {
+  font: {
+    family: $mainFont;
+    size: 16px;
+    weight: 400;
+  }
+  line-height: 28px;
+}
+@mixin captionBold {
+  font: {
+    family: $mainFont;
+    size: 14px;
+    weight: 500;
+  }
+  line-height: 20px;
+}
+@mixin captionRegular {
+  font: {
+    family: $mainFont;
+    size: 14px;
+    weight: 400;
+  }
+  line-height: 20px;
+}
+@mixin x-smallBold {
+  font: {
+    family: $mainFont;
+    size: 12px;
+    weight: 500;
+  }
+  line-height: 20px;
+}
+@mixin x-smallRegular {
+  font: {
+    family: $mainFont;
+    size: 12px;
+    weight: 400;
+  }
+  line-height: 20px;
+}
+@mixin tinyBold {
+  font: {
+    family: $mainFont;
+    size: 10px;
+    weight: 500;
+  }
+  line-height: 16px;
+}
+@mixin tinyRegular {
+  font: {
+    family: $mainFont;
+    size: 10px;
+    weight: 400;
+  }
+  line-height: 16px;
+}
+@mixin input-1Bold {
+  font: {
+    family: $mainFont;
+    size: 18px;
+    weight: 700;
+  }
+  line-height: 28px;
+}
+@mixin input-1Regular {
+  font: {
+    family: $mainFont;
+    size: 18px;
+    weight: 400;
+  }
+  line-height: 28px;
+}
+@mixin input-2Bold {
+  font: {
+    family: $mainFont;
+    size: 16px;
+    weight: 500;
+  }
+  line-height: 24px;
+}
+@mixin input-2Regular {
+  font: {
+    family: $mainFont;
+    size: 16px;
+    weight: 400;
+  }
+  line-height: 24px;
+}
+@mixin button-1Bold {
+  font: {
+    family: $mainFont;
+    size: 21px;
+    weight: 500;
+  }
+  line-height: 32px;
+}
+@mixin button-1Regular {
+  font: {
+    family: $mainFont;
+    size: 21px;
+    weight: 400;
+  }
+  line-height: 32px;
+}
+@mixin button-2Bold {
+  font: {
+    family: $mainFont;
+    size: 16px;
+    weight: 500;
+  }
+  line-height: 28px;
+}
+@mixin button-2Regular {
+  font: {
+    family: $mainFont;
+    size: 16px;
+    weight: 400;
+  }
+  line-height: 28px;
+}
+@mixin button-3Bold {
+  font: {
+    family: $mainFont;
+    size: 14px;
+    weight: 700;
+  }
+  line-height: 20px;
+}
+@mixin button-3Regular {
+  font: {
+    family: $mainFont;
+    size: 14px;
+    weight: 400;
+  }
+  line-height: 20px;
+}

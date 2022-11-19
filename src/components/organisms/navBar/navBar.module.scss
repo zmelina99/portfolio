@@ -1,0 +1,26 @@
+@import '../../../styles/colors.scss', '../../../styles/fonts.scss';
+.NavBar__Container {
+  @include headline-4Regular;
+  width: 15vw;
+  background-color: $secondaryLight-700;
+  height: 100vh;
+}
+.NavBar__Header__Home{
+  width: 80%;
+  &:hover {
+    cursor: pointer;
+  }
+  padding-bottom: 2rem;
+}
+.NavBar__Item {
+  padding: 1rem;
+  color: $secondaryLight-800;
+  text-align: left;
+  padding-left: 2rem;
+  border-top: 1px solid $brown-600;
+
+  &:hover {
+    cursor: pointer;
+    color: $primary-400Base;
+  }
+}

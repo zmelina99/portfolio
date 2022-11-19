@@ -1,0 +1,32 @@
+@import '../../../styles/colors.scss', '../../../styles/fonts.scss';
+
+.ContactContainer {
+  display: flex;
+}
+.Contact__FormContainer {
+  background-color: $brown-200;
+  width: 50%;
+  padding: 1rem;
+}
+.Contact__Form {
+ padding: 2rem;
+}
+.Contact__Form__Header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0
+}
+.Contact__Title {
+  @include headline-1Regular;
+}
+.Contact__Description {
+  @include bodyRegular;
+}
+.Contact__MapContainer {
+}
+.Contact__Form__Input {
+  margin-top: 1rem;
+}
+.Contact__Form__Input__Email{
+    margin-left: 0;
+}
