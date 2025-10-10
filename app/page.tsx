@@ -1,6 +1,5 @@
 import Navigation from "@/components/Navigation";
 import DiveDepthIndicator from "@/components/DiveDepthIndicator";
-import BubbleGame from "@/components/BubbleGame";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Passions from "@/components/sections/Passions";
