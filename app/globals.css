@@ -325,10 +325,11 @@ body::after {
 .bubble {
   position: absolute;
   bottom: -100px;
-  background: radial-gradient(circle, rgba(168, 218, 220, 0.3) 0%, rgba(241, 198, 217, 0.15) 50%, rgba(196, 181, 253, 0.1) 70%, transparent 100%);
+  background: radial-gradient(circle, rgba(168, 218, 220, 0.4) 0%, rgba(241, 198, 217, 0.25) 50%, rgba(196, 181, 253, 0.15) 70%, transparent 100%);
   border-radius: 50%;
   opacity: 0;
   animation: float-up linear infinite;
+  box-shadow: 0 0 15px rgba(184, 224, 229, 0.3), inset -5px -5px 10px rgba(255, 255, 255, 0.1);
 }
 
 .bubble:nth-child(1) {
