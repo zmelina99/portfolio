@@ -27,9 +27,10 @@ export default function Navigation() {
   const navItems = [
     { label: "Home", id: "home" },
     { label: "About", id: "about" },
-    { label: "Passions", id: "passions" },
     { label: "Experience", id: "experience" },
     { label: "Skills", id: "skills" },
+    { label: "Passions", id: "passions" },
+
     // { label: "Projects", id: "projects" },
     { label: "Contact", id: "contact" },
   ];
@@ -100,4 +101,3 @@ export default function Navigation() {
     </nav>
   );
 }
-
