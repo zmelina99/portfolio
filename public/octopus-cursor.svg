@@ -1,0 +1,23 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Octopus head -->
+  <ellipse cx="16" cy="12" rx="8" ry="9" fill="#f5d7e3" stroke="#ffbac7" stroke-width="1.5"/>
+  
+  <!-- Eyes -->
+  <circle cx="13" cy="11" r="1.5" fill="#1e2842"/>
+  <circle cx="19" cy="11" r="1.5" fill="#1e2842"/>
+  <circle cx="13.5" cy="10.5" r="0.5" fill="#fdfbf9"/>
+  <circle cx="19.5" cy="10.5" r="0.5" fill="#fdfbf9"/>
+  
+  <!-- Tentacles -->
+  <path d="M 12 18 Q 10 20 9 24 Q 8.5 26 10 27" stroke="#f5d7e3" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 14 19 Q 13 22 12 26 Q 11.5 28 13 29" stroke="#f5d7e3" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 16 20 Q 16 23 16 27 Q 16 29 17 30" stroke="#f5d7e3" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 18 19 Q 19 22 20 26 Q 20.5 28 19 29" stroke="#f5d7e3" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 20 18 Q 22 20 23 24 Q 23.5 26 22 27" stroke="#f5d7e3" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Spots -->
+  <circle cx="14" cy="14" r="1" fill="#ffbac7" opacity="0.5"/>
+  <circle cx="18" cy="13" r="0.8" fill="#ffbac7" opacity="0.5"/>
+  <circle cx="16" cy="15" r="0.7" fill="#ffbac7" opacity="0.5"/>
+</svg>
+
