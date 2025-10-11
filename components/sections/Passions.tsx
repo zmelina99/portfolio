@@ -17,28 +17,28 @@ export default function Passions() {
       title: "Scuba Diving",
       description: "Exploring the underwater world and its incredible marine life",
       icon: Waves,
-      image: "bg-gradient-to-br from-[#a8dadc] to-[#3AAFA9]", // Placeholder - replace with actual image
-      color: "from-[#a8dadc] to-[#c4b5fd]",
+          image: "/diving.JPG",
+          color: "from-[#a8dadc] to-[#c4b5fd]",
     },
     {
       title: "Skiing",
       description: "Finding freedom and adventure on the mountain slopes",
       icon: Mountain,
-      image: "bg-gradient-to-br from-[#c4b5fd] to-[#f1c6d9]", // Placeholder
+      image: "/skiing.JPG",
       color: "from-[#c4b5fd] to-[#f1c6d9]",
     },
     {
       title: "Olympic Lifting",
       description: "Building strength, discipline, and pushing my limits",
       icon: Dumbbell,
-      image: "bg-gradient-to-br from-[#ffa6b8] to-[#f1c6d9]", // Placeholder
+      image: "/olympicLifting.PNG",
       color: "from-[#ffa6b8] to-[#f1c6d9]",
     },
     {
       title: "Panchin",
       description: "My beloved companion and constant source of joy",
       icon: Heart,
-      image: "bg-gradient-to-br from-[#f1c6d9] to-[#b8e6d5]", // Placeholder
+      image: "/panchin.PNG",
       color: "from-[#f1c6d9] to-[#b8e6d5]",
     },
   ];
@@ -82,10 +82,22 @@ export default function Passions() {
                 
                 {/* Main bubble */}
                 <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-[#a8dadc]/30 shadow-xl shadow-[#f1c6d9]/20 group-hover:shadow-2xl group-hover:shadow-[#f1c6d9]/40 transition-all duration-500 group-hover:scale-105 group-hover:border-[#f1c6d9]/50">
-                  {/* Image placeholder with gradient */}
-                  <div className={`w-full h-full ${passion.image} flex items-center justify-center`}>
-                    <passion.icon className="h-16 w-16 text-white/80 group-hover:scale-110 transition-transform duration-300" />
-                  </div>
+                  {/* Image or gradient background */}
+                  {passion.image.startsWith('/') ? (
+                    // Actual image
+                    <div className="w-full h-full relative">
+                      <img 
+                        src={passion.image} 
+                        alt={passion.title} 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : (
+                    // Gradient background with icon
+                    <div className={`w-full h-full ${passion.image} flex items-center justify-center`}>
+                      <passion.icon className="h-16 w-16 text-white/80 group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                  )}
                   
                   {/* Shimmer effect on hover */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/0 to-transparent group-hover:via-white/20 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full" />
