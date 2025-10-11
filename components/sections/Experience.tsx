@@ -51,10 +51,10 @@ export default function Experience() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-[#E6EDF2]">
+          <h2 className="text-3xl sm:text-4xl font-medium mb-4 text-[#E6EDF2]">
             Work Experience
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-[#009293] to-[#00787A] opacity-60 mx-auto rounded-full mb-4" />
+          <div className="w-20 h-px bg-gradient-to-r from-[#009293] to-[#00787A] opacity-40 mx-auto rounded-full mb-4" />
           <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">
             Building impactful solutions and leading frontend development
           </p>
@@ -84,10 +84,10 @@ export default function Experience() {
                     <div className="flex-1">
                       <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                         <div>
-                          <h3 className="text-2xl font-bold text-[#E6EDF2] mb-1">
+                          <h3 className="text-2xl font-medium text-[#E6EDF2] mb-1">
                             {exp.role}
                           </h3>
-                          <p className="text-xl text-[#009293] font-semibold">
+                          <p className="text-xl text-[#009293] font-medium">
                             {exp.company}
                           </p>
                         </div>

@@ -28,6 +28,7 @@ export default function Navigation() {
     { label: "Home", id: "home" },
     { label: "About", id: "about" },
     { label: "Experience", id: "experience" },
+    { label: "Case Studies", id: "case-studies" },
     { label: "Skills", id: "skills" },
     { label: "Passions", id: "passions" },
     { label: "Contact", id: "contact" },
@@ -48,7 +49,7 @@ export default function Navigation() {
             onClick={() => scrollToSection("home")}
             className="text-2xl font-bold bg-gradient-to-r from-[#009293] to-[#4DCCCC] bg-clip-text text-transparent hover:opacity-80 transition-opacity"
           >
-            Portfolio
+            Melina Zellweger
           </button>
 
           {/* Desktop Navigation */}

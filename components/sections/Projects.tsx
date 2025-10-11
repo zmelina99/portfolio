@@ -44,10 +44,10 @@ export default function Projects() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-[#E6EDF2]">
+          <h2 className="text-3xl sm:text-4xl font-medium mb-4 text-[#E6EDF2]">
             Key Projects
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-[#009293] to-[#00787A] opacity-60 mx-auto rounded-full mb-4" />
+          <div className="w-16 h-px bg-gradient-to-r from-[#009293] to-[#00787A] opacity-40 mx-auto rounded-full mb-4" />
           <p className="text-base text-[#94A3B8] max-w-2xl mx-auto">
             Notable applications I've built and contributed to
           </p>
@@ -61,7 +61,7 @@ export default function Projects() {
             >
               {/* Project Image Placeholder */}
               <div className={`h-48 bg-gradient-to-br ${project.gradient} opacity-80 flex items-center justify-center`}>
-                <div className="text-white text-xl font-semibold opacity-90 px-4 text-center">
+                <div className="text-white text-xl font-medium opacity-90 px-4 text-center">
                   {project.title}
                 </div>
               </div>

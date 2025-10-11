@@ -39,7 +39,7 @@ export default function Passions() {
   ];
 
   return (
-    <section id="passions" className="py-20 relative overflow-hidden">
+    <section id="passions" className="py-14 relative overflow-hidden">
       {/* Bubbles */}
       <div className="bubbles opacity-20">
         <div className="bubble"></div>
@@ -52,12 +52,12 @@ export default function Passions() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-[#E6EDF2]">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl font-medium mb-4 text-[#E6EDF2]">
             Beyond the Code
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-[#009293] to-[#00787A] opacity-60 mx-auto rounded-full mb-4" />
-          <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">
+          <div className="w-20 h-px bg-gradient-to-r from-[#009293] to-[#00787A] opacity-40 mx-auto rounded-full mb-4" />
+          <p className="text-base text-[#94A3B8] max-w-2xl mx-auto" style={{ lineHeight: '1.8' }}>
             Life is about balance. Here are the passions that keep me energized and inspired outside of development
           </p>
         </div>
@@ -76,7 +76,7 @@ export default function Passions() {
                 <div className="absolute inset-0 rounded-full bg-[#009293] opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500 scale-110" />
                 
                 {/* Main bubble */}
-                <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-white/20 shadow-xl shadow-black/20 group-hover:shadow-2xl group-hover:shadow-black/30 transition-all duration-500 group-hover:scale-105 group-hover:border-[#009293]/40">
+                <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-[#0F2330]/40 shadow-xl shadow-black/20 group-hover:shadow-2xl group-hover:shadow-black/30 transition-all duration-500 group-hover:scale-105 group-hover:border-[#F8A58E]/40">
                   {/* Image or gradient background */}
                   {passion.image.startsWith('/') ? (
                     // Actual image
@@ -105,11 +105,11 @@ export default function Passions() {
               </div>
 
               {/* Content Card */}
-              <Card className="p-5 text-center border border-white/15 bg-[#112B3C]/60 backdrop-blur-sm group-hover:shadow-lg group-hover:shadow-black/20 transition-all duration-300 group-hover:-translate-y-1 w-full rounded-2xl">
-                <h3 className="text-xl font-semibold mb-2 text-[#E6EDF2] group-hover:text-[#009293] transition-colors">
+              <Card className="p-5 text-center border border-[#0F2330]/40 bg-[#112B3C]/60 backdrop-blur-sm group-hover:shadow-lg group-hover:shadow-black/20 transition-all duration-300 group-hover:-translate-y-1 w-full rounded-2xl">
+                <h3 className="text-lg font-medium mb-2 text-[#E6EDF2] group-hover:text-[#F8A58E] transition-colors">
                   {passion.title}
                 </h3>
-                <p className="text-sm text-[#94A3B8]">
+                <p className="text-sm text-[#94A3B8]" style={{ lineHeight: '1.8' }}>
                   {passion.description}
                 </p>
               </Card>
@@ -118,9 +118,9 @@ export default function Passions() {
         </div>
 
         {/* Personal Note */}
-        <div className="mt-16 text-center max-w-3xl mx-auto">
-          <Card className="p-8 bg-gradient-to-br from-[#009293]/10 to-[#00787A]/10 border border-[#009293]/20 backdrop-blur-sm rounded-2xl">
-            <p className="text-lg text-[#94A3B8] italic">
+        <div className="mt-12 text-center max-w-3xl mx-auto">
+          <Card className="p-6 bg-gradient-to-br from-[#009293]/10 to-[#00787A]/10 border border-[#009293]/20 backdrop-blur-sm rounded-2xl">
+            <p className="text-base text-[#94A3B8] italic" style={{ lineHeight: '1.8' }}>
               "I believe in living a full, adventurous life. Whether I'm diving into the ocean depths, 
               conquering mountain slopes, challenging myself in the gym, or spending quality time with Panchin, 
               these passions remind me to stay curious, strong, and grateful. They fuel my creativity 

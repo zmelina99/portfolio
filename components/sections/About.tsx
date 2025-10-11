@@ -42,10 +42,10 @@ export default function About() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-[#E6EDF2]">
+          <h2 className="text-3xl sm:text-4xl font-medium mb-4 text-[#E6EDF2]">
             About Me
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-[#009293] to-[#00787A] opacity-60 mx-auto rounded-full" />
+          <div className="w-20 h-px bg-gradient-to-r from-[#009293] to-[#00787A] opacity-40 mx-auto rounded-full" />
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -68,7 +68,7 @@ export default function About() {
               deliver high-quality, scalable solutions.
             </p>
             <div className="pt-4">
-              <h3 className="text-xl font-semibold mb-3 text-[#E6EDF2]">Quick Facts:</h3>
+              <h3 className="text-xl font-medium mb-3 text-[#E6EDF2]">Quick Facts:</h3>
               <ul className="space-y-2 text-[#94A3B8]">
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-[#009293] rounded-full" />
@@ -98,7 +98,7 @@ export default function About() {
                 className="p-6 hover:shadow-lg hover:shadow-black/20 transition-all duration-300 hover:-translate-y-2 border border-white/15 bg-[#112B3C]/60 backdrop-blur-sm rounded-2xl"
               >
                 <highlight.icon className="h-10 w-10 text-[#009293] mb-4" />
-                <h3 className="font-semibold text-lg mb-2 text-[#E6EDF2]">
+                <h3 className="font-medium text-lg mb-2 text-[#E6EDF2]">
                   {highlight.title}
                 </h3>
                 <p className="text-sm text-[#94A3B8]">

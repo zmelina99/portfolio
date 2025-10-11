@@ -64,10 +64,10 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Button
               size="lg"
-              onClick={() => scrollToSection("experience")}
+              onClick={() => scrollToSection("case-studies")}
               className="text-lg px-8 group bg-[#009293] hover:bg-[#F8A58E] text-white border-0 shadow-lg shadow-black/20 transition-all duration-300"
             >
-              View My Experience
+              View Leadership Case Studies
               <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
             </Button>
             <Button

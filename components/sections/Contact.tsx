@@ -66,10 +66,10 @@ export default function Contact() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-[#E6EDF2]">
+          <h2 className="text-3xl sm:text-4xl font-medium mb-4 text-[#E6EDF2]">
             Get In Touch
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-[#009293] to-[#00787A] opacity-60 mx-auto rounded-full mb-4" />
+          <div className="w-20 h-px bg-gradient-to-r from-[#009293] to-[#00787A] opacity-40 mx-auto rounded-full mb-4" />
           <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">
             Have a project in mind or just want to chat? Feel free to reach out!
           </p>
@@ -79,7 +79,7 @@ export default function Contact() {
           {/* Contact Information */}
           <div className="space-y-6">
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-[#E6EDF2]">Let&apos;s Connect</h3>
+              <h3 className="text-2xl font-medium mb-4 text-[#E6EDF2]">Let&apos;s Connect</h3>
               <p className="text-[#94A3B8] mb-6">
                 I&apos;m always open to discussing new projects, creative ideas, or
                 opportunities to be part of your vision.
@@ -98,12 +98,12 @@ export default function Contact() {
                       {info.link ? (
                         <a
                           href={info.link}
-                          className="font-semibold text-[#E6EDF2] hover:text-[#009293] transition-colors"
+                          className="font-medium text-[#E6EDF2] hover:text-[#009293] transition-colors"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="font-semibold text-[#E6EDF2]">{info.value}</p>
+                        <p className="font-medium text-[#E6EDF2]">{info.value}</p>
                       )}
                     </div>
                   </div>
@@ -112,7 +112,7 @@ export default function Contact() {
             </div>
 
             <Card className="p-6 bg-gradient-to-br from-[#009293]/10 to-[#00787A]/10 border border-[#009293]/20 rounded-2xl">
-              <h4 className="font-semibold mb-2 text-[#E6EDF2]">💡 Fun Fact</h4>
+              <h4 className="font-medium mb-2 text-[#E6EDF2]">💡 Fun Fact</h4>
               <p className="text-sm text-[#94A3B8]">
                 I typically respond within 24 hours. Let&apos;s build something amazing
                 together!
