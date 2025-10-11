@@ -17,10 +17,10 @@ export default function Hero() {
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
       {/* Dark overlay for mobile to improve text visibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0f1729]/70 via-[#0f1729]/50 to-transparent md:from-transparent md:via-transparent pointer-events-none z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A1720]/70 via-[#0A1720]/50 to-transparent md:from-transparent md:via-transparent pointer-events-none z-[1]" />
 
       {/* Bubbles */}
-      <div className="bubbles opacity-60 md:opacity-40">
+      <div className="bubbles opacity-30 md:opacity-20">
         <div className="bubble"></div>
         <div className="bubble"></div>
         <div className="bubble"></div>
@@ -37,25 +37,25 @@ export default function Hero() {
         <div className="text-center space-y-8 animate-fade-in">
           {/* Greeting */}
           <div className="inline-block">
-            <p className="text-lg sm:text-xl text-muted-foreground mb-2 drop-shadow-[0_2px_4px_rgba(15,23,41,0.8)]">
+            <p className="text-lg sm:text-xl text-[#94A3B8] mb-2 drop-shadow-[0_2px_4px_rgba(10,23,32,0.8)]">
               Hi there! 👋 I&apos;m
             </p>
           </div>
 
           {/* Name */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold drop-shadow-[0_4px_8px_rgba(15,23,41,0.8)]">
-            <span className="bg-gradient-to-r from-[#f1c6d9] via-[#c4b5fd] to-[#a8dadc] bg-clip-text text-transparent animate-shimmer">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold drop-shadow-[0_4px_8px_rgba(10,23,32,0.8)]">
+            <span className="bg-gradient-to-r from-[#009293] via-[#4DCCCC] to-[#009293] bg-clip-text text-transparent animate-shimmer">
               Meli{" "}
             </span>
           </h1>
 
           {/* Title */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground/90 drop-shadow-[0_2px_6px_rgba(15,23,41,0.8)]">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#E6EDF2] drop-shadow-[0_2px_6px_rgba(10,23,32,0.8)]">
             Full Stack Developer
           </h2>
 
           {/* Description */}
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto drop-shadow-[0_2px_4px_rgba(15,23,41,0.8)]">
+          <p className="text-lg sm:text-xl text-[#94A3B8] max-w-2xl mx-auto drop-shadow-[0_2px_4px_rgba(10,23,32,0.8)]">
             I craft beautiful, functional, and user-centered digital
             experiences. Passionate about clean code and innovative solutions.
           </p>
@@ -65,7 +65,7 @@ export default function Hero() {
             <Button
               size="lg"
               onClick={() => scrollToSection("experience")}
-              className="text-lg px-8 group bg-gradient-to-r from-[#ffa6b8] to-[#f1c6d9] hover:opacity-90 text-[#1a1f3a] border-0 shadow-lg shadow-[#f1c6d9]/20"
+              className="text-lg px-8 group bg-[#009293] hover:bg-[#F8A58E] text-white border-0 shadow-lg shadow-black/20 transition-all duration-300"
             >
               View My Experience
               <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
@@ -74,7 +74,7 @@ export default function Hero() {
               size="lg"
               variant="outline"
               onClick={() => scrollToSection("contact")}
-              className="text-lg px-8 border-2 border-[#a8dadc] text-[#a8dadc] hover:bg-[#a8dadc]/10"
+              className="text-lg px-8 border border-white/15 text-[#E6EDF2] bg-transparent hover:bg-[#009293]/10 hover:border-[#009293]/40 backdrop-blur-sm transition-all duration-300"
             >
               Get In Touch
             </Button>
@@ -85,7 +85,7 @@ export default function Hero() {
             <Button
               size="icon"
               variant="ghost"
-              className="rounded-full hover:bg-[#f1c6d9]/20 text-[#a8dadc] hover:text-[#f1c6d9] transition-all duration-300 hover:scale-110"
+              className="rounded-full hover:bg-[#009293]/10 text-[#009293] hover:text-[#F8A58E] transition-all duration-300 hover:scale-110"
               asChild
             >
               <a
@@ -100,7 +100,7 @@ export default function Hero() {
             <Button
               size="icon"
               variant="ghost"
-              className="rounded-full hover:bg-[#f1c6d9]/20 text-[#a8dadc] hover:text-[#f1c6d9] transition-all duration-300 hover:scale-110"
+              className="rounded-full hover:bg-[#009293]/10 text-[#009293] hover:text-[#F8A58E] transition-all duration-300 hover:scale-110"
               asChild
             >
               <a
@@ -115,7 +115,7 @@ export default function Hero() {
             <Button
               size="icon"
               variant="ghost"
-              className="rounded-full hover:bg-[#f1c6d9]/20 text-[#a8dadc] hover:text-[#f1c6d9] transition-all duration-300 hover:scale-110"
+              className="rounded-full hover:bg-[#009293]/10 text-[#009293] hover:text-[#F8A58E] transition-all duration-300 hover:scale-110"
               asChild
             >
               <a href="mailto:zmelina@gmail.com" aria-label="Email">
@@ -128,10 +128,10 @@ export default function Hero() {
 
       {/* Scroll indicator with dive deeper text */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center gap-2 z-10">
-        <span className="text-sm text-[#f1c6d9] font-medium tracking-wide drop-shadow-[0_2px_4px_rgba(15,23,41,0.8)]">
-          Explore More
+        <span className="text-sm text-[#009293] font-medium tracking-wide drop-shadow-[0_2px_4px_rgba(10,23,32,0.8)]">
+          Let's dive deeper
         </span>
-        <ArrowDown className="h-6 w-6 text-[#a8dadc] drop-shadow-[0_2px_4px_rgba(15,23,41,0.8)]" />
+        <ArrowDown className="h-6 w-6 text-[#009293] drop-shadow-[0_2px_4px_rgba(10,23,32,0.8)]" />
       </div>
     </section>
   );

@@ -1,52 +1,25 @@
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Globe } from "lucide-react";
 
 export default function Skills() {
-  const skillCategories = [
+  const skillGroups = [
     {
-      category: "Frontend",
-      skills: [
-        "React",
-        "Next.js",
-        "TypeScript",
-        "JavaScript",
-        "Tailwind CSS",
-        "shadcn/ui",
-        "Redux",
-        "Zustand",
+      emoji: "🧭",
+      title: "Frontend & Systems",
+      subtitle: "Building modular architectures and design systems for web and mobile.",
+      technologies: [
+        ["React", "Next.js", "TypeScript", "Ionic / Capacitor"],
+        ["Nx", "Redux", "SCSS", "Design Systems", "Component Libraries"],
       ],
-      color: "from-[#a8dadc] to-[#c4b5fd]",
     },
     {
-      category: "Backend",
-      skills: [
-        "Node.js",
-        "Express",
-        "Python",
-        "Django",
-        "PostgreSQL",
-        "MongoDB",
-        "REST APIs",
-        "GraphQL",
-        "Firebase",
+      emoji: "⚙️",
+      title: "Backend & Tooling",
+      subtitle: "Creating reliable APIs, testing frameworks, and efficient developer workflows.",
+      technologies: [
+        ["Node.js", "Express", "PostgreSQL", "Firebase"],
+        ["REST APIs", "CI/CD", "GitHub", "Jest", "Cypress"],
       ],
-      color: "from-[#c4b5fd] to-[#f1c6d9]",
-    },
-    {
-      category: "Tools & Others",
-      skills: [
-        "Git",
-        "GitHub",
-        "Docker",
-        "AWS",
-        "Vercel",
-        "Figma",
-        "VS Code",
-        "Jest",
-        "CI/CD",
-      ],
-      color: "from-[#ffa6b8] to-[#b8e6d5]",
     },
   ];
 
@@ -69,9 +42,9 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-16 relative overflow-hidden">
+    <section id="skills" className="py-12 relative overflow-hidden">
       {/* Bubbles */}
-      <div className="bubbles opacity-30">
+      <div className="bubbles opacity-20">
         <div className="bubble"></div>
         <div className="bubble"></div>
         <div className="bubble"></div>
@@ -79,65 +52,95 @@ export default function Skills() {
         <div className="bubble"></div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-[#faf7f5]">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-semibold mb-4 text-slate-100">
             Skills & Technologies
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-[#f1c6d9] via-[#c4b5fd] to-[#a8dadc] mx-auto rounded-full" />
+          <p className="text-slate-400 text-base leading-relaxed max-w-2xl mx-auto mb-4">
+            I specialize in scalable architectures, clean design systems, and efficient developer workflows.
+          </p>
+          <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#009293]/40 to-transparent mx-auto" />
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-10">
-          {skillCategories.map((category, index) => (
-            <Card
+        {/* Skills Groups */}
+        <div className="max-w-3xl mx-auto space-y-8 mb-14">
+          {skillGroups.map((group, index) => (
+            <div
               key={index}
-              className="p-5 hover:shadow-lg hover:shadow-[#f1c6d9]/20 transition-all duration-300 border-[#a8dadc]/20 bg-card/80 backdrop-blur-sm"
+              className="group relative"
             >
-              <div className="mb-4">
-                <div className={`inline-block bg-gradient-to-r ${category.color} px-3 py-2 rounded-lg mb-3`}>
-                  <h3 className="text-lg font-bold text-[#faf7f5]">
-                    {category.category}
-                  </h3>
+              {/* Card */}
+              <div className="p-8 bg-transparent border border-slate-700/30 rounded-2xl hover:border-teal-700/40 transition-all duration-300">
+                {/* Header */}
+                <div className="mb-5">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-2xl">{group.emoji}</span>
+                    <h3 className="text-lg font-semibold text-teal-400">
+                      {group.title}
+                    </h3>
+                  </div>
+                  <p className="text-sm text-slate-400 leading-relaxed" style={{ lineHeight: '1.75' }}>
+                    {group.subtitle}
+                  </p>
+                </div>
+
+                {/* Technologies Grid */}
+                <div className="space-y-3">
+                  {group.technologies.map((row, rowIndex) => (
+                    <div key={rowIndex} className="flex flex-wrap gap-3">
+                      {row.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-slate-200 bg-transparent border border-slate-700/40 rounded-md hover:bg-teal-500/10 hover:border-teal-700/50 transition-all duration-300 ease-out"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <Badge
-                    key={skillIndex}
-                    variant="secondary"
-                    className="text-xs py-1 px-2 hover:bg-[#f1c6d9]/20 transition-colors border-[#f1c6d9]/30"
-                  >
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </Card>
+
+              {/* Subtle depth shadow */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-950/5 rounded-2xl -z-10 blur-sm" />
+            </div>
           ))}
+        </div>
+
+        {/* Elegant Divider */}
+        <div className="flex items-center justify-center my-10">
+          <div className="h-px w-full max-w-md bg-gradient-to-r from-transparent via-[#F5EFE7]/15 to-transparent" />
         </div>
 
         {/* Languages Section */}
         <div className="max-w-3xl mx-auto">
-          <Card className="p-6 border-[#a8dadc]/20 bg-card/80 backdrop-blur-sm">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Globe className="h-5 w-5 text-[#b8e0e5]" />
-              <h3 className="text-xl font-bold text-[#faf7f5]">Languages</h3>
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center gap-2.5 mb-2">
+              <Globe className="h-4 w-4 text-teal-400" />
+              <h3 className="text-lg font-semibold text-slate-100">Languages</h3>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {languages.map((lang, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center text-center p-4 rounded-lg border border-[#b8e0e5]/20 hover:border-[#f1c6d9]/40 transition-all duration-300 hover:bg-[#f1c6d9]/5"
-                >
-                  <span className="text-3xl mb-2">{lang.icon}</span>
-                  <h4 className="font-semibold text-[#fdfbf9] mb-1">{lang.language}</h4>
-                  <p className="text-sm text-muted-foreground">{lang.level}</p>
-                </div>
-              ))}
-            </div>
-          </Card>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {languages.map((lang, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center text-center p-5 rounded-xl border border-slate-700/30 hover:border-teal-700/40 transition-all duration-300 hover:bg-teal-500/5 bg-transparent backdrop-blur-sm"
+              >
+                <span className="text-2xl mb-3">{lang.icon}</span>
+                <h4 className="font-medium text-slate-200 text-sm mb-1">
+                  {lang.language}
+                </h4>
+                <p className="text-xs text-slate-400" style={{ lineHeight: '1.75' }}>
+                  {lang.level}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
-

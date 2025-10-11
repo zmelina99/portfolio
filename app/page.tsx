@@ -25,15 +25,15 @@ export default function Home() {
       <Contact />
 
       {/* Footer */}
-      <footer className="bg-[#2d3b5f]/30 py-8 border-t border-[#a8dadc]/20">
+      <footer className="bg-[#112B3C]/30 py-8 border-t border-white/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-muted-foreground">
+          <div className="text-center text-[#94A3B8]">
             <p className="mb-2">
               Built with ❤️ using Next.js, TypeScript, Tailwind CSS, and
               shadcn/ui
             </p>
             <p className="text-sm">
-              © {new Date().getFullYear()} Your Name. All rights reserved.
+              © {new Date().getFullYear()} Meli. All rights reserved.
             </p>
           </div>
         </div>

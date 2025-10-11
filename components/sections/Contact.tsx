@@ -53,7 +53,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 relative overflow-hidden">
       {/* Bubbles */}
-      <div className="bubbles opacity-40">
+      <div className="bubbles opacity-25">
         <div className="bubble"></div>
         <div className="bubble"></div>
         <div className="bubble"></div>
@@ -66,11 +66,11 @@ export default function Contact() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-[#faf7f5]">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-[#E6EDF2]">
             Get In Touch
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-[#f1c6d9] via-[#c4b5fd] to-[#a8dadc] mx-auto rounded-full mb-4" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="w-20 h-1 bg-gradient-to-r from-[#009293] to-[#00787A] opacity-60 mx-auto rounded-full mb-4" />
+          <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">
             Have a project in mind or just want to chat? Feel free to reach out!
           </p>
         </div>
@@ -79,8 +79,8 @@ export default function Contact() {
           {/* Contact Information */}
           <div className="space-y-6">
             <div>
-              <h3 className="text-2xl font-bold mb-4">Let&apos;s Connect</h3>
-              <p className="text-muted-foreground mb-6">
+              <h3 className="text-2xl font-bold mb-4 text-[#E6EDF2]">Let&apos;s Connect</h3>
+              <p className="text-[#94A3B8] mb-6">
                 I&apos;m always open to discussing new projects, creative ideas, or
                 opportunities to be part of your vision.
               </p>
@@ -88,22 +88,22 @@ export default function Contact() {
 
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
-                <Card key={index} className="p-4 hover:shadow-md hover:shadow-[#f1c6d9]/20 transition-shadow border-[#a8dadc]/20 bg-card/80 backdrop-blur-sm">
+                <Card key={index} className="p-4 hover:shadow-md hover:shadow-black/20 transition-shadow border border-white/15 bg-[#112B3C]/60 backdrop-blur-sm rounded-2xl">
                   <div className="flex items-center gap-4">
-                    <div className="bg-[#f1c6d9]/20 p-3 rounded-lg">
-                      <info.icon className="h-6 w-6 text-[#f1c6d9]" />
+                    <div className="bg-[#009293]/10 p-3 rounded-lg">
+                      <info.icon className="h-6 w-6 text-[#009293]" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">{info.label}</p>
+                      <p className="text-sm text-[#94A3B8]">{info.label}</p>
                       {info.link ? (
                         <a
                           href={info.link}
-                          className="font-semibold hover:text-[#f1c6d9] transition-colors"
+                          className="font-semibold text-[#E6EDF2] hover:text-[#009293] transition-colors"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="font-semibold text-[#faf7f5]">{info.value}</p>
+                        <p className="font-semibold text-[#E6EDF2]">{info.value}</p>
                       )}
                     </div>
                   </div>
@@ -111,9 +111,9 @@ export default function Contact() {
               ))}
             </div>
 
-            <Card className="p-6 bg-gradient-to-br from-[#f1c6d9]/20 to-[#c4b5fd]/20 border-[#f1c6d9]/30">
-              <h4 className="font-semibold mb-2 text-[#faf7f5]">💡 Fun Fact</h4>
-              <p className="text-sm text-muted-foreground">
+            <Card className="p-6 bg-gradient-to-br from-[#009293]/10 to-[#00787A]/10 border border-[#009293]/20 rounded-2xl">
+              <h4 className="font-semibold mb-2 text-[#E6EDF2]">💡 Fun Fact</h4>
+              <p className="text-sm text-[#94A3B8]">
                 I typically respond within 24 hours. Let&apos;s build something amazing
                 together!
               </p>
@@ -121,12 +121,12 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <Card className="p-6 border-[#a8dadc]/20 bg-card/80 backdrop-blur-sm">
+          <Card className="p-6 border border-white/15 bg-[#112B3C]/60 backdrop-blur-sm rounded-2xl">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-medium mb-2 text-[#E6EDF2]"
                 >
                   Name
                 </label>
@@ -137,7 +137,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 rounded-md border border-[#a8dadc] bg-[#1a1f3a]/50 focus:outline-none focus:ring-2 focus:ring-[#f1c6d9] text-[#faf7f5]"
+                  className="w-full px-4 py-2 rounded-md border border-white/15 bg-[#112B3C]/80 focus:outline-none focus:ring-2 focus:ring-[#009293] text-[#E6EDF2] backdrop-blur-sm transition-all duration-300"
                   placeholder="Your name"
                 />
               </div>
@@ -145,7 +145,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-medium mb-2 text-[#E6EDF2]"
                 >
                   Email
                 </label>
@@ -156,7 +156,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 rounded-md border border-[#a8dadc] bg-[#1a1f3a]/50 focus:outline-none focus:ring-2 focus:ring-[#f1c6d9] text-[#faf7f5]"
+                  className="w-full px-4 py-2 rounded-md border border-white/15 bg-[#112B3C]/80 focus:outline-none focus:ring-2 focus:ring-[#009293] text-[#E6EDF2] backdrop-blur-sm transition-all duration-300"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -164,7 +164,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium mb-2"
+                  className="block text-sm font-medium mb-2 text-[#E6EDF2]"
                 >
                   Message
                 </label>
@@ -175,12 +175,16 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-2 rounded-md border border-[#a8dadc] bg-[#1a1f3a]/50 focus:outline-none focus:ring-2 focus:ring-[#f1c6d9] text-[#faf7f5] resize-none"
+                  className="w-full px-4 py-2 rounded-md border border-white/15 bg-[#112B3C]/80 focus:outline-none focus:ring-2 focus:ring-[#009293] text-[#E6EDF2] resize-none backdrop-blur-sm transition-all duration-300"
                   placeholder="Tell me about your project..."
                 />
               </div>
 
-              <Button type="submit" className="w-full bg-gradient-to-r from-[#ffa6b8] to-[#f1c6d9] hover:opacity-90 text-[#1a1f3a] border-0 shadow-lg shadow-[#f1c6d9]/20" size="lg">
+              <Button 
+                type="submit" 
+                className="w-full bg-[#009293] hover:bg-[#F8A58E] text-white border-0 shadow-lg shadow-black/20 transition-all duration-300" 
+                size="lg"
+              >
                 <Send className="h-4 w-4 mr-2" />
                 Send Message
               </Button>
@@ -191,4 +195,3 @@ export default function Contact() {
     </section>
   );
 }
-

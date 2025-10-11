@@ -30,8 +30,6 @@ export default function Navigation() {
     { label: "Experience", id: "experience" },
     { label: "Skills", id: "skills" },
     { label: "Passions", id: "passions" },
-
-    // { label: "Projects", id: "projects" },
     { label: "Contact", id: "contact" },
   ];
 
@@ -39,8 +37,8 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#0f1729]/95 backdrop-blur-md shadow-lg shadow-[#f1c6d9]/10 border-b border-[#a8dadc]/30"
-          : "bg-[#0f1729]/80 backdrop-blur-sm border-b border-[#b8e0e5]/20"
+          ? "bg-[#0A1720]/95 backdrop-blur-md shadow-lg shadow-black/20 border-b border-white/15"
+          : "bg-[#0A1720]/80 backdrop-blur-sm border-b border-white/10"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,7 +46,7 @@ export default function Navigation() {
           {/* Logo */}
           <button
             onClick={() => scrollToSection("home")}
-            className="text-2xl font-bold bg-gradient-to-r from-[#f1c6d9] via-[#c4b5fd] to-[#a8dadc] bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+            className="text-2xl font-bold bg-gradient-to-r from-[#009293] to-[#4DCCCC] bg-clip-text text-transparent hover:opacity-80 transition-opacity"
           >
             Portfolio
           </button>
@@ -60,7 +58,7 @@ export default function Navigation() {
                 key={item.id}
                 variant="ghost"
                 onClick={() => scrollToSection(item.id)}
-                className="text-foreground/80 hover:text-[#f1c6d9] transition-colors"
+                className="text-[#E6EDF2]/80 hover:text-[#009293] hover:bg-[#009293]/10 transition-all duration-300"
               >
                 {item.label}
               </Button>
@@ -69,8 +67,9 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-[#f1c6d9] hover:text-[#a8dadc] transition-colors"
+            className="md:hidden text-[#009293] hover:text-[#F8A58E] transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? (
               <X className="h-6 w-6" />
@@ -83,14 +82,14 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-[#f1c6d9]/30">
+        <div className="md:hidden bg-[#0A1720]/95 backdrop-blur-md border-t border-white/15">
           <div className="px-4 pt-2 pb-4 space-y-1">
             {navItems.map((item) => (
               <Button
                 key={item.id}
                 variant="ghost"
                 onClick={() => scrollToSection(item.id)}
-                className="w-full justify-start text-foreground/80 hover:text-foreground"
+                className="w-full justify-start text-[#E6EDF2]/80 hover:text-[#009293] hover:bg-[#009293]/10 transition-all duration-300"
               >
                 {item.label}
               </Button>

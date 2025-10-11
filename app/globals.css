@@ -4,16 +4,14 @@
 @custom-variant dark (&:is(.dark *));
 
 /* =============================
-   THEME TOKENS (Tailwind CSS)
-   Updated to Teal (#009293) primary
-   + Coral secondary (#F8A58E)
-   with blue/green/red/yellow scales
+   REFINED UNDERWATER THEME
+   Elegant, calm, professional deep ocean design
    ============================= */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
-  --font-mono: var(--font-playfair);
+  --font-serif: var(--font-playfair);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -53,348 +51,411 @@
   --radius: 1rem;
 
   /* =============================
-     BRAND PALETTES
+     REFINED COLOR SYSTEM
      ============================= */
-  /* Teal (Primary) — base: #009293 */
+  
+  /* Primary: Teal #009293 */
   --teal-50:  #E6F6F6;
-  --teal-100: #C0ECEC;
-  --teal-200: #93E0E0;
-  --teal-300: #5FD1D1;
-  --teal-400: #2BBDBD;
-  --teal-500: #009293; /* primary */
-  --teal-600: #007A7B;
-  --teal-700: #006263;
-  --teal-800: #004C4D;
-  --teal-900: #003738;
+  --teal-100: #B3E8E8;
+  --teal-200: #80DADA;
+  --teal-300: #4DCCCC;
+  --teal-400: #1ABEBE;
+  --teal-500: #009293; /* main brand */
+  --teal-600: #00787A;
+  --teal-700: #005E5F;
+  --teal-800: #004445;
+  --teal-900: #002A2A;
 
-  /* Coral (Secondary) — main coral set to #F8A58E */
-  --coral-50:  #FFF2ED;
-  --coral-100: #FFE5DB;
-  --coral-200: #FFD1C2;
-  --coral-300: #FFB7A3;
-  --coral-400: #FFA289;
-  --coral-500: #F8A58E; /* secondary (requested) */
-  --coral-600: #E68F77;
-  --coral-700: #CC7861;
-  --coral-800: #A95F4A;
-  --coral-900: #7D4433;
+  /* Accent: Coral #F8A58E (minimal use) */
+  --coral-50:  #FFF4F0;
+  --coral-100: #FFE5DD;
+  --coral-200: #FFCFBF;
+  --coral-300: #FFB9A1;
+  --coral-400: #F8A58E; /* accent for CTAs */
+  --coral-500: #E89176;
+  --coral-600: #D07D5E;
+  --coral-700: #B86946;
+  --coral-800: #A0552E;
+  --coral-900: #884116;
 
-  /* Bluescale (UI neutrals w/ depth) */
-  --blue-50:  #EAF3F8;
-  --blue-100: #D6E7F2;
-  --blue-200: #AFCBE3;
-  --blue-300: #86AED3;
-  --blue-400: #5E8FC1;
-  --blue-500: #3D74B3;
-  --blue-600: #2F5F97;
-  --blue-700: #244A78;
-  --blue-800: #1B3658;
-  --blue-900: #13253D;
+  /* Background: Deep Navy */
+  --navy-50:  #E8EAED;
+  --navy-100: #C5CAD1;
+  --navy-200: #9FA8B3;
+  --navy-300: #798695;
+  --navy-400: #5D6C7F;
+  --navy-500: #3F5268;
+  --navy-600: #2E4154;
+  --navy-700: #1D3040;
+  --navy-800: #0F2330; /* gradient end */
+  --navy-900: #0A1720; /* gradient start */
 
-  /* Green scale (success) */
-  --green-50:  #EAF7F0;
-  --green-100: #D6EFDF;
-  --green-200: #ACDEBF;
-  --green-300: #7FCF9F;
-  --green-400: #55BF82;
-  --green-500: #36A76A;
-  --green-600: #2B8855;
-  --green-700: #216A44;
-  --green-800: #184E33;
-  --green-900: #103723;
+  /* Surface: Cards and sections */
+  --surface: #112B3C;
+  
+  /* Neutral Support Colors */
+  --sand-50:  #FEFDFB;
+  --sand-100: #FBF9F5;
+  --sand-200: #F5EFE7; /* sand */
+  --sand-300: #EBE5DD;
+  --sand-400: #DDD7CF;
+  
+  --mist-50:  #F8FAFC;
+  --mist-100: #F1F5F9;
+  --mist-200: #E2E8F0;
+  --mist-300: #CBD5E1; /* mist */
+  --mist-400: #94A3B8; /* secondary text */
+  
+  --ink-50:  #F8FAFC;
+  --ink-100: #F1F5F9;
+  --ink-200: #E2E8F0;
+  --ink-300: #CBD5E1;
+  --ink-400: #94A3B8;
+  --ink-500: #64748B;
+  --ink-600: #475569;
+  --ink-700: #334155;
+  --ink-800: #1E293B;
+  --ink-900: #0F172A; /* ink */
 
-  /* Red scale (danger) */
-  --red-50:  #FDEEEE;
-  --red-100: #FAD9D7;
-  --red-200: #F4B4B0;
-  --red-300: #EE8F8A;
-  --red-400: #E66C67;
-  --red-500: #D94D49;
-  --red-600: #BD3D39;
-  --red-700: #97302C;
-  --red-800: #712420;
-  --red-900: #4F1916;
+  /* Text Colors */
+  --text-primary: #E6EDF2;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
 
-  /* Yellow scale (warning) */
-  --yellow-50:  #FFF9E8;
-  --yellow-100: #FFF1C8;
-  --yellow-200: #FFE395;
-  --yellow-300: #FFD061;
-  --yellow-400: #FFBB2E;
-  --yellow-500: #F5A300;
-  --yellow-600: #D18600;
-  --yellow-700: #A66800;
-  --yellow-800: #7B4C00;
-  --yellow-900: #563600;
-
-  /* Pearly neutrals for text/surfaces */
-  --pearl-50:  #FDFBF9;
-  --pearl-100: #F7F3EF;
-  --pearl-200: #EDE7E0;
-
-  /* Legacy soft accents (kept but re-tinted to brand) */
-  --soft-aqua:  var(--teal-100);
-  --mint:       var(--green-100);
-  --lavender:   var(--blue-100);
+  /* Success/Warning/Error (AA+ accessible) */
+  --success-300: #86EFAC;
+  --success-400: #4ADE80; /* green scale */
+  --success-500: #22C55E;
+  --success-600: #16A34A;
+  
+  --warning-300: #FDE047;
+  --warning-400: #FACC15; /* yellow scale */
+  --warning-500: #EAB308;
+  --warning-600: #CA8A04;
+  
+  --error-300: #FCA5A5;
+  --error-400: #F87171; /* red scale */
+  --error-500: #EF4444;
+  --error-600: #DC2626;
 
   /* =============================
-     SEMANTIC TOKENS (Light)
+     SEMANTIC TOKENS (Dark Mode)
      ============================= */
-  --background: #0f1729; /* deep ocean */
-  --foreground: var(--pearl-50);
-  --card:       var(--blue-800);
-  --card-foreground: var(--pearl-50);
-  --popover:    var(--blue-800);
-  --popover-foreground: var(--pearl-50);
-  --primary:    var(--teal-500);
-  --primary-foreground: #052425; /* hi-contrast on teal */
-  --secondary:  var(--coral-500);
-  --secondary-foreground: #2D1A14; /* contrast for coral */
-  --accent:     var(--teal-200);
-  --accent-foreground: #062A2A;
-  --muted:      var(--blue-700);
-  --muted-foreground: #cbd5e1;
-  --destructive: var(--red-500);
-  --border:     var(--blue-400);
-  --input:      var(--blue-800);
-  --ring:       var(--teal-400);
+  --background: linear-gradient(to bottom, var(--navy-900), var(--navy-800));
+  --foreground: var(--text-primary);
+  --card: var(--surface);
+  --card-foreground: var(--text-primary);
+  --popover: var(--surface);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--teal-500);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--coral-400);
+  --secondary-foreground: #FFFFFF;
+  --accent: var(--teal-600);
+  --accent-foreground: var(--text-primary);
+  --muted: rgba(255, 255, 255, 0.08);
+  --muted-foreground: var(--text-secondary);
+  --destructive: var(--error-500);
+  --border: rgba(255, 255, 255, 0.15);
+  --input: var(--surface);
+  --ring: var(--teal-500);
 
-  /* Data viz defaults */
+  /* Data viz */
   --chart-1: var(--teal-500);
-  --chart-2: var(--coral-500);
-  --chart-3: var(--blue-500);
-  --chart-4: var(--green-500);
-  --chart-5: var(--yellow-500);
+  --chart-2: var(--coral-400);
+  --chart-3: var(--mist-300);
+  --chart-4: var(--success-400);
+  --chart-5: var(--warning-400);
 
   /* Sidebar */
-  --sidebar:                   var(--blue-800);
-  --sidebar-foreground:        var(--pearl-50);
-  --sidebar-primary:           var(--teal-500);
-  --sidebar-primary-foreground:#052425;
-  --sidebar-accent:            var(--blue-700);
-  --sidebar-accent-foreground: var(--pearl-50);
-  --sidebar-border:            var(--blue-400);
-  --sidebar-ring:              var(--teal-400);
+  --sidebar: var(--surface);
+  --sidebar-foreground: var(--text-primary);
+  --sidebar-primary: var(--teal-500);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: rgba(255, 255, 255, 0.05);
+  --sidebar-accent-foreground: var(--text-primary);
+  --sidebar-border: rgba(255, 255, 255, 0.15);
+  --sidebar-ring: var(--teal-500);
 }
 
 .dark {
-  /* Dark mode tuned for contrast and brand harmony */
-  --background: #0b1324; /* slightly darker */
-  --foreground: var(--pearl-50);
-  --card:       #121a2c;
-  --card-foreground: var(--pearl-50);
-  --popover:    #121a2c;
-  --popover-foreground: var(--pearl-50);
-  --primary:    var(--teal-300);
-  --primary-foreground: #061C1C;
-  --secondary:  var(--coral-300);
-  --secondary-foreground: #2A1610;
-  --accent:     var(--teal-200);
-  --accent-foreground: #082323;
-  --muted:      #17233B;
-  --muted-foreground: #d4d4d8;
-  --destructive: var(--red-400);
-  --border:     var(--blue-500);
-  --input:      #101828;
-  --ring:       var(--teal-300);
-  --chart-1: var(--teal-300);
-  --chart-2: var(--coral-300);
-  --chart-3: var(--blue-400);
-  --chart-4: var(--green-400);
-  --chart-5: var(--yellow-400);
-  --sidebar:    #121a2c;
-  --sidebar-foreground: var(--pearl-50);
-  --sidebar-primary: var(--teal-300);
-  --sidebar-primary-foreground: #061C1C;
-  --sidebar-accent: #17233B;
-  --sidebar-accent-foreground: var(--pearl-50);
-  --sidebar-border: var(--blue-500);
-  --sidebar-ring: var(--teal-300);
+  --background: linear-gradient(to bottom, var(--navy-900), var(--navy-800));
+  --foreground: var(--text-primary);
+  --card: var(--surface);
+  --card-foreground: var(--text-primary);
+  --popover: var(--surface);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--teal-500);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--coral-400);
+  --secondary-foreground: #FFFFFF;
+  --accent: var(--teal-600);
+  --accent-foreground: var(--text-primary);
+  --muted: rgba(255, 255, 255, 0.08);
+  --muted-foreground: var(--text-secondary);
+  --destructive: var(--error-500);
+  --border: rgba(255, 255, 255, 0.15);
+  --input: var(--surface);
+  --ring: var(--teal-500);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
     cursor: url('/octopus-cursor.svg') 16 16, auto;
   }
+  
   body {
-    @apply text-foreground;
-    /* intentionally no bg-background; we use the depth gradient below */
+    @apply text-foreground font-sans;
+    background: linear-gradient(to bottom, #0A1720 0%, #0F2330 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: var(--font-inter), system-ui, sans-serif;
   }
+  
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-playfair), serif;
     font-weight: 600;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.01em;
   }
+  
   button, a, [role="button"] {
     cursor: url('/octopus-cursor.svg') 16 16, pointer;
   }
+  
+  /* Focus visible styles for accessibility */
+  *:focus-visible {
+    outline: 2px solid var(--teal-500);
+    outline-offset: 2px;
+  }
 }
 
 /* =============================
-   Animations
+   Animations (Subtle & Refined)
    ============================= */
-@keyframes gradient { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
-@keyframes gradient-x { 0%,100%{background-position:0% center} 50%{background-position:100% center} }
-@keyframes fade-in { from{opacity:0; transform:translateY(20px)} to{opacity:1; transform:translateY(0)} }
-@keyframes float-up { 0%{transform:translateY(100vh) scale(0); opacity:0} 10%{opacity:.6} 90%{opacity:.6} 100%{transform:translateY(-100vh) scale(1); opacity:0} }
-@keyframes wave { 0%,100%{transform:translateX(0) translateY(0)} 25%{transform:translateX(5px) translateY(-5px)} 75%{transform:translateX(-5px) translateY(5px)} }
-@keyframes shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+@keyframes fade-in { 
+  from { opacity: 0; transform: translateY(8px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
 
-.animate-gradient { background-size:200% 200%; animation:gradient 8s ease infinite; }
-.animate-gradient-x { background-size:200% auto; animation:gradient-x 3s linear infinite; }
-.animate-fade-in { animation: fade-in 1s ease-out; }
-.animate-float-up { animation: float-up linear infinite; }
-.animate-wave { animation: wave 3s ease-in-out infinite; }
-.animate-shimmer { background-size:200% auto; animation: shimmer 3s linear infinite; }
+@keyframes float-up { 
+  0% { transform: translateY(100vh) scale(0); opacity: 0; } 
+  10% { opacity: 0.4; } 
+  90% { opacity: 0.4; } 
+  100% { transform: translateY(-100vh) scale(1); opacity: 0; } 
+}
+
+@keyframes shimmer { 
+  0% { background-position: -200% center; } 
+  100% { background-position: 200% center; } 
+}
+
+@keyframes wave { 
+  0%, 100% { transform: translateX(0) translateY(0); } 
+  25% { transform: translateX(3px) translateY(-3px); } 
+  75% { transform: translateX(-3px) translateY(3px); } 
+}
+
+.animate-fade-in { 
+  animation: fade-in 300ms ease-out; 
+}
+
+.animate-float-up { 
+  animation: float-up linear infinite; 
+}
+
+.animate-shimmer { 
+  background-size: 200% auto; 
+  animation: shimmer 3s linear infinite; 
+}
+
+.animate-wave { 
+  animation: wave 3s ease-in-out infinite; 
+}
 
 /* Smooth scrolling */
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+}
 
 /* =============================
-   Progressive Depth Gradient
-   (uses brand tints)
+   Depth Gradient Overlay
    ============================= */
-body {
-  position: relative;
-  background: linear-gradient(to bottom,
-    /* Surface */
-    var(--teal-50) 0%,
-    var(--teal-100) 5%,
-    /* Shallow */
-    #a8d5e2 10%, /* legacy stop retained for continuity */
-    #7db5cc 15%,
-    /* Mid */
-    #4a7c9c 25%,
-    #2e5570 35%,
-    /* Deep */
-    var(--blue-800) 50%,
-    #152838 65%,
-    /* Abyss */
-    #0f1729 80%,
-    #0a0f1c 100%
-  );
-  background-attachment: fixed;
-  min-height: 100vh;
-}
-
-/* Subtle texture overlay using brand accents */
 body::before {
   content: '';
-  position: fixed; inset: 0;
+  position: fixed;
+  inset: 0;
   background-image:
-    radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--teal-200) 30%, transparent) 0%, transparent 40%),
-    radial-gradient(circle at 80% 50%, color-mix(in srgb, var(--coral-200) 25%, transparent) 0%, transparent 40%),
-    radial-gradient(circle at 50% 80%, color-mix(in srgb, var(--blue-100) 20%, transparent) 0%, transparent 40%);
-  pointer-events: none; z-index: 0;
+    radial-gradient(circle at 20% 20%, rgba(0, 146, 147, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 50%, rgba(248, 165, 142, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(203, 213, 225, 0.04) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Pearlescent shimmer (very soft) */
+/* Subtle shimmer overlay */
 body::after {
   content: '';
-  position: fixed; inset: 0;
-  background: linear-gradient(135deg,
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
     transparent 0%,
-    color-mix(in srgb, var(--pearl-50) 6%, transparent) 25%,
+    rgba(230, 237, 242, 0.03) 25%,
     transparent 50%,
-    color-mix(in srgb, var(--coral-100) 6%, transparent) 75%,
-    transparent 100%);
+    rgba(0, 146, 147, 0.03) 75%,
+    transparent 100%
+  );
   background-size: 400% 400%;
   animation: shimmer 20s ease-in-out infinite;
-  pointer-events: none; z-index: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Utilities */
-.bg-gradient-radial { background: radial-gradient(circle, var(--tw-gradient-stops)); }
+/* =============================
+   Underwater Effects (Subtle)
+   ============================= */
+.bubbles { 
+  position: absolute; 
+  width: 100%; 
+  height: 100%; 
+  overflow: hidden; 
+  pointer-events: none; 
+}
 
-/* Underwater bubbles tinted with brand hues */
-.bubbles { position:absolute; width:100%; height:100%; overflow:hidden; pointer-events:none; }
 .bubble {
-  position:absolute; bottom:-100px; border-radius:50%; opacity:0;
+  position: absolute;
+  bottom: -100px;
+  border-radius: 50%;
+  opacity: 0;
   background: radial-gradient(circle,
-    color-mix(in srgb, var(--teal-200) 40%, transparent) 0%,
-    color-mix(in srgb, var(--coral-200) 30%, transparent) 50%,
-    color-mix(in srgb, var(--blue-100) 20%, transparent) 70%,
+    rgba(0, 146, 147, 0.15) 0%,
+    rgba(203, 213, 225, 0.1) 50%,
     transparent 100%);
   animation: float-up linear infinite;
-  box-shadow: 0 0 15px color-mix(in srgb, var(--teal-100) 30%, transparent), inset -5px -5px 10px rgba(255,255,255,0.08);
+  box-shadow: 
+    0 0 10px rgba(0, 146, 147, 0.1), 
+    inset -3px -3px 6px rgba(255, 255, 255, 0.05);
 }
-.bubble:nth-child(1){ width:40px; height:40px; left:10%; animation-duration:12s; animation-delay:0s; }
-.bubble:nth-child(2){ width:20px; height:20px; left:20%; animation-duration:10s; animation-delay:2s; }
-.bubble:nth-child(3){ width:50px; height:50px; left:35%; animation-duration:14s; animation-delay:4s; }
-.bubble:nth-child(4){ width:30px; height:30px; left:50%; animation-duration:11s; animation-delay:0s; }
-.bubble:nth-child(5){ width:25px; height:25px; left:65%; animation-duration:13s; animation-delay:3s; }
-.bubble:nth-child(6){ width:45px; height:45px; left:80%; animation-duration:15s; animation-delay:1s; }
-.bubble:nth-child(7){ width:35px; height:35px; left:90%; animation-duration:12s; animation-delay:5s; }
 
-/* Water light effect */
+.bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 12s; animation-delay: 0s; }
+.bubble:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 10s; animation-delay: 2s; }
+.bubble:nth-child(3) { width: 50px; height: 50px; left: 35%; animation-duration: 14s; animation-delay: 4s; }
+.bubble:nth-child(4) { width: 30px; height: 30px; left: 50%; animation-duration: 11s; animation-delay: 0s; }
+.bubble:nth-child(5) { width: 25px; height: 25px; left: 65%; animation-duration: 13s; animation-delay: 3s; }
+.bubble:nth-child(6) { width: 45px; height: 45px; left: 80%; animation-duration: 15s; animation-delay: 1s; }
+.bubble:nth-child(7) { width: 35px; height: 35px; left: 90%; animation-duration: 12s; animation-delay: 5s; }
+
+/* Water light effect (minimal) */
 .water-light {
-  position:absolute; inset:0; pointer-events:none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
   background:
-    radial-gradient(ellipse at 20% 30%, color-mix(in srgb, var(--coral-200) 18%, transparent) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 60%, color-mix(in srgb, var(--blue-100) 14%, transparent) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, color-mix(in srgb, var(--teal-200) 14%, transparent) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 30%, rgba(0, 146, 147, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 60%, rgba(203, 213, 225, 0.04) 0%, transparent 50%);
   animation: wave 8s ease-in-out infinite;
 }
 
-/* Light rays from surface */
-@keyframes light-ray { 0%,100%{opacity:.3; transform:translateY(0) scaleY(1)} 50%{opacity:.6; transform:translateY(20px) scaleY(1.1)} }
-.light-rays { position:absolute; top:-10%; left:0; right:0; height:120%; overflow:hidden; pointer-events:none; opacity:.4; }
-.light-ray {
-  position:absolute; top:-20%; width:100px; height:150%; filter: blur(30px);
-  background: linear-gradient(to bottom,
-    color-mix(in srgb, var(--coral-200) 22%, transparent) 0%,
-    color-mix(in srgb, var(--teal-200) 16%, transparent) 50%,
-    transparent 100%);
-  transform-origin: top center; animation: light-ray 10s ease-in-out infinite;
+/* Light rays (subtle) */
+@keyframes light-ray { 
+  0%, 100% { opacity: 0.15; transform: translateY(0) scaleY(1); } 
+  50% { opacity: 0.25; transform: translateY(20px) scaleY(1.05); } 
 }
-.light-ray:nth-child(1){ left:10%; animation-delay:0s; opacity:.6; }
-.light-ray:nth-child(2){ left:30%; animation-delay:2s; width:120px; opacity:.4; }
-.light-ray:nth-child(3){ left:50%; animation-delay:4s; width:80px; opacity:.5; }
-.light-ray:nth-child(4){ left:70%; animation-delay:1s; width:110px; opacity:.45; }
-.light-ray:nth-child(5){ left:85%; animation-delay:3s; width:90px; opacity:.5; }
+
+.light-rays { 
+  position: absolute; 
+  top: -10%; 
+  left: 0; 
+  right: 0; 
+  height: 120%; 
+  overflow: hidden; 
+  pointer-events: none; 
+  opacity: 0.3; 
+}
+
+.light-ray {
+  position: absolute;
+  top: -20%;
+  width: 100px;
+  height: 150%;
+  filter: blur(30px);
+  background: linear-gradient(to bottom,
+    rgba(0, 146, 147, 0.08) 0%,
+    rgba(203, 213, 225, 0.05) 50%,
+    transparent 100%);
+  transform-origin: top center;
+  animation: light-ray 10s ease-in-out infinite;
+}
+
+.light-ray:nth-child(1) { left: 10%; animation-delay: 0s; opacity: 0.4; }
+.light-ray:nth-child(2) { left: 30%; animation-delay: 2s; width: 120px; opacity: 0.3; }
+.light-ray:nth-child(3) { left: 50%; animation-delay: 4s; width: 80px; opacity: 0.35; }
+.light-ray:nth-child(4) { left: 70%; animation-delay: 1s; width: 110px; opacity: 0.3; }
+.light-ray:nth-child(5) { left: 85%; animation-delay: 3s; width: 90px; opacity: 0.35; }
 
 /* Floating particles (plankton) */
-@keyframes particle-float { 0%{transform:translate(0,100vh) scale(0); opacity:0} 10%,90%{opacity:.8} 100%{transform:translate(var(--drift-x), -100vh) scale(1); opacity:0} }
-.particles { position:absolute; width:100%; height:100%; overflow:hidden; pointer-events:none; }
-.particle { position:absolute; width:2px; height:2px; border-radius:50%; opacity:0; animation: particle-float linear infinite; background: radial-gradient(circle, color-mix(in srgb, var(--pearl-50) 60%, transparent) 0%, transparent 70%); }
-.particle:nth-child(1){ left:5%;  --drift-x:20px;  animation-duration:18s; animation-delay:0s; }
-.particle:nth-child(2){ left:15%; --drift-x:-15px; animation-duration:22s; animation-delay:3s; }
-.particle:nth-child(3){ left:25%; --drift-x:25px;  animation-duration:20s; animation-delay:1s; }
-.particle:nth-child(4){ left:35%; --drift-x:-20px; animation-duration:24s; animation-delay:5s; }
-.particle:nth-child(5){ left:45%; --drift-x:15px;  animation-duration:19s; animation-delay:2s; }
-.particle:nth-child(6){ left:55%; --drift-x:-25px; animation-duration:21s; animation-delay:4s; }
-.particle:nth-child(7){ left:65%; --drift-x:20px;  animation-duration:23s; animation-delay:1s; }
-.particle:nth-child(8){ left:75%; --drift-x:-15px; animation-duration:20s; animation-delay:6s; }
-.particle:nth-child(9){ left:85%; --drift-x:18px;  animation-duration:22s; animation-delay:2s; }
-.particle:nth-child(10){left:95%; --drift-x:-22px; animation-duration:21s; animation-delay:4s; }
+@keyframes particle-float { 
+  0% { transform: translate(0, 100vh) scale(0); opacity: 0; } 
+  10%, 90% { opacity: 0.6; } 
+  100% { transform: translate(var(--drift-x), -100vh) scale(1); opacity: 0; } 
+}
+
+.particles { 
+  position: absolute; 
+  width: 100%; 
+  height: 100%; 
+  overflow: hidden; 
+  pointer-events: none; 
+}
+
+.particle { 
+  position: absolute; 
+  width: 2px; 
+  height: 2px; 
+  border-radius: 50%; 
+  opacity: 0; 
+  animation: particle-float linear infinite; 
+  background: radial-gradient(circle, rgba(230, 237, 242, 0.4) 0%, transparent 70%); 
+}
+
+.particle:nth-child(1) { left: 5%; --drift-x: 20px; animation-duration: 18s; animation-delay: 0s; }
+.particle:nth-child(2) { left: 15%; --drift-x: -15px; animation-duration: 22s; animation-delay: 3s; }
+.particle:nth-child(3) { left: 25%; --drift-x: 25px; animation-duration: 20s; animation-delay: 1s; }
+.particle:nth-child(4) { left: 35%; --drift-x: -20px; animation-duration: 24s; animation-delay: 5s; }
+.particle:nth-child(5) { left: 45%; --drift-x: 15px; animation-duration: 19s; animation-delay: 2s; }
+.particle:nth-child(6) { left: 55%; --drift-x: -25px; animation-duration: 21s; animation-delay: 4s; }
+.particle:nth-child(7) { left: 65%; --drift-x: 20px; animation-duration: 23s; animation-delay: 1s; }
+.particle:nth-child(8) { left: 75%; --drift-x: -15px; animation-duration: 20s; animation-delay: 6s; }
+.particle:nth-child(9) { left: 85%; --drift-x: 18px; animation-duration: 22s; animation-delay: 2s; }
+.particle:nth-child(10) { left: 95%; --drift-x: -22px; animation-duration: 21s; animation-delay: 4s; }
 
 /* Depth gradient overlay */
-.depth-gradient { position:absolute; inset:0; pointer-events:none; background: linear-gradient(to bottom, transparent 0%, rgba(10,22,40,.3) 50%, rgba(10,22,40,.6) 100%); }
-
-/* Caustics */
-@keyframes caustics { 0%,100%{background-position:0% 0%} 50%{background-position:100% 100%} }
-.caustics {
-  position:absolute; inset:0; pointer-events:none; opacity:.5;
-  background-image:
-    radial-gradient(circle at 20% 30%, color-mix(in srgb, var(--coral-100) 20%, transparent) 0%, transparent 30%),
-    radial-gradient(circle at 60% 70%, color-mix(in srgb, var(--teal-100) 20%, transparent) 0%, transparent 30%),
-    radial-gradient(circle at 40% 50%, color-mix(in srgb, var(--blue-100) 18%, transparent) 0%, transparent 30%);
-  background-size:200% 200%;
-  animation: caustics 20s ease-in-out infinite;
+.depth-gradient { 
+  position: absolute; 
+  inset: 0; 
+  pointer-events: none; 
+  background: linear-gradient(to bottom, transparent 0%, rgba(10, 23, 32, 0.2) 50%, rgba(10, 23, 32, 0.4) 100%); 
 }
 
-/* Coral decorations */
-@keyframes sway { 0%,100%{transform:rotate(-2deg)} 50%{transform:rotate(2deg)} }
-.coral-decoration { position:absolute; bottom:0; width:100%; height:150px; pointer-events:none; z-index:1; }
-.coral {
-  position:absolute; bottom:0; width:50px; height:100px; filter: blur(3px); transform-origin: bottom center; animation: sway 6s ease-in-out infinite;
-  background: linear-gradient(to top, color-mix(in srgb, var(--coral-300) 20%, transparent), transparent);
-  border-radius: 50% 50% 0 0;
+/* =============================
+   Utilities & Helpers
+   ============================= */
+.bg-gradient-radial { 
+  background: radial-gradient(circle, var(--tw-gradient-stops)); 
 }
-.coral:nth-child(1){ left:5%;  height:80px;  animation-delay:0s; }
-.coral:nth-child(2){ left:15%; height:120px; animation-delay:1.5s; background: linear-gradient(to top, color-mix(in srgb, var(--teal-300) 18%, transparent), transparent); }
-.coral:nth-child(3){ left:25%; height:90px;  animation-delay:.8s;  background: linear-gradient(to top, color-mix(in srgb, var(--blue-300) 16%, transparent), transparent); }
-.coral:nth-child(4){ left:75%; height:110px; animation-delay:2s;   background: linear-gradient(to top, color-mix(in srgb, var(--coral-400) 18%, transparent), transparent); }
-.coral:nth-child(5){ left:85%; height:95px;  animation-delay:1.2s; }
-.coral:nth-child(6){ left:95%; height:85px;  animation-delay:1.8s;  background: linear-gradient(to top, color-mix(in srgb, var(--green-300) 16%, transparent), transparent); }
+
+/* Frosted glass chip styles */
+.chip-outline {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(17, 43, 60, 0.4);
+  backdrop-filter: blur(8px);
+  color: #E6EDF2;
+  transition: all 300ms ease-out;
+}
+
+.chip-outline:hover {
+  background: rgba(0, 146, 147, 0.08);
+  border-color: rgba(0, 146, 147, 0.3);
+  transform: translateY(-1px);
+}
