@@ -1,38 +1,43 @@
+"use client";
+
 import { Card } from "@/components/ui/card";
 import { Calendar, MapPin } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
+import { useLanguage } from "@/components/lang/LanguageProvider";
 
 export default function Experience() {
+  const { t } = useLanguage();
+  
   const experiences = [
     {
       company: "Hive Power",
-      role: "Frontend Developer",
-      type: "Full-time",
-      duration: "Feb 2023 - Present",
-      period: "2 yrs 9 mos",
-      location: "Remote",
+      roleKey: "experience.hive.role",
+      typeKey: "experience.fullTime",
+      durationKey: "experience.hive.duration",
+      periodKey: "experience.hive.period",
+      locationKey: "experience.remote",
       logo: "🔶",
-      achievements: [
-        "Build and maintain multiple web and mobile applications within a large-scale Nx monorepo, using React, Ionic/Capacitor, and TypeScript.",
-        "Develop and refactor reusable, modular UI components, ensuring design consistency and scalability across projects.",
-        "Collaborate with cross-functional teams to improve developer experience, optimize performance, and reduce technical debt.",
-        "Work in a fast-paced, startup-like environment with shifting priorities, tight deadlines, and high autonomy."
+      achievementKeys: [
+        "experience.hive.achievement1",
+        "experience.hive.achievement2",
+        "experience.hive.achievement3",
+        "experience.hive.achievement4"
       ],
       skills: ["React", "TypeScript", "Nx", "Ionic", "Capacitor", "UI Components"]
     },
     {
       company: "ClearMix",
-      role: "Frontend Engineer",
-      type: "Full-time",
-      duration: "Jul 2021 - Dec 2022",
-      period: "1 yr 6 mos",
-      location: "Remote",
+      roleKey: "experience.clearmix.role",
+      typeKey: "experience.fullTime",
+      durationKey: "experience.clearmix.duration",
+      periodKey: "experience.clearmix.period",
+      locationKey: "experience.remote",
       logo: "🎬",
-      achievements: [
-        "Frontend lead for ClearMix Logistics platform. Planned and engineered a scheduling app where the user can schedule a recording time and select a location to receive a studio-in-a-box. This is a NextJs project which was handled with an integration of the Google Maps API.",
-        "Architected, developed, and maintained ClearMix's flagship virtual studio application, facilitating remote communication and high-quality video recordings stored locally and uploaded to the cloud in real-time – lowering internal costs and increasing the company's quarter-over-quarter revenue.",
-        "Contributed to the development of the ClearMix Intros feature, allowing users to upload content to the platform and seamlessly preface it with personalized video introductions as well as track external engagement – creating product lead growth for ClearMix and driving both increased interest and new business for the company.",
-        "Participated in routine peer reviews to advocate for consistent code quality spanning the stack. Wrote and maintained unit tests for frontend functionality across the platform."
+      achievementKeys: [
+        "experience.clearmix.achievement1",
+        "experience.clearmix.achievement2",
+        "experience.clearmix.achievement3",
+        "experience.clearmix.achievement4"
       ],
       skills: ["Next.js", "React", "Google Maps API", "Video Processing", "Unit Testing"]
     }
@@ -52,8 +57,8 @@ export default function Experience() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeader 
-          title="Work Experience"
-          description="Building impactful solutions and leading frontend development"
+          title={t("experience.title")}
+          description={t("experience.description")}
         />
 
         <div className="max-w-4xl mx-auto space-y-8">
@@ -93,14 +98,14 @@ export default function Experience() {
                       <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                         <div>
                           <h3 className="text-2xl font-medium text-[#1E293B] mb-1">
-                            {exp.role}
+                            {t(exp.roleKey)}
                           </h3>
                           <p className="text-xl text-[#009293] font-medium">
                             {exp.company}
                           </p>
                         </div>
                         <span className="inline-flex items-center px-3 py-1 text-xs font-medium text-[#009293] bg-[#009293]/5 border border-[#009293]/20 rounded-md">
-                          {exp.type}
+                          {t(exp.typeKey)}
                         </span>
                       </div>
 
@@ -108,12 +113,12 @@ export default function Experience() {
                       <div className="flex flex-wrap gap-4 text-sm text-[#475569]">
                         <div className="flex items-center gap-1.5">
                           <Calendar className="h-4 w-4 text-[#009293]" />
-                          <span>{exp.duration}</span>
-                          <span className="text-[#009293]">• {exp.period}</span>
+                          <span>{t(exp.durationKey)}</span>
+                          <span className="text-[#009293]">• {t(exp.periodKey)}</span>
                         </div>
                         <div className="flex items-center gap-1.5">
                           <MapPin className="h-4 w-4 text-[#009293]" />
-                          <span>{exp.location}</span>
+                          <span>{t(exp.locationKey)}</span>
                         </div>
                       </div>
                     </div>
@@ -121,7 +126,7 @@ export default function Experience() {
 
                   {/* Achievements */}
                   <div className="space-y-3 mb-6">
-                    {exp.achievements.map((achievement, achIndex) => (
+                    {exp.achievementKeys.map((achievementKey, achIndex) => (
                       <div
                         key={achIndex}
                         className="flex gap-3 group/item hover:translate-x-1 transition-transform duration-200"
@@ -130,7 +135,7 @@ export default function Experience() {
                           <div className="w-1.5 h-1.5 rounded-full bg-[#009293] group-hover/item:bg-[#F8A58E] transition-colors" />
                         </div>
                         <p className="text-[#1E293B] leading-relaxed text-sm" style={{ lineHeight: '1.8' }}>
-                          {achievement}
+                          {t(achievementKey)}
                         </p>
                       </div>
                     ))}
