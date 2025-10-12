@@ -44,7 +44,7 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-20 relative overflow-hidden">
+    <section id="experience" className=" section-major relative overflow-hidden">
       {/* Bubbles */}
       <div className="bubbles opacity-20">
         <div className="bubble"></div>

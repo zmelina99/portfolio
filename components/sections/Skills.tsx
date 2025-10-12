@@ -24,7 +24,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="section-secondary relative overflow-hidden">
+    <section id="skills" className="section-major relative overflow-hidden">
       {/* Bubbles */}
       <div className="bubbles opacity-12">
         <div className="bubble"></div>

@@ -45,7 +45,7 @@ export default function Passions() {
   return (
     <section
       id="passions"
-      className="section-secondary relative overflow-hidden"
+      className="section-major relative overflow-hidden"
     >
       {/* Bubbles */}
       <div className="bubbles opacity-10">
