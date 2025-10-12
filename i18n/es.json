@@ -16,7 +16,7 @@
   "nav.contact": "Contacto",
   
   "about.title": "Sobre Mí",
-  "about.intro": "Soy una ingeniera frontend enfocada en escribir código escalable y mantenible para aplicaciones web y móviles modernas. Trabajo principalmente con React, TypeScript y Nx, traduciendo sistemas de diseño y lógica de producto en componentes claros y reutilizables.",
+  "about.intro": "Soy una Frontend Engineer enfocada en escribir código escalable y mantenible para aplicaciones web y móviles modernas. Trabajo principalmente con React, TypeScript y Nx, traduciendo sistemas de diseño y lógica de producto en componentes claros y reutilizables.",
   "about.howIWork": "Cómo Trabajo:",
   "about.work1": "Refactorizo y simplifico bases de código complejas para mayor claridad y rendimiento.",
   "about.work2": "Creo bibliotecas compartidas que reducen la duplicación y aceleran el desarrollo.",

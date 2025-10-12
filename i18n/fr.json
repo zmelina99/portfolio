@@ -16,7 +16,7 @@
   "nav.contact": "Contact",
 
   "about.title": "À Propos",
-  "about.intro": "Je suis une ingénieure frontend axée sur l'écriture de code évolutif et maintenable pour les applications web et mobiles modernes. Je travaille principalement avec React, TypeScript et Nx, traduisant les systèmes de conception et la logique produit en composants clairs et réutilisables.",
+  "about.intro": "Je suis une Frontend Engineer axée sur l'écriture de code évolutif et maintenable pour les applications web et mobiles modernes. Je travaille principalement avec React, TypeScript et Nx, traduisant les systèmes de conception et la logique produit en composants clairs et réutilisables.",
   "about.howIWork": "Comment Je Travaille:",
   "about.work1": "Refactorise et simplifie les bases de code complexes pour plus de clarté et de performance.",
   "about.work2": "Crée des bibliothèques partagées qui réduisent la duplication et accélèrent le développement.",
