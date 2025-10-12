@@ -43,7 +43,7 @@
   "experience.fullTime": "Temps plein",
   "experience.remote": "À distance",
 
-  "experience.hive.role": "Développeuse Frontend",
+  "experience.hive.role": "Frontend Engineer",
   "experience.hive.duration": "Fév 2023 - Présent",
   "experience.hive.period": "2 ans 9 mois",
   "experience.hive.achievement1": "Construire et maintenir plusieurs applications web et mobiles au sein d'un monorepo Nx à grande échelle, en utilisant React, Ionic/Capacitor et TypeScript.",
@@ -51,7 +51,7 @@
   "experience.hive.achievement3": "Collaborer avec des équipes interfonctionnelles pour améliorer l'expérience développeur, optimiser les performances et réduire la dette technique.",
   "experience.hive.achievement4": "Travailler dans un environnement rapide, type startup, avec des priorités changeantes, des délais serrés et une haute autonomie.",
 
-  "experience.clearmix.role": "Ingénieure Frontend",
+  "experience.clearmix.role": "Frontend Engineer",
   "experience.clearmix.duration": "Juil 2021 - Déc 2022",
   "experience.clearmix.period": "1 an 6 mois",
   "experience.clearmix.achievement1": "Lead frontend pour la plateforme ClearMix Logistics. Planifié et conçu une application de planification où l'utilisateur peut programmer un temps d'enregistrement et sélectionner un emplacement pour recevoir un studio-en-boîte. Il s'agit d'un projet NextJs géré avec une intégration de l'API Google Maps.",
