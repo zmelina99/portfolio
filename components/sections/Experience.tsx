@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Briefcase, Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin } from "lucide-react";
 
 export default function Experience() {
   const experiences = [
@@ -64,7 +64,7 @@ export default function Experience() {
           {experiences.map((exp, index) => (
             <Card
               key={index}
-              className="overflow-hidden hover:shadow-xl hover:shadow-black/20 transition-all duration-300 border border-white/15 bg-[#112B3C]/60 backdrop-blur-sm rounded-2xl group"
+              className="overflow-hidden hover:shadow-2xl hover:shadow-black/20 transition-all duration-300 border border-[#E2E8F0] bg-white rounded-2xl group"
             >
               <div className="relative">
                 {/* Timeline connector */}
@@ -76,7 +76,7 @@ export default function Experience() {
                   {/* Header */}
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-6">
                     {/* Logo */}
-                    <div className="flex-shrink-0 w-20 h-20 rounded-xl bg-gradient-to-br from-[#009293] to-[#00787A] opacity-80 flex items-center justify-center text-4xl shadow-lg group-hover:scale-105 transition-transform duration-300">
+                    <div className="flex-shrink-0 w-20 h-20 rounded-xl bg-gradient-to-br from-[#009293] to-[#00787A] flex items-center justify-center text-4xl shadow-lg group-hover:scale-105 transition-transform duration-300">
                       {exp.logo}
                     </div>
 
@@ -84,20 +84,20 @@ export default function Experience() {
                     <div className="flex-1">
                       <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                         <div>
-                          <h3 className="text-2xl font-medium text-[#E6EDF2] mb-1">
+                          <h3 className="text-2xl font-medium text-[#1E293B] mb-1">
                             {exp.role}
                           </h3>
                           <p className="text-xl text-[#009293] font-medium">
                             {exp.company}
                           </p>
                         </div>
-                        <span className="chip-outline text-xs px-3 py-1">
+                        <span className="inline-flex items-center px-3 py-1 text-xs font-medium text-[#009293] bg-[#009293]/5 border border-[#009293]/20 rounded-md">
                           {exp.type}
                         </span>
                       </div>
 
                       {/* Meta information */}
-                      <div className="flex flex-wrap gap-4 text-sm text-[#94A3B8]">
+                      <div className="flex flex-wrap gap-4 text-sm text-[#475569]">
                         <div className="flex items-center gap-1.5">
                           <Calendar className="h-4 w-4 text-[#009293]" />
                           <span>{exp.duration}</span>
@@ -121,7 +121,7 @@ export default function Experience() {
                         <div className="flex-shrink-0 mt-1.5">
                           <div className="w-1.5 h-1.5 rounded-full bg-[#009293] group-hover/item:bg-[#F8A58E] transition-colors" />
                         </div>
-                        <p className="text-[#E6EDF2] leading-relaxed">
+                        <p className="text-[#1E293B] leading-relaxed text-sm" style={{ lineHeight: '1.8' }}>
                           {achievement}
                         </p>
                       </div>
@@ -129,12 +129,12 @@ export default function Experience() {
                   </div>
 
                   {/* Skills */}
-                  <div className="border-t border-white/10 pt-4">
+                  <div className="border-t border-[#E2E8F0] pt-4">
                     <div className="flex flex-wrap gap-2">
                       {exp.skills.map((skill, skillIndex) => (
                         <span
                           key={skillIndex}
-                          className="chip-outline text-xs py-1.5 px-3"
+                          className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-[#475569] bg-[#F9FAFB] border border-[#E2E8F0] rounded-md hover:border-[#009293]/30 hover:bg-[#009293]/5 transition-all duration-300"
                         >
                           {skill}
                         </span>
@@ -149,7 +149,7 @@ export default function Experience() {
 
         {/* Bottom decoration */}
         <div className="mt-16 flex justify-center">
-          <div className="w-32 h-1 bg-gradient-to-r from-transparent via-[#009293] to-transparent opacity-60 rounded-full" />
+          <div className="w-32 h-px bg-gradient-to-r from-transparent via-[#009293] to-transparent opacity-60 rounded-full" />
         </div>
       </div>
     </section>

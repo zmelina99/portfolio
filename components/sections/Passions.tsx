@@ -118,7 +118,7 @@ export default function Passions() {
         </div>
 
         {/* Personal Note */}
-        <div className="mt-12 text-center max-w-3xl mx-auto">
+        {/* <div className="mt-12 text-center max-w-3xl mx-auto">
           <Card className="p-6 bg-gradient-to-br from-[#009293]/10 to-[#00787A]/10 border border-[#009293]/20 backdrop-blur-sm rounded-2xl">
             <p className="text-base text-[#94A3B8] italic" style={{ lineHeight: '1.8' }}>
               "I believe in living a full, adventurous life. Whether I'm diving into the ocean depths, 
@@ -127,7 +127,7 @@ export default function Passions() {
               and bring the same energy and dedication I apply to my work."
             </p>
           </Card>
-        </div>
+        </div> */}
       </div>
     </section>
   );
