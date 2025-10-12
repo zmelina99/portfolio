@@ -74,7 +74,7 @@ export default function Contact() {
               </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-4 pt-4">
               {contactInfo.map((info, index) => (
                 <Card key={index} className="p-4 hover:shadow-lg transition-shadow">
                   <div className="flex items-center gap-4">
@@ -99,12 +99,12 @@ export default function Contact() {
               ))}
             </div>
 
-            <Card className="p-5 bg-gradient-to-br from-[#009293]/10 to-[#00787A]/10 border-[#009293]/20">
+            {/* <Card className="p-5 bg-gradient-to-br from-[#009293]/10 to-[#00787A]/10 border-[#009293]/20">
               <h4 className="font-medium mb-2 text-[#E6EDF2]">{t("contact.quickResponse")}</h4>
               <p className="text-sm text-[#A7B3C2] leading-relaxed">
                 {t("contact.quickResponseText")}
               </p>
-            </Card>
+            </Card> */}
           </div>
 
           {/* Contact Form */}
