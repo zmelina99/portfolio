@@ -5,7 +5,7 @@ import { useLanguage } from "@/components/lang/LanguageProvider";
 
 export default function DiveDepthIndicator() {
   const [depth, setDepth] = useState(0);
-  const { isOverlayVisible } = useLanguage();
+  const { isOverlayVisible, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +30,7 @@ export default function DiveDepthIndicator() {
         {/* Depth meter */}
         <div className="flex flex-col items-center gap-2">
           <div className="text-xs text-[#009293] font-serif uppercase tracking-wider">
-            Depth
+            {t("depthMeter.depth")}
           </div>
           <div className="flex items-baseline gap-1">
             <span className="text-3xl font-bold text-[#E6EDF2] font-serif">
@@ -51,7 +51,7 @@ export default function DiveDepthIndicator() {
           <div className="flex flex-col gap-1 text-xs text-[#7B8A9A] font-serif">
             <div className="flex items-center gap-1">
               <div className="w-1 h-1 rounded-full bg-[#009293]" />
-              <span>Surface</span>
+              <span>{t("depthMeter.surface")}</span>
             </div>
             <div className="flex items-center gap-1">
               <div className="w-1 h-1 rounded-full bg-[#00787A]" />

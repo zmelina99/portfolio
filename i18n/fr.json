@@ -134,5 +134,8 @@
   "common.learnMore": "En Savoir Plus",
   "common.viewProject": "Voir le Projet",
   "common.liveDemo": "Démo en Direct",
-  "common.sourceCode": "Code Source"
+  "common.sourceCode": "Code Source",
+  
+  "depthMeter.depth": "Profondeur",
+  "depthMeter.surface": "Surface"
 }
