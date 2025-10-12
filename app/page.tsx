@@ -1,3 +1,5 @@
+"use client";
+
 import Navigation from "@/components/Navigation";
 import DiveDepthIndicator from "@/components/DiveDepthIndicator";
 import Hero from "@/components/sections/Hero";
@@ -8,8 +10,11 @@ import CaseStudies from "@/components/sections/CaseStudies";
 import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
 import Contact from "@/components/sections/Contact";
+import { useLanguage } from "@/components/lang/LanguageProvider";
 
 export default function Home() {
+  const { t } = useLanguage();
+  
   return (
     <main className="min-h-screen">
       <Navigation />
@@ -31,13 +36,13 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-2">
             <p className="text-sm text-[#7B8A9A]">
-              Designed & built by Melina Zellweger
+              {t("footer.designedBy")}
             </p>
             <p className="text-xs text-[#7B8A9A]">
-              Built with Next.js, TypeScript, Tailwind CSS, and shadcn/ui
+              {t("footer.builtWith")}
             </p>
             <p className="text-xs text-[#7B8A9A]">
-              © {new Date().getFullYear()} Meli. All rights reserved.
+              © {new Date().getFullYear()} Meli. {t("footer.rights")}
             </p>
           </div>
         </div>

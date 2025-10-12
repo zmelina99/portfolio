@@ -2,8 +2,11 @@
 
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import { useLanguage } from "@/components/lang/LanguageProvider";
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -43,7 +46,7 @@ export default function Hero() {
           {/* Greeting */}
           <div className="inline-block">
             <p className="text-base sm:text-lg text-[#A7B3C2] drop-shadow-[0_2px_4px_rgba(11,22,32,0.8)]">
-              Hi there! 👋 I&apos;m
+              {t("hero.greeting")} 👋
             </p>
           </div>
 
@@ -59,14 +62,12 @@ export default function Hero() {
             Frontend Engineer:
           </h2>
           <p className="text-base sm:text-lg text-[#A7B3C2] max-w-xl mx-auto drop-shadow-[0_2px_4px_rgba(11,22,32,0.8)] leading-relaxed pt-0 mt-0">
-            Turning Complex UIs Into Clear Systems
+            {t("hero.title")}{" "}
           </p>
 
           {/* Description - improved readability */}
-          <p className="text-base sm:text-base text-[#A7B3C2] max-w-xl mx-auto drop-shadow-[0_2px_4px_rgba(11,22,32,0.8)] leading-relaxed pt-2">
-            I build performant, modular frontends using React, TypeScript, and
-            Nx — creating interfaces that are stable, consistent, and easy to
-            maintain.
+          <p className="text-base sm:text-base text-[#A7B3C2] max-w-2xl mx-auto drop-shadow-[0_2px_4px_rgba(11,22,32,0.8)] leading-relaxed pt-2">
+            {t("hero.subtitle")}
           </p>
 
           {/* CTA Buttons */}
@@ -76,7 +77,7 @@ export default function Hero() {
               onClick={() => scrollToSection("case-studies")}
               className="text-base px-8 group bg-[#009293] hover:bg-[#00787A] text-white border-0 shadow-lg shadow-black/20 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-[#14B8BA] focus-visible:ring-offset-2"
             >
-              View Leadership Case Studies
+              {t("hero.cta.caseStudies")}
               <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
             </Button>
             <Button
@@ -85,7 +86,7 @@ export default function Hero() {
               onClick={() => scrollToSection("contact")}
               className="text-base px-8 border border-[rgba(20,184,166,0.20)] text-[#E6EDF2] bg-transparent hover:bg-[#009293]/10 hover:border-[rgba(20,184,166,0.40)] backdrop-blur-sm transition-all duration-300"
             >
-              Get in touch
+              {t("hero.cta.contact")}
             </Button>
           </div>
 
@@ -138,7 +139,7 @@ export default function Hero() {
       {/* Scroll indicator with dive deeper text */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center gap-2 z-10">
         <span className="text-sm text-[#009293] font-medium tracking-wide drop-shadow-[0_2px_4px_rgba(11,22,32,0.8)]">
-          Let's dive deeper
+          {t("hero.cta.diveDeeper")}
         </span>
         <ArrowDown className="h-6 w-6 text-[#009293] drop-shadow-[0_2px_4px_rgba(11,22,32,0.8)]" />
       </div>

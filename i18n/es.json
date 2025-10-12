@@ -1,0 +1,69 @@
+{
+  "hero.greeting": "Hola, soy Meli",
+  "hero.title": "Transformando UIs Complejas en Sistemas Claros",
+  "hero.subtitle": "Construyo frontends modulares y de alto rendimiento usando React, TypeScript y Nx — creando interfaces estables, consistentes y fáciles de mantener.",
+  "hero.cta.caseStudies": "Ver Casos de Estudio",
+  "hero.cta.cv": "Descargar CV",
+  "hero.cta.contact": "Contáctame",
+  "hero.cta.diveDeeper": "Vamos a sumergirnos",
+  
+  "nav.home": "Inicio",
+  "nav.about": "Sobre Mí",
+  "nav.experience": "Experiencia",
+  "nav.caseStudies": "Casos de Estudio",
+  "nav.skills": "Habilidades",
+  "nav.passions": "Pasiones",
+  "nav.contact": "Contacto",
+  
+  "about.title": "Sobre Mí",
+  "about.intro": "Ingeniera frontend apasionada por construir sistemas escalables y mantenibles.",
+  "about.description": "Me especializo en React, TypeScript y tecnologías web modernas. Mi enfoque combina experiencia técnica con una profunda comprensión de las necesidades del usuario, creando interfaces poderosas e intuitivas.",
+  
+  "experience.title": "Experiencia",
+  "experience.years": "años",
+  "experience.present": "Presente",
+  
+  "caseStudies.title": "Casos de Estudio",
+  "caseStudies.viewDetails": "Ver Detalles",
+  "caseStudies.readMore": "Leer Más",
+  "caseStudies.close": "Cerrar",
+  "caseStudies.technologies": "Tecnologías",
+  "caseStudies.impact": "Impacto",
+  "caseStudies.challenge": "Desafío",
+  "caseStudies.solution": "Solución",
+  "caseStudies.results": "Resultados",
+  
+  "skills.title": "Habilidades Técnicas",
+  "skills.category.frontend": "Frontend",
+  "skills.category.backend": "Backend",
+  "skills.category.tools": "Herramientas y DevOps",
+  "skills.category.testing": "Testing",
+  
+  "passions.title": "Más Allá del Código",
+  "passions.subtitle": "Cuando no estoy programando, me encontrarás explorando el mundo — bajo el agua y más allá.",
+  
+  "contact.title": "Trabajemos Juntos",
+  "contact.subtitle": "¿Tienes un proyecto en mente? Hablemos sobre cómo podemos colaborar.",
+  "contact.name": "Nombre",
+  "contact.email": "Correo",
+  "contact.message": "Mensaje",
+  "contact.send": "Enviar Mensaje",
+  "contact.sending": "Enviando...",
+  "contact.success": "¡Mensaje enviado! Te responderé pronto.",
+  "contact.error": "Algo salió mal. Por favor, intenta de nuevo.",
+  "contact.namePlaceholder": "Tu nombre",
+  "contact.emailPlaceholder": "tu.correo@ejemplo.com",
+  "contact.messagePlaceholder": "Cuéntame sobre tu proyecto...",
+  
+  "footer.designedBy": "Diseñado y construido por Melina Zellweger",
+  "footer.builtWith": "Construido con Next.js, TypeScript, Tailwind CSS y shadcn/ui",
+  "footer.rights": "Todos los derechos reservados.",
+  
+  "common.loading": "Cargando...",
+  "common.error": "Error",
+  "common.learnMore": "Saber Más",
+  "common.viewProject": "Ver Proyecto",
+  "common.liveDemo": "Demo en Vivo",
+  "common.sourceCode": "Código Fuente"
+}
+

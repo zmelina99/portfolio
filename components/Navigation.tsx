@@ -3,8 +3,11 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import LanguageSwitcher from "@/components/lang/LanguageSwitcher";
+import { useLanguage } from "@/components/lang/LanguageProvider";
 
 export default function Navigation() {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -25,13 +28,13 @@ export default function Navigation() {
   };
 
   const navItems = [
-    { label: "Home", id: "home" },
-    { label: "About", id: "about" },
-    { label: "Experience", id: "experience" },
-    { label: "Case Studies", id: "case-studies" },
-    { label: "Skills", id: "skills" },
-    { label: "Passions", id: "passions" },
-    { label: "Contact", id: "contact" },
+    { labelKey: "nav.home", id: "home" },
+    { labelKey: "nav.about", id: "about" },
+    { labelKey: "nav.experience", id: "experience" },
+    { labelKey: "nav.caseStudies", id: "case-studies" },
+    { labelKey: "nav.skills", id: "skills" },
+    { labelKey: "nav.passions", id: "passions" },
+    { labelKey: "nav.contact", id: "contact" },
   ];
 
   return (
@@ -54,7 +57,7 @@ export default function Navigation() {
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-1">
+          <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               <Button
                 key={item.id}
@@ -62,9 +65,12 @@ export default function Navigation() {
                 onClick={() => scrollToSection(item.id)}
                 className="text-[#A7B3C2] hover:text-[#009293] hover:bg-[#009293]/10 transition-all duration-200 text-sm"
               >
-                {item.label}
+                {t(item.labelKey)}
               </Button>
             ))}
+            <div className="ml-2 pl-2 border-l border-white/20">
+              <LanguageSwitcher />
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -94,9 +100,12 @@ export default function Navigation() {
                 onClick={() => scrollToSection(item.id)}
                 className="w-full justify-start text-[#A7B3C2] hover:text-[#009293] hover:bg-[#009293]/10 transition-all duration-200"
               >
-                {item.label}
+                {t(item.labelKey)}
               </Button>
             ))}
+            <div className="pt-2 mt-2 border-t border-white/20">
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
       )}
