@@ -1,12 +1,12 @@
 {
-  "hero.greeting": "Bonjour, je suis Meli",
+  "hero.greeting": "Bonjour, je suis ",
   "hero.title": "Transformer les UIs Complexes en Systèmes Clairs",
   "hero.subtitle": "Je construis des frontends modulaires et performants avec React, TypeScript et Nx — créant des interfaces stables, cohérentes et faciles à maintenir.",
   "hero.cta.caseStudies": "Voir les Études de Cas",
   "hero.cta.cv": "Télécharger CV",
   "hero.cta.contact": "Me Contacter",
   "hero.cta.diveDeeper": "Voyons plus profondément",
-  
+
   "nav.home": "Accueil",
   "nav.about": "À Propos",
   "nav.experience": "Expérience",
@@ -14,7 +14,7 @@
   "nav.skills": "Compétences",
   "nav.passions": "Passions",
   "nav.contact": "Contact",
-  
+
   "about.title": "À Propos",
   "about.intro": "Je suis une ingénieure frontend axée sur l'écriture de code évolutif et maintenable pour les applications web et mobiles modernes. Je travaille principalement avec React, TypeScript et Nx, traduisant les systèmes de conception et la logique produit en composants clairs et réutilisables.",
   "about.howIWork": "Comment Je Travaille:",
@@ -35,14 +35,14 @@
   "about.highlight3.desc": "Avancer rapidement sans compromis, en se concentrant sur l'impact.",
   "about.highlight4.title": "Collaboration",
   "about.highlight4.desc": "Diriger par le travail d'équipe et construire de grands produits ensemble.",
-  
+
   "experience.title": "Expérience Professionnelle",
   "experience.description": "Construire des solutions impactantes et diriger le développement frontend",
   "experience.years": "ans",
   "experience.present": "Présent",
   "experience.fullTime": "Temps plein",
   "experience.remote": "À distance",
-  
+
   "experience.hive.role": "Développeuse Frontend",
   "experience.hive.duration": "Fév 2023 - Présent",
   "experience.hive.period": "2 ans 9 mois",
@@ -50,7 +50,7 @@
   "experience.hive.achievement2": "Développer et refactoriser des composants UI réutilisables et modulaires, assurant la cohérence du design et l'évolutivité à travers les projets.",
   "experience.hive.achievement3": "Collaborer avec des équipes interfonctionnelles pour améliorer l'expérience développeur, optimiser les performances et réduire la dette technique.",
   "experience.hive.achievement4": "Travailler dans un environnement rapide, type startup, avec des priorités changeantes, des délais serrés et une haute autonomie.",
-  
+
   "experience.clearmix.role": "Ingénieure Frontend",
   "experience.clearmix.duration": "Juil 2021 - Déc 2022",
   "experience.clearmix.period": "1 an 6 mois",
@@ -58,27 +58,27 @@
   "experience.clearmix.achievement2": "Architecturé, développé et maintenu l'application phare de studio virtuel de ClearMix, facilitant la communication à distance et les enregistrements vidéo de haute qualité stockés localement et téléchargés dans le cloud en temps réel – réduisant les coûts internes et augmentant les revenus trimestriels de l'entreprise.",
   "experience.clearmix.achievement3": "Contribué au développement de la fonctionnalité ClearMix Intros, permettant aux utilisateurs de télécharger du contenu sur la plateforme et de le préfacer sans effort avec des introductions vidéo personnalisées ainsi que de suivre l'engagement externe – créant une croissance menée par le produit pour ClearMix et stimulant à la fois un intérêt accru et de nouvelles affaires pour l'entreprise.",
   "experience.clearmix.achievement4": "Participé à des revues de pairs régulières pour promouvoir une qualité de code cohérente sur toute la pile. Écrit et maintenu des tests unitaires pour les fonctionnalités frontend sur toute la plateforme.",
-  
+
   "caseStudies.title": "Études de Cas de Leadership",
   "caseStudies.description": "Analyses approfondies des décisions architecturales, du leadership technique et des solutions axées sur l'impact",
   "caseStudies.viewFullAudit": "Voir l'Audit Complet",
-  
+
   "caseStudies.nx.title": "Nx Monorepo: Audit d'Architecture et de Base de Code",
   "caseStudies.nx.subtitle": "Dirigé une analyse complète et modernisation de l'infrastructure monorepo à l'échelle d'entreprise.",
   "caseStudies.nx.problem": "Structure héritée avec 200+ projets, motifs incohérents, dépendances circulaires",
   "caseStudies.nx.actions": "Réalisé un audit architectural complet, défini une stratégie de migration, établi une gouvernance",
   "caseStudies.nx.impact": "50% de builds plus rapides, DX amélioré, fondation évolutive pour 20+ développeurs",
-  
+
   "caseStudies.charts.title": "Stabilisation des Graphiques et Haptique",
   "caseStudies.charts.subtitle": "Résolu des goulots d'étranglement critiques de performance dans les composants de visualisation de données en temps réel.",
   "caseStudies.charts.problem": "Bibliothèque de graphiques causant des plantages, fuites de mémoire et mauvaise UX mobile",
   "caseStudies.charts.actions": "Profilé les performances, optimisé le rendu, implémenté un système de retour haptique",
   "caseStudies.charts.impact": "Zéro plantage, 60fps sur mobile, scores de satisfaction utilisateur améliorés",
-  
+
   "caseStudies.labels.problem": "Problème",
   "caseStudies.labels.actions": "Actions",
   "caseStudies.labels.impact": "Impact",
-  
+
   "caseStudies.modal.context": "Contexte",
   "caseStudies.modal.contextText": "J'ai effectué un audit complet d'un monorepo Nx partagé contenant plusieurs applications web et mobiles React. L'objectif était d'identifier les incohérences architecturales, de réduire la duplication et de définir des standards évolutifs pour la réutilisabilité et la sécurité des types entre les équipes.",
   "caseStudies.modal.keyFindings": "Principales Constatations",
@@ -86,7 +86,7 @@
   "caseStudies.modal.impact": "Impact",
   "caseStudies.modal.takeaway": "Conclusion",
   "caseStudies.modal.takeawayText": "Cet audit a renforcé la valeur de la clarté architecturale et de l'alignement d'équipe dans les environnements multiplateformes. Une bonne structure de code ne concerne pas seulement les composants — il s'agit de communication, de cohérence et de permettre à chaque développeur de travailler avec confiance et rapidité.",
-  
+
   "skills.title": "Systèmes et Stack",
   "skills.description": "Spécialisée dans les architectures évolutives, les systèmes de conception et l'optimisation de l'expérience développeur.",
   "skills.frontend.title": "Frontend et Systèmes",
@@ -95,7 +95,7 @@
   "skills.backend.subtitle": "Créer des APIs fiables, des frameworks de test et des workflows axés sur le développeur.",
   "skills.languages.title": "Langues",
   "skills.languages.content": "🇪🇸 Espagnol (Natif) · 🇬🇧 Anglais (C2) · 🇫🇷 Français (B1)",
-  
+
   "passions.title": "Au-delà du code",
   "passions.description": "La vie est une question d'équilibre, et j'adore explorer mes passions et intérêts en dehors du travail",
   "passions.scubaDiving": "Plongée Sous-Marine",
@@ -106,7 +106,7 @@
   "passions.lifting.desc": "Construire force et discipline",
   "passions.panchin": "Panchin",
   "passions.panchin.desc": "Mon compagnon bien-aimé",
-  
+
   "contact.title": "Contactez-moi",
   "contact.description": "Vous avez un projet en tête ou voulez simplement discuter ? N'hésitez pas à me contacter !",
   "contact.letsConnect": "Connectons-nous",
@@ -124,11 +124,11 @@
   "contact.namePlaceholder": "Votre nom",
   "contact.emailPlaceholder": "votre.email@exemple.com",
   "contact.messagePlaceholder": "Parlez-moi de votre projet...",
-  
+
   "footer.designedBy": "Conçu et construit par Melina Zellweger",
   "footer.builtWith": "Construit avec Next.js, TypeScript, Tailwind CSS et shadcn/ui",
   "footer.rights": "Tous droits réservés.",
-  
+
   "common.loading": "Chargement...",
   "common.error": "Erreur",
   "common.learnMore": "En Savoir Plus",
@@ -136,4 +136,3 @@
   "common.liveDemo": "Démo en Direct",
   "common.sourceCode": "Code Source"
 }
-
