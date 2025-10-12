@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Calendar, MapPin } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 export default function Experience() {
   const experiences = [
@@ -50,23 +51,30 @@ export default function Experience() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-medium mb-4 text-[#E6EDF2]">
-            Work Experience
-          </h2>
-          <div className="w-20 h-px bg-gradient-to-r from-[#009293] to-[#00787A] opacity-40 mx-auto rounded-full mb-4" />
-          <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">
-            Building impactful solutions and leading frontend development
-          </p>
-        </div>
+        <SectionHeader 
+          title="Work Experience"
+          description="Building impactful solutions and leading frontend development"
+        />
 
         <div className="max-w-4xl mx-auto space-y-8">
           {experiences.map((exp, index) => (
             <Card
               key={index}
-              className="overflow-hidden hover:shadow-2xl hover:shadow-black/20 transition-all duration-300 border border-[#E2E8F0] bg-white rounded-2xl group"
+              className="overflow-hidden hover:shadow-2xl hover:shadow-black/20 transition-all duration-300 border border-[#E2E8F0] !bg-white text-[#1E293B] rounded-2xl group"
             >
               <div className="relative">
+                {/* Subtle decorative bubbles */}
+                <div className="absolute top-4 right-4 opacity-10 pointer-events-none">
+                  <div className="flex gap-1.5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#009293] animate-pulse"></div>
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#009293] animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+                    <div className="w-2 h-2 rounded-full bg-[#009293] animate-pulse" style={{ animationDelay: '0.6s' }}></div>
+                  </div>
+                </div>
+                <div className="absolute bottom-4 left-4 opacity-8 pointer-events-none">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#009293] animate-pulse" style={{ animationDelay: '0.9s' }}></div>
+                </div>
+                
                 {/* Timeline connector */}
                 {index < experiences.length - 1 && (
                   <div className="absolute left-[52px] bottom-0 w-0.5 h-8 bg-gradient-to-b from-[#009293] to-transparent translate-y-full z-10" />

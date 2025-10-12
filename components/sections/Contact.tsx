@@ -2,8 +2,9 @@
 
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 import { useState } from "react";
+import SectionHeader from "@/components/SectionHeader";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -37,12 +38,6 @@ export default function Contact() {
       link: "mailto:zmelina@gmail.com",
     },
     {
-      icon: Phone,
-      label: "Phone",
-      value: "+34 662 266 753",
-      link: "tel:+34662266753",
-    },
-    {
       icon: MapPin,
       label: "Location",
       value: "Switzerland/Spain",
@@ -51,12 +46,9 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
+    <section id="contact" className="section-major relative overflow-hidden">
       {/* Bubbles */}
-      <div className="bubbles opacity-25">
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
+      <div className="bubbles opacity-15">
         <div className="bubble"></div>
         <div className="bubble"></div>
         <div className="bubble"></div>
@@ -64,23 +56,18 @@ export default function Contact() {
         <div className="bubble"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-medium mb-4 text-[#E6EDF2]">
-            Get In Touch
-          </h2>
-          <div className="w-20 h-px bg-gradient-to-r from-[#009293] to-[#00787A] opacity-40 mx-auto rounded-full mb-4" />
-          <p className="text-lg text-[#94A3B8] max-w-2xl mx-auto">
-            Have a project in mind or just want to chat? Feel free to reach out!
-          </p>
-        </div>
+      <div className="container-standard relative z-10">
+        <SectionHeader 
+          title="Get In Touch"
+          description="Have a project in mind or just want to chat? Feel free to reach out!"
+        />
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-6">
             <div>
-              <h3 className="text-2xl font-medium mb-4 text-[#E6EDF2]">Let&apos;s Connect</h3>
-              <p className="text-[#94A3B8] mb-6">
+              <h3 className="text-xl font-semibold mb-4 text-[#E6EDF2]">Let&apos;s Connect</h3>
+              <p className="text-[#A7B3C2] mb-6 leading-relaxed">
                 I&apos;m always open to discussing new projects, creative ideas, or
                 opportunities to be part of your vision.
               </p>
@@ -88,17 +75,17 @@ export default function Contact() {
 
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
-                <Card key={index} className="p-4 hover:shadow-md hover:shadow-black/20 transition-shadow border border-white/15 bg-[#112B3C]/60 backdrop-blur-sm rounded-2xl">
+                <Card key={index} className="p-4 hover:shadow-lg transition-shadow">
                   <div className="flex items-center gap-4">
                     <div className="bg-[#009293]/10 p-3 rounded-lg">
-                      <info.icon className="h-6 w-6 text-[#009293]" />
+                      <info.icon className="h-5 w-5 text-[#009293]" />
                     </div>
                     <div>
-                      <p className="text-sm text-[#94A3B8]">{info.label}</p>
+                      <p className="text-sm text-[#7B8A9A]">{info.label}</p>
                       {info.link ? (
                         <a
                           href={info.link}
-                          className="font-medium text-[#E6EDF2] hover:text-[#009293] transition-colors"
+                          className="font-medium text-[#E6EDF2] hover:text-[#009293] transition-colors hover:underline"
                         >
                           {info.value}
                         </a>
@@ -111,9 +98,9 @@ export default function Contact() {
               ))}
             </div>
 
-            <Card className="p-6 bg-gradient-to-br from-[#009293]/10 to-[#00787A]/10 border border-[#009293]/20 rounded-2xl">
-              <h4 className="font-medium mb-2 text-[#E6EDF2]">💡 Fun Fact</h4>
-              <p className="text-sm text-[#94A3B8]">
+            <Card className="p-5 bg-gradient-to-br from-[#009293]/10 to-[#00787A]/10 border-[#009293]/20">
+              <h4 className="font-medium mb-2 text-[#E6EDF2]">💡 Quick Response</h4>
+              <p className="text-sm text-[#A7B3C2] leading-relaxed">
                 I typically respond within 24 hours. Let&apos;s build something amazing
                 together!
               </p>
@@ -121,7 +108,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <Card className="p-6 border border-white/15 bg-[#112B3C]/60 backdrop-blur-sm rounded-2xl">
+          <Card className="p-6">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label
@@ -137,7 +124,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 rounded-md border border-white/15 bg-[#112B3C]/80 focus:outline-none focus:ring-2 focus:ring-[#009293] text-[#E6EDF2] backdrop-blur-sm transition-all duration-300"
+                  className="w-full px-4 py-2.5 rounded-lg border border-[rgba(100,116,139,0.60)] bg-[rgba(30,41,59,0.70)] focus:outline-none focus:ring-2 focus:ring-[#009293] focus:border-[#009293] text-[#E6EDF2] placeholder:text-[#7B8A9A] transition-all duration-200"
                   placeholder="Your name"
                 />
               </div>
@@ -156,7 +143,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 rounded-md border border-white/15 bg-[#112B3C]/80 focus:outline-none focus:ring-2 focus:ring-[#009293] text-[#E6EDF2] backdrop-blur-sm transition-all duration-300"
+                  className="w-full px-4 py-2.5 rounded-lg border border-[rgba(100,116,139,0.60)] bg-[rgba(30,41,59,0.70)] focus:outline-none focus:ring-2 focus:ring-[#009293] focus:border-[#009293] text-[#E6EDF2] placeholder:text-[#7B8A9A] transition-all duration-200"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -175,14 +162,14 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-2 rounded-md border border-white/15 bg-[#112B3C]/80 focus:outline-none focus:ring-2 focus:ring-[#009293] text-[#E6EDF2] resize-none backdrop-blur-sm transition-all duration-300"
+                  className="w-full px-4 py-2.5 rounded-lg border border-[rgba(100,116,139,0.60)] bg-[rgba(30,41,59,0.70)] focus:outline-none focus:ring-2 focus:ring-[#009293] focus:border-[#009293] text-[#E6EDF2] placeholder:text-[#7B8A9A] resize-none transition-all duration-200"
                   placeholder="Tell me about your project..."
                 />
               </div>
 
               <Button 
                 type="submit" 
-                className="w-full bg-[#009293] hover:bg-[#F8A58E] text-white border-0 shadow-lg shadow-black/20 transition-all duration-300" 
+                className="w-full bg-[#009293] hover:bg-[#00787A] text-white shadow-lg shadow-black/20 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-[#14B8BA]" 
                 size="lg"
               >
                 <Send className="h-4 w-4 mr-2" />

@@ -1,36 +1,34 @@
 import { Card } from "@/components/ui/card";
 import { Code, Palette, Rocket, Users } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 export default function About() {
   const highlights = [
     {
       icon: Code,
       title: "Clean Code",
-      description:
-        "I care about writing code that's clear, efficient, and built to last.",
+      description: "Writing code that's clear, efficient, and built to last.",
     },
     {
       icon: Palette,
       title: "Design Focus",
-      description:
-        "Good design makes everything easier — I aim for interfaces that feel natural and effortless.",
+      description: "Creating interfaces that feel natural and effortless.",
     },
     {
       icon: Rocket,
       title: "Fast Delivery",
-      description:
-        "I move fast without cutting corners, focusing on impact and quality.",
+      description: "Moving fast without cutting corners, focusing on impact.",
     },
     {
       icon: Users,
       title: "Collaboration",
       description:
-        "I enjoy leading through teamwork — helping others grow while building great products together.",
+        "Leading through teamwork and building great products together.",
     },
   ];
 
   return (
-    <section id="about" className="py-20 relative overflow-hidden">
+    <section id="about" className="section-major relative overflow-hidden">
       {/* Bubbles */}
       <div className="bubbles opacity-20">
         <div className="bubble"></div>
@@ -38,53 +36,65 @@ export default function About() {
         <div className="bubble"></div>
         <div className="bubble"></div>
         <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
+        <div className="bubble"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-medium mb-4 text-[#E6EDF2]">
-            About Me
-          </h2>
-          <div className="w-20 h-px bg-gradient-to-r from-[#009293] to-[#00787A] opacity-40 mx-auto rounded-full" />
-        </div>
+      <div className="container-standard relative z-10">
+        <SectionHeader title="About Me" />
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-10 items-start">
           {/* Left side - Description */}
-          <div className="space-y-6">
-            <p className="text-lg text-[#94A3B8] leading-relaxed">
-              I'm a Swiss-Argentinian frontend engineer passionate about
-              building clean, intuitive interfaces for fast-moving, remote
-              teams. Since 2021, I've worked with startups — including a
-              YC-backed media company and a Swiss energy scale-up — developing
-              React, TypeScript, and Next.js applications used by thousands. I
-              focus on frontend, bridging design and performance while exploring
-              how AI can improve development workflows. Having lived in
-              Argentina, Switzerland, and Spain, I bring strong communication,
-              adaptability, and a global mindset.
+          <div className="space-y-5 max-w-2xl">
+            <p className="text-base text-[#A7B3C2] leading-relaxed">
+              I’m a frontend engineer focused on writing scalable, maintainable
+              code for modern web and mobile applications. I work mainly with
+              React, TypeScript, and Nx, translating design systems and product
+              logic into clear, reusable components.
             </p>
-            <p className="text-lg text-[#94A3B8] leading-relaxed">
-              Currently at Hive Power, I build and maintain large-scale web and
-              mobile apps within an Nx monorepo, collaborating across teams to
-              deliver high-quality, scalable solutions.
+            <p className=" text-lg text-[#A7B3C2] leading-relaxed mb-1 font-bold">
+              How I Work:
             </p>
-            <div className="pt-4">
-              <h3 className="text-xl font-medium mb-3 text-[#E6EDF2]">Quick Facts:</h3>
-              <ul className="space-y-2 text-[#94A3B8]">
+            <ul className="space-y-2 text-sm text-[#A7B3C2]">
+              <li className="list-disc list-inside">
+                Refactor and simplify complex codebases for clarity and
+                performance.
+              </li>
+              <li className="list-disc list-inside">
+                Create shared libraries that reduce duplication and speed up
+                development.
+              </li>
+              <li className="list-disc list-inside">
+                Collaborate closely with backend and design teams to keep
+                systems aligned.
+              </li>
+              <li className="list-disc list-inside">
+                Prioritize code that’s readable, predictable, and easy to
+                extend.
+              </li>
+            </ul>
+
+            <div className="pt-3">
+              <p className="text-lg text-[#A7B3C2] leading-relaxed mb-1 font-bold">
+                Quick Facts:
+              </p>
+              <ul className="space-y-2 text-sm text-[#A7B3C2]">
                 <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-[#009293] rounded-full" />
+                  <span className="w-1.5 h-1.5 bg-[#009293] rounded-full" />
                   💼 4 years of frontend development experience
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-[#009293] rounded-full" />
+                  <span className="w-1.5 h-1.5 bg-[#009293] rounded-full" />
                   🚀 Currently at Hive Power (2+ years)
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-[#009293] rounded-full" />
+                  <span className="w-1.5 h-1.5 bg-[#009293] rounded-full" />
                   🌍 Remote work specialist
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-[#009293] rounded-full" />
-                  ⚡ Expert in React, TypeScript & Nx
+                  <span className="w-1.5 h-1.5 bg-[#009293] rounded-full" />⚡
+                  Expert in React, TypeScript & Nx
                 </li>
               </ul>
             </div>
@@ -95,13 +105,13 @@ export default function About() {
             {highlights.map((highlight, index) => (
               <Card
                 key={index}
-                className="p-6 hover:shadow-lg hover:shadow-black/20 transition-all duration-300 hover:-translate-y-2 border border-white/15 bg-[#112B3C]/60 backdrop-blur-sm rounded-2xl"
+                className="p-5 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
-                <highlight.icon className="h-10 w-10 text-[#009293] mb-4" />
-                <h3 className="font-medium text-lg mb-2 text-[#E6EDF2]">
+                <highlight.icon className="h-8 w-8 text-[#009293] mb-0" />
+                <h3 className="font-medium text-base mb-0 text-[#E6EDF2]">
                   {highlight.title}
                 </h3>
-                <p className="text-sm text-[#94A3B8]">
+                <p className="text-sm text-[#A7B3C2] leading-relaxed">
                   {highlight.description}
                 </p>
               </Card>

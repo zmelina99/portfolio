@@ -27,14 +27,16 @@ export default function Home() {
       <Contact />
 
       {/* Footer */}
-      <footer className="bg-[#112B3C]/30 py-8 border-t border-white/15">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center text-[#94A3B8]">
-            <p className="mb-2">
-              Built with ❤️ using Next.js, TypeScript, Tailwind CSS, and
-              shadcn/ui
+      <footer className="bg-[rgba(17,36,48,0.30)] py-8 border-t border-[rgba(20,184,166,0.15)]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-2">
+            <p className="text-sm text-[#7B8A9A]">
+              Designed & built by Melina Zellweger
             </p>
-            <p className="text-sm">
+            <p className="text-xs text-[#7B8A9A]">
+              Built with Next.js, TypeScript, Tailwind CSS, and shadcn/ui
+            </p>
+            <p className="text-xs text-[#7B8A9A]">
               © {new Date().getFullYear()} Meli. All rights reserved.
             </p>
           </div>

@@ -19,7 +19,7 @@ export default function DiveDepthIndicator() {
 
   return (
     <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 hidden lg:block">
-      <div className="bg-[#112B3C]/90 backdrop-blur-md border border-white/15 rounded-2xl p-4 shadow-lg shadow-black/20">
+      <div className="card-standard p-4">
         {/* Depth meter */}
         <div className="flex flex-col items-center gap-2">
           <div className="text-xs text-[#009293] font-serif uppercase tracking-wider">
@@ -33,7 +33,7 @@ export default function DiveDepthIndicator() {
           </div>
           
           {/* Visual depth bar */}
-          <div className="w-2 h-32 bg-[#0F2330]/50 rounded-full overflow-hidden relative border border-white/15">
+          <div className="w-2 h-32 bg-[rgba(15,35,48,0.50)] rounded-full overflow-hidden relative border border-[rgba(20,184,166,0.20)]">
             <div 
               className="absolute bottom-0 w-full bg-gradient-to-t from-[#009293] to-[#4DCCCC] transition-all duration-300 rounded-full"
               style={{ height: `${Math.min((depth / 40) * 100, 100)}%` }}
@@ -41,7 +41,7 @@ export default function DiveDepthIndicator() {
           </div>
           
           {/* Depth indicators */}
-          <div className="flex flex-col gap-1 text-xs text-[#94A3B8] font-serif">
+          <div className="flex flex-col gap-1 text-xs text-[#7B8A9A] font-serif">
             <div className="flex items-center gap-1">
               <div className="w-1 h-1 rounded-full bg-[#009293]" />
               <span>Surface</span>
