@@ -7,20 +7,22 @@ import { Badge } from "@/components/ui/badge"
 import { Modal } from "@/components/ui/modal"
 import { FileText, TrendingUp } from "lucide-react"
 import SectionHeader from "@/components/SectionHeader"
+import { useLanguage } from "@/components/lang/LanguageProvider"
 
 export default function CaseStudies() {
+  const { t } = useLanguage();
   const [isNxModalOpen, setIsNxModalOpen] = useState(false)
 
   const caseStudies = [
     {
       id: "nx-audit",
       icon: FileText,
-      title: "Nx Monorepo: Architecture & Codebase Audit",
-      subtitle: "Led comprehensive analysis and modernization of enterprise-scale monorepo infrastructure.",
+      titleKey: "caseStudies.nx.title",
+      subtitleKey: "caseStudies.nx.subtitle",
       bullets: [
-        { label: "Problem", text: "Legacy structure with 200+ projects, inconsistent patterns, circular dependencies" },
-        { label: "Actions", text: "Conducted full architectural audit, defined migration strategy, established governance" },
-        { label: "Impact", text: "50% faster builds, improved DX, scalable foundation for 20+ developers" }
+        { labelKey: "caseStudies.labels.problem", textKey: "caseStudies.nx.problem" },
+        { labelKey: "caseStudies.labels.actions", textKey: "caseStudies.nx.actions" },
+        { labelKey: "caseStudies.labels.impact", textKey: "caseStudies.nx.impact" }
       ],
       tags: ["Nx", "TypeScript", "Architecture", "DX", "Monorepo", "Governance"],
       hasModal: true,
@@ -29,12 +31,12 @@ export default function CaseStudies() {
     {
       id: "charts-haptics",
       icon: TrendingUp,
-      title: "Charts & Haptics Stabilization",
-      subtitle: "Resolved critical performance bottlenecks in real-time data visualization components.",
+      titleKey: "caseStudies.charts.title",
+      subtitleKey: "caseStudies.charts.subtitle",
       bullets: [
-        { label: "Problem", text: "Chart library causing crashes, memory leaks, and poor mobile UX" },
-        { label: "Actions", text: "Profiled performance, optimized rendering, implemented haptic feedback system" },
-        { label: "Impact", text: "Zero crashes, 60fps on mobile, improved user satisfaction scores" }
+        { labelKey: "caseStudies.labels.problem", textKey: "caseStudies.charts.problem" },
+        { labelKey: "caseStudies.labels.actions", textKey: "caseStudies.charts.actions" },
+        { labelKey: "caseStudies.labels.impact", textKey: "caseStudies.charts.impact" }
       ],
       tags: ["React", "Performance", "Mobile", "UX", "Optimization"],
       hasModal: false
@@ -60,8 +62,8 @@ export default function CaseStudies() {
         <div className="container-standard relative z-10">
           {/* Header */}
           <SectionHeader 
-            title="Leadership Case Studies"
-            description="Deep dives into architectural decisions, technical leadership, and impact-driven solutions"
+            title={t("caseStudies.title")}
+            description={t("caseStudies.description")}
           />
 
           {/* Case Studies Grid */}
@@ -79,10 +81,10 @@ export default function CaseStudies() {
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold text-[#E6EDF2] mb-2">
-                        {study.title}
+                        {t(study.titleKey)}
                       </h3>
                       <p className="text-sm text-[#A7B3C2] leading-relaxed">
-                        {study.subtitle}
+                        {t(study.subtitleKey)}
                       </p>
                     </div>
                   </div>
@@ -93,10 +95,10 @@ export default function CaseStudies() {
                   {study.bullets.map((bullet, idx) => (
                     <div key={idx} className="flex gap-2.5">
                       <span className="text-xs font-medium text-[#009293] mt-0.5 shrink-0 min-w-[60px]">
-                        {bullet.label}
+                        {t(bullet.labelKey)}
                       </span>
                       <span className="text-xs text-[#A7B3C2] leading-relaxed">
-                        {bullet.text}
+                        {t(bullet.textKey)}
                       </span>
                     </div>
                   ))}
@@ -119,7 +121,7 @@ export default function CaseStudies() {
                     size="sm"
                     className="w-full"
                   >
-                    View Full Audit
+                    {t("caseStudies.viewFullAudit")}
                   </Button>
                 )}
               </Card>
@@ -132,23 +134,21 @@ export default function CaseStudies() {
       <Modal
         isOpen={isNxModalOpen}
         onClose={() => setIsNxModalOpen(false)}
-        title="Nx Monorepo: Architecture & Codebase Audit"
+        title={t("caseStudies.nx.title")}
       >
         {/* <div className="prose prose-slate max-w-none"> */}
           <div className="space-y-6 text-[#475569 px-4 py-4 reading-surface" style={{ lineHeight: '1.8' }}>
             {/* Context */}
             <section>
-              <h3 className="text-xl font-semibold text-[#1E293B] mb-3">🧭 Context</h3>
+              <h3 className="text-xl font-semibold text-[#1E293B] mb-3">🧭 {t("caseStudies.modal.context")}</h3>
               <p className="text-sm leading-relaxed max-w-3xl">
-                I conducted a full audit of a shared Nx monorepo containing multiple React web and mobile apps. 
-                The goal was to identify architectural inconsistencies, reduce duplication, and define scalable 
-                standards for reusability and type safety across teams.
+                {t("caseStudies.modal.contextText")}
               </p>
             </section>
 
             {/* Key Findings */}
             <section>
-              <h3 className="text-xl font-semibold text-[#1E293B] mb-3">🔍 Key Findings</h3>
+              <h3 className="text-xl font-semibold text-[#1E293B] mb-3">🔍 {t("caseStudies.modal.keyFindings")}</h3>
               
               <div className="space-y-4">
                 <div>
@@ -193,7 +193,7 @@ export default function CaseStudies() {
 
             {/* Actions Recommended */}
             <section>
-              <h3 className="text-xl font-semibold text-[#1E293B] mb-3">⚙️ Actions Recommended</h3>
+              <h3 className="text-xl font-semibold text-[#1E293B] mb-3">⚙️ {t("caseStudies.modal.actionsRecommended")}</h3>
               <ul className="space-y-2 text-sm list-disc pl-5 leading-relaxed max-w-3xl">
                 <li><strong>Refactor & Consolidate:</strong> Merge duplicate components and enforce Atomic Design consistency</li>
                 <li><strong>Improve Typing:</strong> Replace <code className="text-[#009293] bg-[#009293]/5 px-1 py-0.5 rounded">any</code> types with clear interfaces; enable strict TS rules</li>
@@ -207,7 +207,7 @@ export default function CaseStudies() {
 
             {/* Impact */}
             <section>
-              <h3 className="text-xl font-semibold text-[#1E293B] mb-3">📈 Impact</h3>
+              <h3 className="text-xl font-semibold text-[#1E293B] mb-3">📈 {t("caseStudies.modal.impact")}</h3>
               <ul className="space-y-2 text-sm list-disc pl-5 leading-relaxed max-w-3xl">
                 <li>Reduced component duplication by ≈40% through shared libraries</li>
                 <li>Improved type safety and stability across web and mobile builds</li>
@@ -219,11 +219,9 @@ export default function CaseStudies() {
 
             {/* Takeaway */}
             <section>
-              <h3 className="text-xl font-semibold text-[#1E293B] mb-3">💬 Takeaway</h3>
+              <h3 className="text-xl font-semibold text-[#1E293B] mb-3">💬 {t("caseStudies.modal.takeaway")}</h3>
               <p className="text-sm leading-relaxed max-w-3xl">
-                This audit reinforced the value of architectural clarity and team alignment in multi-platform 
-                environments. Good code structure isn't just about components — it's about communication, 
-                consistency, and enabling every developer to work with confidence and speed.
+                {t("caseStudies.modal.takeawayText")}
               </p>
             </section>
           </div>

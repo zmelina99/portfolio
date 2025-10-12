@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Mail, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 import SectionHeader from "@/components/SectionHeader";
+import { useLanguage } from "@/components/lang/LanguageProvider";
 
 export default function Contact() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,7 +19,7 @@ export default function Contact() {
     e.preventDefault();
     // Handle form submission here
     console.log("Form submitted:", formData);
-    alert("Thank you for your message! I'll get back to you soon.");
+    alert(t("contact.success"));
     setFormData({ name: "", email: "", message: "" });
   };
 
@@ -33,14 +35,14 @@ export default function Contact() {
   const contactInfo = [
     {
       icon: Mail,
-      label: "Email",
+      labelKey: "contact.emailLabel",
       value: "zmelina@gmail.com",
       link: "mailto:zmelina@gmail.com",
     },
     {
       icon: MapPin,
-      label: "Location",
-      value: "Switzerland/Spain",
+      labelKey: "contact.locationLabel",
+      valueKey: "contact.locationValue",
       link: null,
     },
   ];
@@ -58,18 +60,17 @@ export default function Contact() {
 
       <div className="container-standard relative z-10">
         <SectionHeader 
-          title="Get In Touch"
-          description="Have a project in mind or just want to chat? Feel free to reach out!"
+          title={t("contact.title")}
+          description={t("contact.description")}
         />
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-6">
             <div>
-              <h3 className="text-xl font-semibold mb-4 text-[#E6EDF2]">Let&apos;s Connect</h3>
+              <h3 className="text-xl font-semibold mb-4 text-[#E6EDF2]">{t("contact.letsConnect")}</h3>
               <p className="text-[#A7B3C2] mb-6 leading-relaxed">
-                I&apos;m always open to discussing new projects, creative ideas, or
-                opportunities to be part of your vision.
+                {t("contact.intro")}
               </p>
             </div>
 
@@ -81,7 +82,7 @@ export default function Contact() {
                       <info.icon className="h-5 w-5 text-[#009293]" />
                     </div>
                     <div>
-                      <p className="text-sm text-[#7B8A9A]">{info.label}</p>
+                      <p className="text-sm text-[#7B8A9A]">{t(info.labelKey)}</p>
                       {info.link ? (
                         <a
                           href={info.link}
@@ -90,7 +91,7 @@ export default function Contact() {
                           {info.value}
                         </a>
                       ) : (
-                        <p className="font-medium text-[#E6EDF2]">{info.value}</p>
+                        <p className="font-medium text-[#E6EDF2]">{info.valueKey ? t(info.valueKey) : info.value}</p>
                       )}
                     </div>
                   </div>
@@ -99,10 +100,9 @@ export default function Contact() {
             </div>
 
             <Card className="p-5 bg-gradient-to-br from-[#009293]/10 to-[#00787A]/10 border-[#009293]/20">
-              <h4 className="font-medium mb-2 text-[#E6EDF2]">💡 Quick Response</h4>
+              <h4 className="font-medium mb-2 text-[#E6EDF2]">{t("contact.quickResponse")}</h4>
               <p className="text-sm text-[#A7B3C2] leading-relaxed">
-                I typically respond within 24 hours. Let&apos;s build something amazing
-                together!
+                {t("contact.quickResponseText")}
               </p>
             </Card>
           </div>
@@ -115,7 +115,7 @@ export default function Contact() {
                   htmlFor="name"
                   className="block text-sm font-medium mb-2 text-[#E6EDF2]"
                 >
-                  Name
+                  {t("contact.name")}
                 </label>
                 <input
                   type="text"
@@ -125,7 +125,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-2.5 rounded-lg border border-[rgba(100,116,139,0.60)] bg-[rgba(30,41,59,0.70)] focus:outline-none focus:ring-2 focus:ring-[#009293] focus:border-[#009293] text-[#E6EDF2] placeholder:text-[#7B8A9A] transition-all duration-200"
-                  placeholder="Your name"
+                  placeholder={t("contact.namePlaceholder")}
                 />
               </div>
 
@@ -134,7 +134,7 @@ export default function Contact() {
                   htmlFor="email"
                   className="block text-sm font-medium mb-2 text-[#E6EDF2]"
                 >
-                  Email
+                  {t("contact.email")}
                 </label>
                 <input
                   type="email"
@@ -144,7 +144,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-2.5 rounded-lg border border-[rgba(100,116,139,0.60)] bg-[rgba(30,41,59,0.70)] focus:outline-none focus:ring-2 focus:ring-[#009293] focus:border-[#009293] text-[#E6EDF2] placeholder:text-[#7B8A9A] transition-all duration-200"
-                  placeholder="your.email@example.com"
+                  placeholder={t("contact.emailPlaceholder")}
                 />
               </div>
 
@@ -153,7 +153,7 @@ export default function Contact() {
                   htmlFor="message"
                   className="block text-sm font-medium mb-2 text-[#E6EDF2]"
                 >
-                  Message
+                  {t("contact.message")}
                 </label>
                 <textarea
                   id="message"
@@ -163,7 +163,7 @@ export default function Contact() {
                   required
                   rows={5}
                   className="w-full px-4 py-2.5 rounded-lg border border-[rgba(100,116,139,0.60)] bg-[rgba(30,41,59,0.70)] focus:outline-none focus:ring-2 focus:ring-[#009293] focus:border-[#009293] text-[#E6EDF2] placeholder:text-[#7B8A9A] resize-none transition-all duration-200"
-                  placeholder="Tell me about your project..."
+                  placeholder={t("contact.messagePlaceholder")}
                 />
               </div>
 
@@ -173,7 +173,7 @@ export default function Contact() {
                 size="lg"
               >
                 <Send className="h-4 w-4 mr-2" />
-                Send Message
+                {t("contact.send")}
               </Button>
             </form>
           </Card>

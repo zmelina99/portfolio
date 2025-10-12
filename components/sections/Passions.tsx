@@ -3,37 +3,40 @@
 import { Card } from "@/components/ui/card";
 import { Waves, Mountain, Dumbbell, Heart } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
+import { useLanguage } from "@/components/lang/LanguageProvider";
 
 interface Passion {
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   icon: React.ElementType;
   image: string;
 }
 
 export default function Passions() {
+  const { t } = useLanguage();
+  
   const passions: Passion[] = [
     {
-      title: "Scuba Diving",
-      description: "Exploring underwater worlds",
+      titleKey: "passions.scubaDiving",
+      descriptionKey: "passions.scubaDiving.desc",
       icon: Waves,
       image: "/diving.JPG",
     },
     {
-      title: "Skiing",
-      description: "Mountain adventures",
+      titleKey: "passions.skiing",
+      descriptionKey: "passions.skiing.desc",
       icon: Mountain,
       image: "/skiing.JPG",
     },
     {
-      title: "Olympic Lifting",
-      description: "Building strength & discipline",
+      titleKey: "passions.lifting",
+      descriptionKey: "passions.lifting.desc",
       icon: Dumbbell,
       image: "/olympicLifting.PNG",
     },
     {
-      title: "Panchin",
-      description: "My beloved companion",
+      titleKey: "passions.panchin",
+      descriptionKey: "passions.panchin.desc",
       icon: Heart,
       image: "/panchin.PNG",
     },
@@ -53,8 +56,8 @@ export default function Passions() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeader 
-          title="Beyond the code"
-          description="Life is about balance, and I love to explore my passions and interests outside of work"
+          title={t("passions.title")}
+          description={t("passions.description")}
         />
 
         {/* Bubble Grid */}
@@ -76,7 +79,7 @@ export default function Passions() {
                   <div className="w-full h-full relative">
                     <img
                       src={passion.image}
-                      alt={passion.title}
+                      alt={t(passion.titleKey)}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -89,10 +92,10 @@ export default function Passions() {
               {/* Content - simplified */}
               <div className="text-center">
                 <h3 className="text-sm font-medium mb-1 text-[#E6EDF2] group-hover:text-[#009293] transition-colors">
-                  {passion.title}
+                  {t(passion.titleKey)}
                 </h3>
                 <p className="text-xs text-[#7B8A9A] leading-relaxed">
-                  {passion.description}
+                  {t(passion.descriptionKey)}
                 </p>
               </div>
             </div>

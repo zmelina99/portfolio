@@ -1,19 +1,24 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Globe } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
+import { useLanguage } from "@/components/lang/LanguageProvider";
 
 export default function Skills() {
+  const { t } = useLanguage();
+  
   const skillGroups = [
     {
       emoji: "🧭",
-      title: "Frontend & Systems",
-      subtitle: "Building modular architectures, design systems, and scalable component libraries for web and mobile.",
+      titleKey: "skills.frontend.title",
+      subtitleKey: "skills.frontend.subtitle",
       technologies: ["React", "Next.js", "TypeScript", "Ionic", "Capacitor", "Nx", "Redux", "SCSS", "Design Systems", "Component Libraries"],
     },
     {
       emoji: "⚙️",
-      title: "Backend & Tooling",
-      subtitle: "Creating reliable APIs, testing frameworks, and developer-first workflows.",
+      titleKey: "skills.backend.title",
+      subtitleKey: "skills.backend.subtitle",
       technologies: ["Node.js", "Express", "PostgreSQL", "Firebase", "REST APIs", "CI/CD", "GitHub", "Jest", "Cypress"],
     },
   ];
@@ -30,8 +35,8 @@ export default function Skills() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <SectionHeader 
-          title="Systems & Stack"
-          description="Specialized in scalable architectures, design systems, and developer experience optimization."
+          title={t("skills.title")}
+          description={t("skills.description")}
         />
 
         {/* Skills Groups */}
@@ -43,11 +48,11 @@ export default function Skills() {
                 <div className="flex items-center gap-2.5 mb-2">
                   <span className="text-lg">{group.emoji}</span>
                   <h3 className="text-base font-medium text-[#E6EDF2]">
-                    {group.title}
+                    {t(group.titleKey)}
                   </h3>
                 </div>
                 <p className="text-sm text-[#7B8A9A] leading-relaxed">
-                  {group.subtitle}
+                  {t(group.subtitleKey)}
                 </p>
               </div>
 
@@ -72,11 +77,11 @@ export default function Skills() {
         <div className="text-center">
           <div className="inline-flex items-center gap-2 mb-3">
             <Globe className="h-4 w-4 text-[#009293]" />
-            <h3 className="text-m font-medium text-[#E6EDF2]">Languages</h3>
+            <h3 className="text-m font-medium text-[#E6EDF2]">{t("skills.languages.title")}</h3>
           </div>
           
           <p className="text-sm text-[#7B8A9A] leading-relaxed">
-            🇪🇸 Spanish (Native) · 🇬🇧 English (C2) · 🇫🇷 French (B1)
+            {t("skills.languages.content")}
           </p>
         </div>
       </div>
