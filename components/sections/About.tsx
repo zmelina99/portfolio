@@ -1,29 +1,33 @@
+"use client";
+
 import { Card } from "@/components/ui/card";
 import { Code, Palette, Rocket, Users } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
+import { useLanguage } from "@/components/lang/LanguageProvider";
 
 export default function About() {
+  const { t } = useLanguage();
+  
   const highlights = [
     {
       icon: Code,
-      title: "Clean Code",
-      description: "Writing code that's clear, efficient, and built to last.",
+      titleKey: "about.highlight1.title",
+      descKey: "about.highlight1.desc",
     },
     {
       icon: Palette,
-      title: "Design Focus",
-      description: "Creating interfaces that feel natural and effortless.",
+      titleKey: "about.highlight2.title",
+      descKey: "about.highlight2.desc",
     },
     {
       icon: Rocket,
-      title: "Fast Delivery",
-      description: "Moving fast without cutting corners, focusing on impact.",
+      titleKey: "about.highlight3.title",
+      descKey: "about.highlight3.desc",
     },
     {
       icon: Users,
-      title: "Collaboration",
-      description:
-        "Leading through teamwork and building great products together.",
+      titleKey: "about.highlight4.title",
+      descKey: "about.highlight4.desc",
     },
   ];
 
@@ -42,59 +46,52 @@ export default function About() {
       </div>
 
       <div className="container-standard relative z-10">
-        <SectionHeader title="About Me" />
+        <SectionHeader title={t("about.title")} />
 
         <div className="grid md:grid-cols-2 gap-10 items-start">
           {/* Left side - Description */}
           <div className="space-y-5 max-w-2xl">
             <p className="text-base text-[#A7B3C2] leading-relaxed">
-              I’m a frontend engineer focused on writing scalable, maintainable
-              code for modern web and mobile applications. I work mainly with
-              React, TypeScript, and Nx, translating design systems and product
-              logic into clear, reusable components.
+              {t("about.intro")}
             </p>
-            <p className=" text-lg text-[#A7B3C2] leading-relaxed mb-1 font-bold">
-              How I Work:
+            <p className="text-lg text-[#A7B3C2] leading-relaxed mb-1 font-bold">
+              {t("about.howIWork")}
             </p>
             <ul className="space-y-2 text-sm text-[#A7B3C2]">
               <li className="list-disc list-inside">
-                Refactor and simplify complex codebases for clarity and
-                performance.
+                {t("about.work1")}
               </li>
               <li className="list-disc list-inside">
-                Create shared libraries that reduce duplication and speed up
-                development.
+                {t("about.work2")}
               </li>
               <li className="list-disc list-inside">
-                Collaborate closely with backend and design teams to keep
-                systems aligned.
+                {t("about.work3")}
               </li>
               <li className="list-disc list-inside">
-                Prioritize code that’s readable, predictable, and easy to
-                extend.
+                {t("about.work4")}
               </li>
             </ul>
 
             <div className="pt-3">
               <p className="text-lg text-[#A7B3C2] leading-relaxed mb-1 font-bold">
-                Quick Facts:
+                {t("about.quickFacts")}
               </p>
               <ul className="space-y-2 text-sm text-[#A7B3C2]">
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-[#009293] rounded-full" />
-                  💼 4 years of frontend development experience
+                  {t("about.fact1")}
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-[#009293] rounded-full" />
-                  🚀 Currently at Hive Power (2+ years)
+                  {t("about.fact2")}
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 bg-[#009293] rounded-full" />
-                  🌍 Remote work specialist
+                  {t("about.fact3")}
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-[#009293] rounded-full" />⚡
-                  Expert in React, TypeScript & Nx
+                  <span className="w-1.5 h-1.5 bg-[#009293] rounded-full" />
+                  {t("about.fact4")}
                 </li>
               </ul>
             </div>
@@ -109,10 +106,10 @@ export default function About() {
               >
                 <highlight.icon className="h-8 w-8 text-[#009293] mb-0" />
                 <h3 className="font-medium text-base mb-0 text-[#E6EDF2]">
-                  {highlight.title}
+                  {t(highlight.titleKey)}
                 </h3>
                 <p className="text-sm text-[#A7B3C2] leading-relaxed">
-                  {highlight.description}
+                  {t(highlight.descKey)}
                 </p>
               </Card>
             ))}
