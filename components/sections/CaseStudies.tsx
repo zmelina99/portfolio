@@ -136,11 +136,11 @@ export default function CaseStudies() {
         onClose={() => setIsNxModalOpen(false)}
         title="Nx Monorepo: Architecture & Codebase Audit"
       >
-        <div className="prose prose-invert prose-slate max-w-none">
-          <div className="space-y-6 text-slate-300" style={{ lineHeight: '1.8' }}>
+        <div className="prose prose-slate max-w-none">
+          <div className="space-y-6 text-[#475569]" style={{ lineHeight: '1.8' }}>
             {/* Context */}
             <section>
-              <h3 className="text-xl font-medium text-[#E6EDF2] mb-3">🧭 Context</h3>
+              <h3 className="text-xl font-medium text-[#1E293B] mb-3">🧭 Context</h3>
               <p className="text-sm">
                 I conducted a full audit of a shared Nx monorepo containing multiple React web and mobile apps. 
                 The goal was to identify architectural inconsistencies, reduce duplication, and define scalable 
@@ -150,7 +150,7 @@ export default function CaseStudies() {
 
             {/* Key Findings */}
             <section>
-              <h3 className="text-xl font-medium text-[#E6EDF2] mb-3">🔍 Key Findings</h3>
+              <h3 className="text-xl font-medium text-[#1E293B] mb-3">🔍 Key Findings</h3>
               
               <div className="space-y-4">
                 <div>
@@ -195,7 +195,7 @@ export default function CaseStudies() {
 
             {/* Actions Recommended */}
             <section>
-              <h3 className="text-xl font-medium text-[#E6EDF2] mb-3">⚙️ Actions Recommended</h3>
+              <h3 className="text-xl font-medium text-[#1E293B] mb-3">⚙️ Actions Recommended</h3>
               <ul className="space-y-2 text-sm list-disc pl-5">
                 <li><strong>Refactor & Consolidate:</strong> Merge duplicate components and enforce Atomic Design consistency</li>
                 <li><strong>Improve Typing:</strong> Replace <code className="text-[#009293]">any</code> types with clear interfaces; enable strict TS rules</li>
@@ -209,7 +209,7 @@ export default function CaseStudies() {
 
             {/* Impact */}
             <section>
-              <h3 className="text-xl font-medium text-[#E6EDF2] mb-3">📈 Impact</h3>
+              <h3 className="text-xl font-medium text-[#1E293B] mb-3">📈 Impact</h3>
               <ul className="space-y-2 text-sm list-disc pl-5">
                 <li>Reduced component duplication by ≈40% through shared libraries</li>
                 <li>Improved type safety and stability across web and mobile builds</li>
@@ -221,7 +221,7 @@ export default function CaseStudies() {
 
             {/* Takeaway */}
             <section>
-              <h3 className="text-xl font-medium text-[#E6EDF2] mb-3">💬 Takeaway</h3>
+              <h3 className="text-xl font-medium text-[#1E293B] mb-3">💬 Takeaway</h3>
               <p className="text-sm">
                 This audit reinforced the value of architectural clarity and team alignment in multi-platform 
                 environments. Good code structure isn't just about components — it's about communication, 
