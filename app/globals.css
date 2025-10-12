@@ -163,7 +163,7 @@
 @layer base {
   * {
     @apply border-border;
-    cursor: url('/octopus-cursor.svg') 16 16, auto;
+    /* cursor: url('/octopus-cursor.svg') 16 16, auto; */
   }
   
   body {
@@ -189,7 +189,7 @@
   }
   
   button, a, [role="button"] {
-    cursor: url('/octopus-cursor.svg') 16 16, pointer;
+    /* cursor: url('/octopus-cursor.svg') 16 16, pointer; */
   }
   
   /* Focus visible styles for accessibility */
