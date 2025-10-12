@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/components/lang/LanguageProvider";
 
 export default function DiveDepthIndicator() {
   const [depth, setDepth] = useState(0);
+  const { isOverlayVisible } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +18,11 @@ export default function DiveDepthIndicator() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Hide the indicator when the language overlay is visible
+  if (isOverlayVisible) {
+    return null;
+  }
 
   return (
     <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 hidden lg:block">

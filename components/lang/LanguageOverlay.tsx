@@ -18,7 +18,7 @@ const LANGUAGES: LanguageConfig[] = [
 ];
 
 export default function LanguageOverlay() {
-  const { setLanguage: setAppLanguage } = useLanguage();
+  const { setLanguage: setAppLanguage, isOverlayVisible, setIsOverlayVisible } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [showPlainSelector, setShowPlainSelector] = useState(false);
   const [isPopping, setIsPopping] = useState(false);
@@ -39,6 +39,7 @@ export default function LanguageOverlay() {
 
     // Show overlay on every load (for testing)
     setIsVisible(true);
+    setIsOverlayVisible(true);
 
     // Check for reduced motion preference
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -97,6 +98,7 @@ export default function LanguageOverlay() {
     // Close overlay after animation
     setTimeout(() => {
       setIsVisible(false);
+      setIsOverlayVisible(false);
     }, 350);
   };
 
@@ -104,6 +106,7 @@ export default function LanguageOverlay() {
     // Close without persisting; default to EN
     applyLanguage("en");
     setIsVisible(false);
+    setIsOverlayVisible(false);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
