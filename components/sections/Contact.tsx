@@ -39,12 +39,12 @@ export default function Contact() {
       value: "zmelina@gmail.com",
       link: "mailto:zmelina@gmail.com",
     },
-    {
-      icon: MapPin,
-      labelKey: "contact.locationLabel",
-      valueKey: "contact.locationValue",
-      link: null,
-    },
+    // {
+    //   icon: MapPin,
+    //   labelKey: "contact.locationLabel",
+    //   valueKey: "contact.locationValue",
+    //   link: null,
+    // },
   ];
 
   return (
