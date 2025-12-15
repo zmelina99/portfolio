@@ -91,7 +91,7 @@ export default function Contact() {
                           {info.value}
                         </a>
                       ) : (
-                        <p className="font-medium text-[#E6EDF2]">{info.valueKey ? t(info.valueKey) : info.value}</p>
+                        <p className="font-medium text-[#E6EDF2]">{info?.value ? t(info?.value) : info.value}</p>
                       )}
                     </div>
                   </div>
