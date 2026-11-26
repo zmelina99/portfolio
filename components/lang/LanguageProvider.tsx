@@ -16,8 +16,6 @@ interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
-  isOverlayVisible: boolean;
-  setIsOverlayVisible: (visible: boolean) => void;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
@@ -27,13 +25,13 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>("en");
   const [isInitialized, setIsInitialized] = useState(false);
-  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
 
   useEffect(() => {
     // Initialize from localStorage on mount
     const savedLang = getLangPref();
     if (savedLang) {
       setLanguageState(savedLang);
+      document.documentElement.lang = savedLang;
     }
     setIsInitialized(true);
   }, []);
@@ -58,8 +56,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   // Memoize context value to prevent unnecessary re-renders
   const value = useMemo(
-    () => ({ language, setLanguage, t, isOverlayVisible, setIsOverlayVisible }),
-    [language, setLanguage, t, isOverlayVisible]
+    () => ({ language, setLanguage, t }),
+    [language, setLanguage, t]
   );
 
   // Prevent flash of untranslated content on initial load

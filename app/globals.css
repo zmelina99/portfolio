@@ -163,7 +163,6 @@
 @layer base {
   * {
     @apply border-border;
-    /* cursor: url('/octopus-cursor.svg') 16 16, auto; */
   }
   
   body {
@@ -186,10 +185,6 @@
   p {
     line-height: 1.75;
     color: var(--text-secondary);
-  }
-  
-  button, a, [role="button"] {
-    /* cursor: url('/octopus-cursor.svg') 16 16, pointer; */
   }
   
   /* Focus visible styles for accessibility */
@@ -231,48 +226,6 @@
   75% { transform: translateX(-2px) translateY(2px); } 
 }
 
-/* Language Selector Bubble Animations */
-@keyframes bubble-float {
-  0%, 100% { 
-    transform: translateY(0) translateX(0) rotate(0deg); 
-  }
-  25% { 
-    transform: translateY(-12px) translateX(4px) rotate(1deg); 
-  }
-  50% { 
-    transform: translateY(-8px) translateX(-2px) rotate(-0.5deg); 
-  }
-  75% { 
-    transform: translateY(-14px) translateX(2px) rotate(0.5deg); 
-  }
-}
-
-@keyframes bubble-ripple {
-  0%, 100% { 
-    transform: translateX(-50%) scale(0.9); 
-    opacity: 0.3; 
-  }
-  50% { 
-    transform: translateX(-50%) scale(1.1); 
-    opacity: 0.5; 
-  }
-}
-
-@keyframes bubble-pop {
-  0% { 
-    transform: scale(1); 
-    opacity: 1; 
-  }
-  40% { 
-    transform: scale(1.1); 
-    opacity: 0.8; 
-  }
-  100% { 
-    transform: scale(0); 
-    opacity: 0; 
-  }
-}
-
 .animate-fade-in { 
   animation: fade-in 400ms ease-out; 
 }
@@ -294,30 +247,43 @@
   animation: wave 3s ease-in-out infinite; 
 }
 
-/* Language Selector Bubble Classes */
-.bubble-float {
-  animation: bubble-float 4s ease-in-out infinite;
-}
-
-.bubble-ripple {
-  animation: bubble-ripple 3s ease-in-out infinite;
-}
-
-.bubble-pop-all button {
-  animation: bubble-pop 350ms ease-in forwards;
-}
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .bubble-float,
-  .bubble-ripple {
-    animation: none;
+/* Smooth scrolling (only when motion is welcome) */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-/* Smooth scrolling */
-html { 
-  scroll-behavior: smooth; 
+/* Keep anchored section headings clear of the fixed 64px header */
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+/* Respect reduced motion: stop decorative animation everywhere */
+@media (prefers-reduced-motion: reduce) {
+  .bubbles,
+  .light-rays,
+  .particles {
+    display: none;
+  }
+
+  body::after,
+  .animate-shimmer,
+  .animate-wave,
+  .water-light,
+  .animate-bounce,
+  .animate-fade-in,
+  .animate-fade-scale,
+  .animate-float-up {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* =============================
@@ -369,16 +335,16 @@ body::after {
   position: absolute;
   bottom: -100px;
   border-radius: 50%;
-  background: radial-gradient(circle,
-    rgba(0, 146, 147, 0.6) 0%,
-    rgba(203, 213, 225, 0.4) 50%,
-    rgba(0, 146, 147, 0.2) 70%,
+  background: radial-gradient(circle at 35% 30%,
+    rgba(230, 237, 242, 0.35) 0%,
+    rgba(0, 146, 147, 0.25) 45%,
+    rgba(0, 146, 147, 0.08) 70%,
     transparent 100%);
+  border: 1px solid rgba(77, 204, 204, 0.25);
   animation: float-up linear infinite;
-  box-shadow: 
-    0 0 30px rgba(0, 146, 147, 0.5), 
-    0 0 50px rgba(0, 146, 147, 0.25),
-    inset -4px -4px 10px rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 0 18px rgba(0, 146, 147, 0.25),
+    inset -3px -3px 8px rgba(255, 255, 255, 0.12);
   will-change: transform, opacity;
 }
 
@@ -504,6 +470,19 @@ body::after {
 .card-standard:hover {
   border-color: var(--border-hover);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Featured cards (case studies): more opaque surface for contrast */
+.card-standard.card-feature {
+  background: rgba(17, 36, 48, 0.9);
+  border-color: rgba(20, 184, 166, 0.3);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.45);
+}
+
+.card-standard.card-feature:hover,
+.card-standard.card-feature:focus-within {
+  border-color: rgba(77, 204, 204, 0.55);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(77, 204, 204, 0.15);
 }
 
 /* Chips/Tags */

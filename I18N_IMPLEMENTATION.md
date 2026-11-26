@@ -2,7 +2,7 @@
 
 ## ✅ What Was Built
 
-A complete, lightweight, dependency-free internationalization system integrated with your bubble language selector.
+A complete, lightweight, dependency-free internationalization system driven by the header language selector.
 
 ## 📦 Files Created
 
@@ -41,11 +41,9 @@ A complete, lightweight, dependency-free internationalization system integrated 
 ### 1. User Experience Flow
 
 ```
-User visits site
+User visits site (homepage renders immediately, English by default)
     ↓
-Bubble selector appears (octopus 🐙)
-    ↓
-User pops "ES" bubble
+User picks "Español" in the header language selector
     ↓
 Language instantly changes to Spanish
     ↓
@@ -145,26 +143,9 @@ const { t } = useLanguage();
 </section>
 ```
 
-## 🎨 Integration with Bubble Selector
+## 🎨 Integration with the Header Selector
 
-The bubble selector is already fully integrated:
-
-1. **Octopus pops up** → bottom-right corner
-2. **User clicks bubble** → `setLanguage(lang)` is called
-3. **Instant update** → All `t()` calls re-render
-4. **Persisted** → Saved to `localStorage.langPref`
-5. **Next visit** → Auto-applies saved language
-
-The integration happens in `components/lang/LanguageOverlay.tsx`:
-
-```tsx
-const handleLanguageSelect = (lang: Language) => {
-  setIsPopping(true);
-  setLangPref(lang);        // Save to localStorage
-  applyLanguage(lang);      // Update context
-  // Close overlay after animation
-};
-```
+`components/lang/LanguageSwitcher.tsx` (in the navigation bar, desktop and mobile menu) calls `setLanguage(lang)` from `useLanguage()`. That re-renders every `t()` call, saves the choice to `localStorage.langPref`, and updates `<html lang>`. On the next visit `LanguageProvider` applies the saved language automatically.
 
 ## 🔧 Configuration
 
@@ -192,16 +173,15 @@ export function getDefaultLang(): Language {
      de: deDict,
    };
    ```
-3. Add German to bubble selector arrays
-4. Add flag emoji: 🇩🇪
+3. Add German (🇩🇪) to the `LANGUAGES` array in `components/lang/LanguageSwitcher.tsx`
 
-### Reset to First-Visit State (Testing)
+### Reset Saved Language (Testing)
 
 ```js
 // In browser console:
 localStorage.removeItem("langPref");
 location.reload();
-// Bubble selector will appear again
+// Site loads in English again
 ```
 
 ## 📊 Performance Metrics
@@ -296,8 +276,8 @@ Now it displays:
 ### Test Language Switching
 
 1. **Open your site**: http://localhost:3000
-2. **Octopus appears**: Bottom-right corner
-3. **Click Spanish bubble**: Content switches to Spanish
+2. **Homepage loads straight to the hero** (no popup)
+3. **Pick Español in the header selector**: Content switches to Spanish
 4. **Check persistence**: Refresh page → still Spanish
 5. **Use navigation switcher**: Try other languages
 
@@ -419,7 +399,7 @@ This requires Next.js i18n routing or middleware.
 ✅ Accessible (updates HTML lang attribute)  
 ✅ Works offline  
 ✅ No console errors  
-✅ Beautiful UX with bubble selector  
+✅ Header language selector, no blocking popup  
 
 ---
 

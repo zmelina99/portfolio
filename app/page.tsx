@@ -22,9 +22,9 @@ export default function Home() {
       {/* Bubble game hidden by default - uncomment to enable */}
       {/* <BubbleGame /> */}
       <Hero />
+      <CaseStudies />
       <About />
       <Experience />
-      <CaseStudies />
       <Skills />
       {/* <Projects /> */}
       <Passions />

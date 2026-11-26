@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import LanguageSwitcher from "@/components/lang/LanguageSwitcher";
 import { useLanguage } from "@/components/lang/LanguageProvider";
+import { scrollToSection } from "@/lib/utils";
 
 export default function Navigation() {
   const { t } = useLanguage();
@@ -15,23 +16,21 @@ export default function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const goToSection = (sectionId: string) => {
+    if (scrollToSection(sectionId)) {
       setIsMobileMenuOpen(false);
     }
   };
 
   const navItems = [
     { labelKey: "nav.home", id: "home" },
+    { labelKey: "nav.caseStudies", id: "case-studies" },
     { labelKey: "nav.about", id: "about" },
     { labelKey: "nav.experience", id: "experience" },
-    { labelKey: "nav.caseStudies", id: "case-studies" },
     { labelKey: "nav.skills", id: "skills" },
     { labelKey: "nav.passions", id: "passions" },
     { labelKey: "nav.contact", id: "contact" },
@@ -50,7 +49,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <button
-            onClick={() => scrollToSection("home")}
+            onClick={() => goToSection("home")}
             className="text-xl font-bold bg-gradient-to-r from-[#009293] to-[#4DCCCC] bg-clip-text text-transparent hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#009293] rounded"
           >
             Melina Zellweger
@@ -62,7 +61,7 @@ export default function Navigation() {
               <Button
                 key={item.id}
                 variant="ghost"
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => goToSection(item.id)}
                 className="text-[#A7B3C2] hover:text-[#009293] hover:bg-[#009293]/10 transition-all duration-200 text-sm"
               >
                 {t(item.labelKey)}
@@ -97,7 +96,7 @@ export default function Navigation() {
               <Button
                 key={item.id}
                 variant="ghost"
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => goToSection(item.id)}
                 className="w-full justify-start text-[#A7B3C2] hover:text-[#009293] hover:bg-[#009293]/10 transition-all duration-200"
               >
                 {t(item.labelKey)}

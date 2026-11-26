@@ -1,6 +1,6 @@
 # 🌍 Lightweight i18n Translation System
 
-A zero-dependency, client-side internationalization system integrated with the bubble language selector.
+A zero-dependency, client-side internationalization system driven by the header language selector.
 
 ## Features
 
@@ -282,19 +282,9 @@ const setLanguage = useCallback((lang: Language) => {
 }, []);
 ```
 
-## Integration with Bubble Selector
+## Integration with the Header Selector
 
-The bubble language selector automatically integrates:
-
-1. User pops a bubble (e.g., "ES")
-2. `handleLanguageSelect("es")` is called
-3. Inside the handler:
-   ```ts
-   setLangPref(lang);      // Save to localStorage
-   setAppLanguage(lang);   // Update context
-   ```
-4. All components using `t()` re-render with new language
-5. Overlay closes
+`components/lang/LanguageSwitcher.tsx` calls `setLanguage(lang)`, which saves the preference, updates `<html lang>`, and re-renders every component using `t()`.
 
 ## Performance
 

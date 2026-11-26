@@ -45,12 +45,12 @@ export default function CaseStudies() {
 
   return (
     <>
-      <section id="case-studies" className="section-major relative overflow-hidden">
+      <section
+        id="case-studies"
+        className="relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-20 border-y border-[rgba(20,184,166,0.12)] bg-[linear-gradient(to_bottom,rgba(0,146,147,0.05),rgba(11,22,32,0.35))]"
+      >
         {/* Bubbles */}
-        <div className="bubbles opacity-20">
-          <div className="bubble"></div>
-          <div className="bubble"></div>
-          <div className="bubble"></div>
+        <div className="bubbles opacity-15" aria-hidden="true">
           <div className="bubble"></div>
           <div className="bubble"></div>
           <div className="bubble"></div>
@@ -61,51 +61,75 @@ export default function CaseStudies() {
 
         <div className="container-standard relative z-10">
           {/* Header */}
-          <SectionHeader 
+          <SectionHeader
             title={t("caseStudies.title")}
             description={t("caseStudies.description")}
+            className="mb-10"
           />
 
           {/* Case Studies Grid */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-            {caseStudies.map((study) => (
+          <div className="grid md:grid-cols-2 gap-5 md:gap-6 max-w-5xl mx-auto">
+            {caseStudies.map((study, index) => (
               <Card
                 key={study.id}
-                className="p-6 flex flex-col hover:scale-[1.02] transition-transform duration-300"
+                className="card-feature relative gap-0 py-0 p-5 sm:p-6 overflow-hidden"
               >
+                {/* Accent strip */}
+                <div
+                  className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#009293] via-[#4DCCCC] to-transparent"
+                  aria-hidden="true"
+                />
+
                 {/* Icon & Title */}
-                <div className="mb-4">
-                  <div className="flex items-start gap-3 mb-3">
-                    <div className="p-2.5 bg-[#009293]/10 rounded-lg">
-                      <study.icon className="h-5 w-5 text-[#009293]" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-[#E6EDF2] mb-2">
-                        {t(study.titleKey)}
-                      </h3>
-                      <p className="text-sm text-[#A7B3C2] leading-relaxed">
-                        {t(study.subtitleKey)}
-                      </p>
-                    </div>
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="p-2.5 bg-[#009293]/15 rounded-lg ring-1 ring-[#009293]/30 shrink-0">
+                    <study.icon className="h-5 w-5 text-[#4DCCCC]" aria-hidden="true" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[11px] font-semibold tracking-[0.18em] text-[#4DCCCC]/80 tabular-nums mb-1" aria-hidden="true">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <h3 className="text-xl sm:text-[1.375rem] font-semibold leading-snug text-[#F1F5F9] mb-1.5">
+                      {t(study.titleKey)}
+                    </h3>
+                    <p className="text-sm text-[#B6C2CF] leading-relaxed">
+                      {t(study.subtitleKey)}
+                    </p>
                   </div>
                 </div>
 
-                {/* Bullets */}
-                <div className="space-y-3 mb-5 flex-grow">
-                  {study.bullets.map((bullet, idx) => (
-                    <div key={idx} className="flex gap-2.5">
-                      <span className="text-xs font-medium text-[#009293] mt-0.5 shrink-0 min-w-[60px]">
-                        {t(bullet.labelKey)}
-                      </span>
-                      <span className="text-xs text-[#A7B3C2] leading-relaxed">
-                        {t(bullet.textKey)}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+                {/* Problem / Actions / Impact */}
+                <dl className="mb-4 divide-y divide-[rgba(148,163,184,0.14)] rounded-xl border border-[rgba(148,163,184,0.16)] bg-[rgba(11,22,32,0.45)]">
+                  {study.bullets.map((bullet, idx) => {
+                    const isImpact = idx === study.bullets.length - 1
+                    return (
+                      <div
+                        key={idx}
+                        className={`grid grid-cols-[5.5rem_1fr] gap-3 px-3.5 py-2.5 ${
+                          isImpact ? "bg-[rgba(0,146,147,0.12)] rounded-b-xl" : ""
+                        }`}
+                      >
+                        <dt
+                          className={`text-[11px] font-semibold uppercase tracking-wider leading-6 ${
+                            isImpact ? "text-[#5EEAD4]" : "text-[#4DCCCC]"
+                          }`}
+                        >
+                          {t(bullet.labelKey)}
+                        </dt>
+                        <dd
+                          className={`text-sm leading-6 ${
+                            isImpact ? "text-[#F1F5F9] font-medium" : "text-[#D5DEE7]"
+                          }`}
+                        >
+                          {t(bullet.textKey)}
+                        </dd>
+                      </div>
+                    )
+                  })}
+                </dl>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-1.5 mt-auto">
                   {study.tags.map((tag, idx) => (
                     <Badge key={idx} variant="outline">
                       {tag}
@@ -119,7 +143,7 @@ export default function CaseStudies() {
                     onClick={study.onViewDetails}
                     variant="outline"
                     size="sm"
-                    className="w-full"
+                    className="w-full mt-4"
                   >
                     {t("caseStudies.viewFullAudit")}
                   </Button>
@@ -137,7 +161,7 @@ export default function CaseStudies() {
         title={t("caseStudies.nx.title")}
       >
         {/* <div className="prose prose-slate max-w-none"> */}
-          <div className="space-y-6 text-[#475569 px-4 py-4 reading-surface" style={{ lineHeight: '1.8' }}>
+          <div className="space-y-6 text-[#475569] px-4 py-4 reading-surface" style={{ lineHeight: '1.8' }}>
             {/* Context */}
             <section>
               <h3 className="text-xl font-semibold text-[#1E293B] mb-3">🧭 {t("caseStudies.modal.context")}</h3>

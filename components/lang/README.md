@@ -1,23 +1,14 @@
-# 🫧 Underwater Language Selector
+# Language Selection
 
-A delightful, accessible, and lightweight language selector with a bubble-popping game interface.
+The site ships in English (EN), Spanish (ES) and French (FR). Visitors pick a language from the selector in the header (`LanguageSwitcher.tsx`); there is no first-visit popup, so the homepage is usable immediately.
 
-## Features
+## How it works
 
-- **First-visit only**: Appears once for new visitors; persists language choice
-- **3 languages**: English (EN), Spanish (ES), French (FR)
-- **Accessible**: Full keyboard navigation, screen reader support, reduced motion support
-- **Lightweight**: <20KB; no external dependencies; CSS-only animations
-- **Underwater themed**: Matches the portfolio's ocean aesthetic with teal accents
+- `LanguageProvider.tsx` (wired up in `app/layout.tsx`) holds the active language and exposes `t()` via `useLanguage()`.
+- On load it applies the saved preference from `localStorage["langPref"]`, defaulting to English.
+- Choosing a language in the header updates every `t()` call, saves the choice, and sets `<html lang>`.
 
 ## Usage
-
-### Basic Setup
-
-The language selector is already integrated into `app/layout.tsx`. It will automatically:
-1. Show on first visit (when no `langPref` in localStorage)
-2. Hide on subsequent visits and auto-apply the saved language
-3. Update the app-wide language context
 
 ### Using Language in Components
 
@@ -82,7 +73,7 @@ setLangPref("es"); // Saves "es" to localStorage
 ```
 
 ### `clearLangPref()`
-Removes the stored language preference (resets to first-visit state).
+Removes the stored language preference (the site falls back to English).
 
 ```ts
 clearLangPref(); // Clears localStorage["langPref"]
@@ -97,57 +88,14 @@ const { language, setLanguage } = useLanguage();
 // setLanguage: (lang: Language) => void
 ```
 
-## User Experience
+## Accessibility
 
-### Bubble Game Mode (Default)
-- 3 floating bubbles with flag emojis
-- Smooth drift animations (respects `prefers-reduced-motion`)
-- Hover/focus: bubbles wobble
-- Click/Enter: bubble pops with scale+fade animation
-- Easter egg: After 2+ quick wrong attempts, shows hint "Try the one you want to read 😉"
-
-### Plain Selector Mode
-- Accessible dropdown fallback
-- Triggered by "☰ Plain selector" link or pressing `Escape`
-- Standard `<select>` element with flag emojis
-
-### Skip Option
-- "Skip / choose later" link at bottom
-- Closes overlay without persisting; defaults to English
-- User can select language later via a manual trigger
-
-## Accessibility Features
-
-✅ **ARIA roles**: `role="dialog"` with `aria-modal="true"`  
-✅ **Keyboard navigation**: Arrow keys, Enter/Space to select, Escape for plain selector  
-✅ **Focus management**: Auto-focuses first bubble; visible focus rings  
-✅ **Reduced motion**: Disables animations when `prefers-reduced-motion: reduce`  
-✅ **Screen readers**: All buttons have descriptive `aria-label` attributes  
-✅ **Color contrast**: Passes WCAG AA on dark backgrounds  
-
-## Performance
-
-- **Bundle size**: ~8KB total (components + utilities)
-- **CSS animations**: No JS animation loops; GPU-accelerated transforms
-- **Lazy loading**: Only renders when needed (first-visit detection)
-- **No images**: Uses emoji and CSS gradients
-
-## Theming
-
-The selector uses your existing design tokens:
-
-```css
---teal-900: #002A2A       /* Background gradient */
---accent-teal: #009293     /* Focus rings, hints */
---text-primary: #E6EDF2    /* Text */
---text-secondary: #A7B3C2  /* Muted text */
-```
-
-To customize, update these variables in `app/globals.css`.
+- The header switcher is a real `<button>` with `aria-expanded`/`aria-haspopup`, closes on `Escape` and outside click, and shows a visible focus ring.
+- `<html lang>` is kept in sync with the active language for screen readers.
 
 ## Testing for Development
 
-To test the first-visit experience again:
+To reset to the default (English) language:
 
 ```js
 // In browser console:
@@ -157,26 +105,11 @@ location.reload();
 
 ## Integration with i18n Routing
 
-If you add Next.js i18n or a routing solution later, update the `applyLanguage` function in `LanguageOverlay.tsx`:
-
-```tsx
-const applyLanguage = (lang: Language) => {
-  setAppLanguage(lang);
-  
-  // Add routing:
-  const router = useRouter();
-  const currentPath = window.location.pathname.replace(/^\/(en|es|fr)/, "");
-  router.push(`/${lang}${currentPath}`);
-};
-```
+If you add Next.js i18n routing later, extend `setLanguage` in `LanguageProvider.tsx` to push the localized route as well.
 
 ## Browser Support
 
 - ✅ Chrome, Edge, Safari, Firefox (last 2 versions)
 - ✅ iOS Safari, Chrome Mobile
 - ✅ Works without JavaScript (falls back to default language)
-
----
-
-**Built with ❤️ for a delightful multilingual experience**
 

@@ -3,16 +3,10 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import { useLanguage } from "@/components/lang/LanguageProvider";
+import { scrollToSection } from "@/lib/utils";
 
 export default function Hero() {
   const { t } = useLanguage();
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <section
@@ -41,7 +35,7 @@ export default function Hero() {
         <div className="bubble"></div>
       </div>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32 relative z-10">
         <div className="text-center space-y-5 animate-fade-in">
           {/* Greeting */}
           <div className="inline-block">
@@ -137,7 +131,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator with dive deeper text */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center gap-2 z-10">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center gap-2 z-10 pointer-events-none">
         <span className="text-sm text-[#009293] font-medium tracking-wide drop-shadow-[0_2px_4px_rgba(11,22,32,0.8)]">
           {t("hero.cta.diveDeeper")}
         </span>
