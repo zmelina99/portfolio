@@ -8,7 +8,7 @@ export default function Projects() {
   const projects = [
     {
       title: "ClearMix Virtual Studio",
-      description: "Flagship application enabling remote video recording and communication with real-time cloud uploads and local storage.",
+      description: "Our main product: remote video recording and calls, with real-time uploads to the cloud and local storage.",
       tags: ["React", "Video Processing", "Cloud Integration", "WebRTC"],
       github: "",
       demo: "",
@@ -16,7 +16,7 @@ export default function Projects() {
     },
     {
       title: "ClearMix Logistics Platform",
-      description: "Scheduling application with Google Maps integration for booking studio equipment delivery locations and times.",
+      description: "A scheduling app that uses Google Maps to book where and when studio equipment gets delivered.",
       tags: ["Next.js", "Google Maps API", "TypeScript", "Scheduling"],
       github: "",
       demo: "",
@@ -24,7 +24,7 @@ export default function Projects() {
     },
     {
       title: "Hive Power Applications",
-      description: "Multiple web and mobile apps in a large-scale Nx monorepo with reusable UI components and cross-platform support.",
+      description: "Several web and mobile apps in one large Nx monorepo, sharing UI components across platforms.",
       tags: ["React", "Ionic", "Capacitor", "Nx Monorepo", "TypeScript"],
       github: "",
       demo: "",
@@ -48,7 +48,7 @@ export default function Projects() {
       <div className="container-standard relative z-10">
         <SectionHeader 
           title="Key Projects"
-          description="Notable applications I've built and contributed to"
+          description="Apps I've built or worked on"
         />
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
