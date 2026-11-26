@@ -10,16 +10,24 @@ export default function Skills() {
   
   const skillGroups = [
     {
-      emoji: "🧭",
-      titleKey: "skills.frontend.title",
-      subtitleKey: "skills.frontend.subtitle",
-      technologies: ["React", "Next.js", "TypeScript", "Ionic", "Capacitor", "Nx", "Redux", "SCSS", "Design Systems", "Component Libraries"],
+      emoji: "🎯",
+      titleKey: "skills.implementation.title",
+      subtitleKey: "skills.implementation.subtitle",
     },
     {
       emoji: "⚙️",
       titleKey: "skills.backend.title",
       subtitleKey: "skills.backend.subtitle",
-      technologies: ["Node.js", "Express", "PostgreSQL", "Firebase", "REST APIs", "CI/CD", "GitHub", "Jest", "Cypress"],
+    },
+    {
+      emoji: "🧭",
+      titleKey: "skills.frontend.title",
+      subtitleKey: "skills.frontend.subtitle",
+    },
+    {
+      emoji: "🔧",
+      titleKey: "skills.infra.title",
+      subtitleKey: "skills.infra.subtitle",
     },
   ];
 
@@ -51,18 +59,9 @@ export default function Skills() {
                     {t(group.titleKey)}
                   </h3>
                 </div>
-                <p className="text-sm text-[#7B8A9A] leading-relaxed">
+                <p className="text-sm text-[#94A3B8] leading-relaxed">
                   {t(group.subtitleKey)}
                 </p>
-              </div>
-
-              {/* Technologies Grid */}
-              <div className="flex flex-wrap gap-2">
-                {group.technologies.map((tech, techIndex) => (
-                  <Badge key={techIndex} variant="outline">
-                    {tech}
-                  </Badge>
-                ))}
               </div>
             </div>
           ))}
@@ -80,7 +79,7 @@ export default function Skills() {
             <h3 className="text-m font-medium text-[#E6EDF2]">{t("skills.languages.title")}</h3>
           </div>
           
-          <p className="text-sm text-[#7B8A9A] leading-relaxed">
+          <p className="text-sm text-[#94A3B8] leading-relaxed">
             {t("skills.languages.content")}
           </p>
         </div>

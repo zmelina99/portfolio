@@ -23,7 +23,7 @@ export default function Experience() {
         "experience.hive.achievement3",
         "experience.hive.achievement4"
       ],
-      skills: ["React", "TypeScript", "Nx", "Ionic", "Capacitor", "UI Components"]
+      skills: ["React", "Ionic/Capacitor", "Nx", "TypeScript", "D3", "Recharts", "Visx", "FastAPI", "Docker", "Kubernetes", "GCP"]
     },
     {
       company: "ClearMix",
@@ -39,7 +39,7 @@ export default function Experience() {
         "experience.clearmix.achievement3",
         "experience.clearmix.achievement4"
       ],
-      skills: ["Next.js", "React", "Google Maps API", "Video Processing", "Unit Testing"]
+      skills: ["Next.js", "Google Maps API", "REST APIs", "React", "TypeScript"]
     }
   ];
 

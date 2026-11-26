@@ -1,7 +1,7 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
-import { Code, Palette, Rocket, Users } from "lucide-react";
+import { Handshake, Plug, GraduationCap, Wrench } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import { useLanguage } from "@/components/lang/LanguageProvider";
 
@@ -10,22 +10,22 @@ export default function About() {
   
   const highlights = [
     {
-      icon: Code,
+      icon: Handshake,
       titleKey: "about.highlight1.title",
       descKey: "about.highlight1.desc",
     },
     {
-      icon: Palette,
+      icon: Plug,
       titleKey: "about.highlight2.title",
       descKey: "about.highlight2.desc",
     },
     {
-      icon: Rocket,
+      icon: GraduationCap,
       titleKey: "about.highlight3.title",
       descKey: "about.highlight3.desc",
     },
     {
-      icon: Users,
+      icon: Wrench,
       titleKey: "about.highlight4.title",
       descKey: "about.highlight4.desc",
     },

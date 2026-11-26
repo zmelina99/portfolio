@@ -18,9 +18,23 @@ const playfair = Playfair_Display({
   weight: ["400", "500", "600", "700", "800", "900"],
 });
 
+const siteTitle = "Meli Zellweger — Implementation & Solutions Engineer";
+const siteDescription =
+  "4+ years deploying B2B software for enterprise clients. Bridging clients, product, and engineering — with the technical depth to build and ship the solution.";
+
 export const metadata: Metadata = {
-  title: "Meli - Portfolio",
-  description: "Full Stack Developer creating elegant digital experiences with React, Next.js, and modern web technologies.",
+  title: siteTitle,
+  description: siteDescription,
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+  },
 };
 
 export default function RootLayout({

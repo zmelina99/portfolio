@@ -59,10 +59,10 @@ export default function Hero() {
 
           {/* Title - tighter spacing */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#E6EDF2] drop-shadow-[0_2px_6px_rgba(11,22,32,0.8)] -mt-1 mb-1">
-            Frontend Engineer:
+            {t("hero.roleLabel")}
           </h2>
           <p className="text-base sm:text-lg text-[#A7B3C2] max-w-xl mx-auto drop-shadow-[0_2px_4px_rgba(11,22,32,0.8)] leading-relaxed pt-0 mt-0">
-            {t("hero.title")}{" "}
+            {t("hero.title")}
           </p>
 
           {/* Description - improved readability */}

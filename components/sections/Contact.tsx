@@ -82,7 +82,7 @@ export default function Contact() {
                       <info.icon className="h-5 w-5 text-[#009293]" />
                     </div>
                     <div>
-                      <p className="text-sm text-[#7B8A9A]">{t(info.labelKey)}</p>
+                      <p className="text-sm text-[#94A3B8]">{t(info.labelKey)}</p>
                       {info.link ? (
                         <a
                           href={info.link}
@@ -124,7 +124,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2.5 rounded-lg border border-[rgba(100,116,139,0.60)] bg-[rgba(30,41,59,0.70)] focus:outline-none focus:ring-2 focus:ring-[#009293] focus:border-[#009293] text-[#E6EDF2] placeholder:text-[#7B8A9A] transition-all duration-200"
+                  className="w-full px-4 py-2.5 rounded-lg border border-[rgba(100,116,139,0.60)] bg-[rgba(30,41,59,0.70)] focus:outline-none focus:ring-2 focus:ring-[#009293] focus:border-[#009293] text-[#E6EDF2] placeholder:text-[#94A3B8] transition-all duration-200"
                   placeholder={t("contact.namePlaceholder")}
                 />
               </div>
@@ -143,7 +143,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2.5 rounded-lg border border-[rgba(100,116,139,0.60)] bg-[rgba(30,41,59,0.70)] focus:outline-none focus:ring-2 focus:ring-[#009293] focus:border-[#009293] text-[#E6EDF2] placeholder:text-[#7B8A9A] transition-all duration-200"
+                  className="w-full px-4 py-2.5 rounded-lg border border-[rgba(100,116,139,0.60)] bg-[rgba(30,41,59,0.70)] focus:outline-none focus:ring-2 focus:ring-[#009293] focus:border-[#009293] text-[#E6EDF2] placeholder:text-[#94A3B8] transition-all duration-200"
                   placeholder={t("contact.emailPlaceholder")}
                 />
               </div>
@@ -162,7 +162,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-2.5 rounded-lg border border-[rgba(100,116,139,0.60)] bg-[rgba(30,41,59,0.70)] focus:outline-none focus:ring-2 focus:ring-[#009293] focus:border-[#009293] text-[#E6EDF2] placeholder:text-[#7B8A9A] resize-none transition-all duration-200"
+                  className="w-full px-4 py-2.5 rounded-lg border border-[rgba(100,116,139,0.60)] bg-[rgba(30,41,59,0.70)] focus:outline-none focus:ring-2 focus:ring-[#009293] focus:border-[#009293] text-[#E6EDF2] placeholder:text-[#94A3B8] resize-none transition-all duration-200"
                   placeholder={t("contact.messagePlaceholder")}
                 />
               </div>

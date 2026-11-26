@@ -35,13 +35,13 @@ export default function Home() {
       <footer className="bg-[rgba(17,36,48,0.30)] py-8 border-t border-[rgba(20,184,166,0.15)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-2">
-            <p className="text-sm text-[#7B8A9A]">
+            <p className="text-sm text-[#94A3B8]">
               {t("footer.designedBy")}
             </p>
-            <p className="text-xs text-[#7B8A9A]">
+            <p className="text-xs text-[#94A3B8]">
               {t("footer.builtWith")}
             </p>
-            <p className="text-xs text-[#7B8A9A]">
+            <p className="text-xs text-[#94A3B8]">
               © {new Date().getFullYear()} Meli. {t("footer.rights")}
             </p>
           </div>

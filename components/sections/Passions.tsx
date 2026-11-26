@@ -94,7 +94,7 @@ export default function Passions() {
                 <h3 className="text-sm font-medium mb-1 text-[#E6EDF2] group-hover:text-[#009293] transition-colors">
                   {t(passion.titleKey)}
                 </h3>
-                <p className="text-xs text-[#7B8A9A] leading-relaxed">
+                <p className="text-xs text-[#94A3B8] leading-relaxed">
                   {t(passion.descriptionKey)}
                 </p>
               </div>
