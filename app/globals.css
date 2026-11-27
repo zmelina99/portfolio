@@ -60,18 +60,27 @@
   --bg-base-end: #0F2330;
   
   /* Surface */
-  --surface-default: rgba(17, 36, 48, 0.70);
-  --surface-hover: rgba(17, 36, 48, 0.85);
+  --surface-default: rgba(240, 251, 249, 0.62);
+  --surface-hover: rgba(244, 253, 251, 0.8);
   --surface-light: #FFFFFF;
   
   /* Borders */
-  --border-muted: rgba(20, 184, 166, 0.20);
-  --border-hover: rgba(20, 184, 166, 0.40);
+  --border-muted: rgba(10, 74, 82, 0.14);
+  --border-hover: rgba(10, 74, 82, 0.28);
   
+  /* Underwater palette (dark ink on pale sea-glass) */
+  --uw-ink: #0A2C35;
+  --uw-body: #23474E;
+  --uw-muted: #3D6469;
+  --uw-line: rgba(10, 64, 72, 0.22);
+  --uw-link: #0A5A60;
+  --uw-panel: rgba(196, 234, 229, 0.55);
+  --uw-panel-border: rgba(10, 74, 82, 0.12);
+
   /* Text */
-  --text-primary: #E6EDF2;
-  --text-secondary: #A7B3C2;
-  --text-muted: #94A3B8;
+  --text-primary: var(--uw-ink);
+  --text-secondary: var(--uw-body);
+  --text-muted: var(--uw-muted);
   --text-reading: #1E293B;
   
   /* Accents */
@@ -114,7 +123,7 @@
   --secondary-foreground: #FFFFFF;
   --accent: var(--accent-teal);
   --accent-foreground: var(--text-primary);
-  --muted: rgba(255, 255, 255, 0.08);
+  --muted: rgba(10, 74, 82, 0.06);
   --muted-foreground: var(--text-secondary);
   --destructive: #EF4444;
   --border: var(--border-muted);
@@ -152,7 +161,7 @@
   --secondary-foreground: #FFFFFF;
   --accent: var(--accent-teal);
   --accent-foreground: var(--text-primary);
-  --muted: rgba(255, 255, 255, 0.08);
+  --muted: rgba(10, 74, 82, 0.06);
   --muted-foreground: var(--text-secondary);
   --destructive: #EF4444;
   --border: var(--border-muted);
@@ -167,8 +176,7 @@
   
   body {
     @apply text-foreground font-sans;
-    background: linear-gradient(to bottom, #0B1620 0%, #0F2330 100%);
-    background-attachment: fixed;
+    background: #CFEDE8;
     min-height: 100vh;
     font-family: var(--font-inter), system-ui, sans-serif;
     font-weight: 400;
@@ -273,7 +281,6 @@ section[id] {
     display: none;
   }
 
-  body::after,
   .animate-shimmer,
   .animate-wave,
   .water-light,
@@ -290,40 +297,6 @@ section[id] {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* =============================
-   Depth Gradient Overlay
-   ============================= */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(0, 146, 147, 0.06) 0%, transparent 40%),
-    radial-gradient(circle at 80% 50%, rgba(248, 165, 142, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(203, 213, 225, 0.03) 0%, transparent 40%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Subtle shimmer overlay */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    transparent 0%,
-    rgba(230, 237, 242, 0.02) 25%,
-    transparent 50%,
-    rgba(0, 146, 147, 0.02) 75%,
-    transparent 100%
-  );
-  background-size: 400% 400%;
-  animation: shimmer 20s ease-in-out infinite;
-  pointer-events: none;
-  z-index: 0;
 }
 
 /* =============================
@@ -468,14 +441,14 @@ body::after {
   background: var(--surface-default);
   border: 1px solid var(--border-muted);
   border-radius: 1rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 24px -12px rgba(6, 50, 56, 0.18);
   backdrop-filter: blur(8px);
   transition: all 300ms ease-out;
 }
 
 .card-standard:hover {
   border-color: var(--border-hover);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 18px 32px -14px rgba(6, 50, 56, 0.25);
 }
 
 /* Featured cards (case studies): more opaque surface for contrast */
@@ -501,13 +474,13 @@ body::after {
   font-weight: 400;
   color: var(--text-secondary);
   background: transparent;
-  border: 1px solid rgba(100, 116, 139, 0.5);
+  border: 1px solid rgba(10, 74, 82, 0.28);
   border-radius: 9999px;
   transition: all 200ms ease-out;
 }
 
 .chip-outline:hover {
-  background: rgba(0, 146, 147, 0.10);
+  background: rgba(10, 90, 96, 0.08);
   border-color: var(--border-muted);
   color: var(--text-primary);
 }
@@ -572,4 +545,318 @@ body::after {
   border-radius: 9999px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* =============================
+   Underwater page
+   The whole page sits just below a sunlit surface. Decorative layers live in
+   components/case-studies/UnderwaterScene.tsx and only animate transform
+   and opacity.
+   ============================= */
+.uw-page {
+  position: relative;
+  overflow: clip;
+  isolation: isolate;
+  color: var(--uw-body);
+  background: linear-gradient(
+    to bottom,
+    #2B8C93 0px,
+    #4FAFB0 150px,
+    #8ED3CE 320px,
+    #BEE7E1 500px,
+    #D3F0EB 760px,
+    #D6F1EC 25%,
+    #CFEDE8 60%,
+    #C3E8E3 85%,
+    #B5E1DC 100%
+  );
+}
+
+.uw-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* A calm, lighter column behind the copy */
+.uw-calm {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent 8%,
+    rgba(242, 253, 250, 0.38) 28%,
+    rgba(242, 253, 250, 0.38) 72%,
+    transparent 92%
+  );
+}
+
+/* Edges deepen into teal the further down the page you read */
+.uw-edges {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(10, 88, 97, 0.46),
+    rgba(10, 88, 97, 0) 15%,
+    rgba(10, 88, 97, 0) 85%,
+    rgba(10, 88, 97, 0.5)
+  );
+  -webkit-mask-image: linear-gradient(to bottom, transparent 3%, rgba(0, 0, 0, 0.4) 22%, #000 70%);
+  mask-image: linear-gradient(to bottom, transparent 3%, rgba(0, 0, 0, 0.4) 22%, #000 70%);
+}
+
+/* Sun shafts */
+.uw-rays {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 1300px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 140px, #000 30%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 140px, #000 30%, transparent 100%);
+}
+
+.uw-ray {
+  position: absolute;
+  top: -60px;
+  height: 110%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(240, 255, 252, 0.4) 40%, transparent 92%);
+  filter: blur(14px);
+  transform-origin: top center;
+  transform: rotate(var(--r));
+  opacity: var(--o);
+  animation-name: uw-ray;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  will-change: transform, opacity;
+}
+
+@keyframes uw-ray {
+  from { opacity: calc(var(--o) * 0.55); transform: rotate(var(--r)) translateX(-14px); }
+  to   { opacity: var(--o);              transform: rotate(calc(var(--r) - 2.5deg)) translateX(16px); }
+}
+
+/* Rippling surface */
+.uw-surface {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 360px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, #000 18%, #000 40%, transparent 100%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, #000 18%, #000 40%, transparent 100%);
+}
+
+.uw-ripples {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -30%;
+  width: 160%;
+  will-change: transform, opacity;
+}
+
+.uw-ripples--a {
+  opacity: 0.5;
+  animation: uw-drift 46s ease-in-out infinite alternate;
+}
+
+.uw-ripples--b {
+  opacity: 0.3;
+  animation:
+    uw-drift-back 38s ease-in-out infinite alternate,
+    uw-shimmer 7s ease-in-out infinite alternate;
+}
+
+@keyframes uw-drift      { from { transform: translateX(-5%); } to { transform: translateX(5%); } }
+@keyframes uw-drift-back { from { transform: translateX(4%) scaleY(1.04); } to { transform: translateX(-4%) scaleY(0.98); } }
+@keyframes uw-shimmer    { from { opacity: 0.12; } to { opacity: 0.42; } }
+
+/* Reef silhouettes, off to the sides on wide screens */
+.uw-reef {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  color: #0A5560;
+  opacity: 0.14;
+  filter: blur(1.5px);
+  display: none;
+}
+
+.uw-reef--right { top: 1150px; right: -70px; }
+.uw-reef--left  { top: 58%; left: -90px; transform: scaleX(-1); opacity: 0.12; }
+
+@media (min-width: 1024px) {
+  .uw-reef { display: block; }
+}
+
+/* Bubbles: a fixed, viewport-high layer so they rise past whatever the
+   reader is looking at. Each track rises as one composited layer; the
+   bubble inside sways sideways on its own timer. */
+.uw-bubbles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.uw-bubble-track {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: block;
+  opacity: 0;
+  transform: translateY(100%);
+  animation-name: uw-rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform, opacity;
+}
+
+.uw-bubble {
+  display: block;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at 32% 30%,
+    rgba(255, 255, 255, 0.95) 0 10%,
+    rgba(255, 255, 255, 0.28) 24%,
+    rgba(255, 255, 255, 0.06) 58%,
+    rgba(255, 255, 255, 0.32) 100%
+  );
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6),
+    0 0 0 1px rgba(10, 90, 98, 0.1);
+  animation-name: uw-sway;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes uw-rise {
+  0%   { transform: translateY(100%); opacity: 0; }
+  8%   { opacity: 0.9; }
+  70%  { opacity: 0.8; }
+  88%  { opacity: 0; }
+  100% { transform: translateY(6%); opacity: 0; }
+}
+
+@keyframes uw-sway {
+  from { transform: translateX(calc(var(--drift) * -1)); }
+  to   { transform: translateX(var(--drift)); }
+}
+
+/* Small screens: fewer bubbles and shafts, one ripple layer */
+@media (max-width: 639px) {
+  .uw-bubble-track:nth-child(n + 6),
+  .uw-ray:nth-child(n + 4),
+  .uw-ripples--b {
+    display: none;
+  }
+  .uw-surface { height: 260px; }
+}
+
+/* Reduced motion: the same scene, held still */
+@media (prefers-reduced-motion: reduce) {
+  .uw-ray,
+  .uw-ripples,
+  .uw-bubble-track,
+  .uw-bubble {
+    animation: none !important;
+  }
+  .uw-bubble-track {
+    transform: translateY(var(--rest));
+    opacity: 0.8;
+  }
+}
+
+/* Section atmosphere (About, Experience): carries the Case Studies light on,
+   with a touch of lavender at the edges */
+.uw-section-glow {
+  background:
+    radial-gradient(ellipse 30% 45% at 0% 30%, rgba(156, 143, 201, 0.16), transparent 70%),
+    radial-gradient(ellipse 28% 40% at 100% 70%, rgba(156, 143, 201, 0.14), transparent 70%),
+    radial-gradient(ellipse 45% 35% at 70% 20%, rgba(127, 196, 190, 0.22), transparent 70%);
+}
+
+.uw-rays.uw-rays--local {
+  top: 0;
+  height: 900px;
+  opacity: 0.8;
+}
+
+/* Contact: the pale sea-glass deepens into ocean teal */
+.deep-water {
+  --deep-ivory: #F4EFE3;
+  --deep-ivory-soft: #D9D3C3;
+  color: var(--deep-ivory-soft);
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 47, 56, 0) 0,
+    rgba(16, 94, 104, 0.55) 90px,
+    #0E5560 170px,
+    #0A4049 300px,
+    #082F38 100%
+  );
+}
+
+.deep-water :focus-visible,
+.deep-footer :focus-visible {
+  outline-color: var(--deep-ivory, #F4EFE3);
+}
+
+.deep-footer {
+  --deep-ivory: #F4EFE3;
+  background: #082F38;
+}
+
+/* Editorial pieces */
+.uw-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--uw-link);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.35em;
+  text-decoration-color: rgba(10, 90, 96, 0.45);
+  transition: color 200ms ease-out, text-decoration-color 200ms ease-out;
+}
+
+.uw-link:hover {
+  color: var(--uw-ink);
+  text-decoration-color: currentColor;
+}
+
+.uw-link:focus-visible {
+  outline: 2px solid var(--uw-link);
+  outline-offset: 4px;
+}
+
+.uw-link svg {
+  transition: transform 200ms ease-out;
+}
+
+.uw-link:hover svg {
+  transform: translateX(3px);
+}
+
+.uw-panel {
+  position: relative;
+  overflow: hidden;
+  background: var(--uw-panel);
+  border: 1px solid var(--uw-panel-border);
+  border-radius: 8px;
+}
+
+.uw-label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--uw-muted);
 }

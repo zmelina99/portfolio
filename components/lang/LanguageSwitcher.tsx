@@ -104,8 +104,8 @@ export default function LanguageSwitcher() {
           className={`
             absolute top-full mt-2 right-0
             min-w-[160px]
-            bg-[var(--surface-default)] backdrop-blur-md
-            border border-[var(--border-muted)]
+            bg-[#0B4148]/95 backdrop-blur-md
+            border border-white/15
             rounded-lg
             shadow-xl
             animate-fade-scale
@@ -126,7 +126,7 @@ export default function LanguageSwitcher() {
                 first:rounded-t-lg last:rounded-b-lg
                 ${
                   language === lang.code
-                    ? "bg-[var(--accent-teal)]/20 text-[var(--accent-teal)]"
+                    ? "bg-white/15 text-white"
                     : "text-slate-200 hover:bg-white/10"
                 }
                 focus-visible:outline-none focus-visible:bg-white/10

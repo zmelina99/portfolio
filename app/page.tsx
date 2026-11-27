@@ -2,6 +2,7 @@
 
 import Navigation from "@/components/Navigation";
 import DiveDepthIndicator from "@/components/DiveDepthIndicator";
+import UnderwaterScene from "@/components/underwater/UnderwaterScene";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Passions from "@/components/sections/Passions";
@@ -16,7 +17,8 @@ export default function Home() {
   const { t } = useLanguage();
   
   return (
-    <main className="min-h-screen">
+    <main className="uw-page min-h-screen">
+      <UnderwaterScene />
       <Navigation />
       <DiveDepthIndicator />
       {/* Bubble game hidden by default - uncomment to enable */}
@@ -32,16 +34,16 @@ export default function Home() {
       <Contact />
 
       {/* Footer */}
-      <footer className="bg-[rgba(17,36,48,0.30)] py-8 border-t border-[rgba(20,184,166,0.15)]">
+      <footer className="deep-footer relative py-8 border-t border-[rgba(244,239,227,0.12)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-2">
-            <p className="text-sm text-[#94A3B8]">
+            <p className="text-sm text-[#C9C3B3]">
               {t("footer.designedBy")}
             </p>
-            <p className="text-xs text-[#94A3B8]">
+            <p className="text-xs text-[#C9C3B3]">
               {t("footer.builtWith")}
             </p>
-            <p className="text-xs text-[#94A3B8]">
+            <p className="text-xs text-[#C9C3B3]">
               © {new Date().getFullYear()} Meli. {t("footer.rights")}
             </p>
           </div>

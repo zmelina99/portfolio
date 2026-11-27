@@ -1,106 +1,61 @@
 "use client";
 
-import { Card } from "@/components/ui/card";
-import { Waves, Mountain, Dumbbell, Heart } from "lucide-react";
-import SectionHeader from "@/components/SectionHeader";
+import Image from "next/image";
 import { useLanguage } from "@/components/lang/LanguageProvider";
+import LiftVideo from "@/components/beyond-work/LiftVideo";
 
-interface Passion {
-  titleKey: string;
-  descriptionKey: string;
-  icon: React.ElementType;
-  image: string;
-}
+const ENTRIES = [
+  { key: "skiing", src: "/skiing.JPG", position: "object-[50%_45%]" },
+  { key: "panchin", src: "/panchin.PNG", position: "object-[55%_40%]" },
+] as const;
 
 export default function Passions() {
   const { t } = useLanguage();
-  
-  const passions: Passion[] = [
-    {
-      titleKey: "passions.scubaDiving",
-      descriptionKey: "passions.scubaDiving.desc",
-      icon: Waves,
-      image: "/diving.JPG",
-    },
-    {
-      titleKey: "passions.skiing",
-      descriptionKey: "passions.skiing.desc",
-      icon: Mountain,
-      image: "/skiing.JPG",
-    },
-    {
-      titleKey: "passions.lifting",
-      descriptionKey: "passions.lifting.desc",
-      icon: Dumbbell,
-      image: "/olympicLifting.PNG",
-    },
-    {
-      titleKey: "passions.panchin",
-      descriptionKey: "passions.panchin.desc",
-      icon: Heart,
-      image: "/panchin.PNG",
-    },
-  ];
 
   return (
-    <section
-      id="passions"
-      className="section-major relative overflow-hidden"
-    >
-      {/* Bubbles */}
-      <div className="bubbles opacity-10">
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-      </div>
+    <section id="passions" aria-labelledby="passions-title" className="relative overflow-hidden py-20 sm:py-28">
+      <div className="uw-section-glow pointer-events-none absolute inset-0" aria-hidden="true" />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <SectionHeader 
-          title={t("passions.title")}
-          description={t("passions.description")}
-        />
-
-        {/* Bubble Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-          {passions.map((passion, index) => (
-            <div
-              key={index}
-              className="group flex flex-col items-center animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              {/* Bubble Image Container */}
-              <div className="relative mb-4">
-                {/* Outer glow ring */}
-                <div className="absolute inset-0 rounded-full bg-[#009293] opacity-0 group-hover:opacity-15 blur-xl transition-all duration-500 scale-110" />
-
-                {/* Main bubble */}
-                <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-[rgba(17,36,48,0.40)] shadow-lg shadow-black/15 group-hover:shadow-xl group-hover:shadow-black/25 transition-all duration-500 group-hover:scale-105 group-hover:border-[#009293]/30">
-                  {/* Image */}
-                  <div className="w-full h-full relative">
-                    <img
-                      src={passion.image}
-                      alt={t(passion.titleKey)}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-
-                  {/* Shimmer effect on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/0 to-transparent group-hover:via-white/8 transition-all duration-700 transform -skew-x-12 -translate-x-full group-hover:translate-x-full" />
-                </div>
-              </div>
-
-              {/* Content - simplified */}
-              <div className="text-center">
-                <h3 className="text-sm font-medium mb-1 text-[#E6EDF2] group-hover:text-[#009293] transition-colors">
-                  {t(passion.titleKey)}
-                </h3>
-                <p className="text-xs text-[#94A3B8] leading-relaxed">
-                  {t(passion.descriptionKey)}
-                </p>
-              </div>
-            </div>
-          ))}
+      <div className="relative z-10 mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] lg:gap-x-16 lg:px-8 [grid-template-areas:'head'_'video'_'more'] lg:[grid-template-areas:'video_head'_'video_more']">
+        <div className="[grid-area:head] lg:self-end">
+          <h2 id="passions-title" className="font-serif text-lg italic text-[var(--uw-ink)] sm:text-xl">
+            {t("passions.title")}
+          </h2>
+          <h3 className="mt-4 font-serif text-5xl font-normal leading-[1.02] tracking-[-0.02em] text-[var(--uw-ink)] sm:text-6xl lg:text-7xl">
+            {t("passions.lifting")}
+          </h3>
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-[var(--uw-body)]">{t("passions.lifting.copy")}</p>
         </div>
+
+        <div className="[grid-area:video] mx-auto w-full max-w-[22rem] lg:mx-0 lg:max-w-none">
+          <LiftVideo />
+        </div>
+
+        <ul className="[grid-area:more] grid grid-cols-2 gap-5 border-t border-[var(--uw-line)] pt-8 sm:gap-8 lg:self-start">
+          {ENTRIES.map((entry) => (
+            <li key={entry.key}>
+              <figure>
+                <div className="relative aspect-[4/5] overflow-hidden rounded-[8px]">
+                  <Image
+                    src={entry.src}
+                    alt={t(`passions.${entry.key}.alt`)}
+                    fill
+                    sizes="(min-width: 1024px) 300px, 45vw"
+                    className={`object-cover ${entry.position}`}
+                  />
+                </div>
+                <figcaption className="mt-3">
+                  <span className="block font-serif text-lg text-[var(--uw-ink)] sm:text-xl">
+                    {t(`passions.${entry.key}.heading`)}
+                  </span>
+                  <span className="mt-1 block text-sm leading-relaxed text-[var(--uw-body)]">
+                    {t(`passions.${entry.key}.caption`)}
+                  </span>
+                </figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

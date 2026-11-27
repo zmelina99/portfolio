@@ -1,255 +1,166 @@
 "use client"
 
-import { useState } from "react"
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import { useCallback, useState, type ReactNode } from "react"
+import { ArrowRight } from "lucide-react"
 import { Modal } from "@/components/ui/modal"
-import { FileText, TrendingUp } from "lucide-react"
-import SectionHeader from "@/components/SectionHeader"
 import { useLanguage } from "@/components/lang/LanguageProvider"
+import WhitelabelMockup from "@/components/case-studies/WhitelabelMockup"
+import ResponsiveChart from "@/components/case-studies/ResponsiveChart"
+import DependencyGraph from "@/components/case-studies/DependencyGraph"
+import BilingueVisual from "@/components/case-studies/BilingueVisual"
+import { BilingueDetails, ChartsDetails, HiveDetails, NxDetails } from "@/components/case-studies/CaseStudyDetails"
+
+type StudyId = "hive" | "charts" | "nx" | "bilingue"
+
+const DETAILS: Record<StudyId, { titleKey: string; Body: () => ReactNode }> = {
+  hive: { titleKey: "caseStudies.hive.title", Body: HiveDetails },
+  charts: { titleKey: "caseStudies.charts.title", Body: ChartsDetails },
+  nx: { titleKey: "caseStudies.nx.title", Body: NxDetails },
+  bilingue: { titleKey: "caseStudies.bilingue.title", Body: BilingueDetails },
+}
+
+// Order of the shared row below the featured Hivepower story.
+const ROW: {
+  id: Exclude<StudyId, "hive">
+  Visual: () => ReactNode
+  eyebrowKey: string
+  titleKey: string
+  summaryKey: string
+  linkKey: string
+}[] = [
+  {
+    id: "charts",
+    Visual: ResponsiveChart,
+    eyebrowKey: "caseStudies.charts.title",
+    titleKey: "caseStudies.charts.headline",
+    summaryKey: "caseStudies.charts.summary",
+    linkKey: "caseStudies.readMore",
+  },
+  {
+    id: "nx",
+    Visual: DependencyGraph,
+    eyebrowKey: "caseStudies.nx.title",
+    titleKey: "caseStudies.nx.headline",
+    summaryKey: "caseStudies.nx.summary",
+    linkKey: "caseStudies.readFullAudit",
+  },
+  {
+    id: "bilingue",
+    Visual: BilingueVisual,
+    eyebrowKey: "caseStudies.bilingue.kicker",
+    titleKey: "caseStudies.bilingue.title",
+    summaryKey: "caseStudies.bilingue.summary",
+    linkKey: "caseStudies.readMore",
+  },
+]
+
+function ReadMore({ label, context, onClick }: { label: string; context: string; onClick: () => void }) {
+  return (
+    <button type="button" onClick={onClick} aria-haspopup="dialog" className="uw-link text-base sm:text-lg">
+      {label}
+      <span className="sr-only">: {context}</span>
+      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+    </button>
+  )
+}
 
 export default function CaseStudies() {
-  const { t } = useLanguage();
-  const [isNxModalOpen, setIsNxModalOpen] = useState(false)
-
-  const caseStudies = [
-    {
-      id: "nx-audit",
-      icon: FileText,
-      titleKey: "caseStudies.nx.title",
-      subtitleKey: "caseStudies.nx.subtitle",
-      bullets: [
-        { labelKey: "caseStudies.labels.problem", textKey: "caseStudies.nx.problem" },
-        { labelKey: "caseStudies.labels.actions", textKey: "caseStudies.nx.actions" },
-        { labelKey: "caseStudies.labels.impact", textKey: "caseStudies.nx.impact" }
-      ],
-      tags: ["Nx", "TypeScript", "Architecture", "DX", "Monorepo", "Governance"],
-      hasModal: true,
-      onViewDetails: () => setIsNxModalOpen(true)
-    },
-    {
-      id: "charts-haptics",
-      icon: TrendingUp,
-      titleKey: "caseStudies.charts.title",
-      subtitleKey: "caseStudies.charts.subtitle",
-      bullets: [
-        { labelKey: "caseStudies.labels.problem", textKey: "caseStudies.charts.problem" },
-        { labelKey: "caseStudies.labels.actions", textKey: "caseStudies.charts.actions" },
-        { labelKey: "caseStudies.labels.impact", textKey: "caseStudies.charts.impact" }
-      ],
-      tags: ["React", "Performance", "Mobile", "UX", "Optimization"],
-      hasModal: false
-    }
-  ]
+  const { t } = useLanguage()
+  const [openId, setOpenId] = useState<StudyId | null>(null)
+  const close = useCallback(() => setOpenId(null), [])
+  const open = openId ? DETAILS[openId] : null
 
   return (
     <>
       <section
         id="case-studies"
-        className="relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-20 border-y border-[rgba(20,184,166,0.12)] bg-[linear-gradient(to_bottom,rgba(0,146,147,0.05),rgba(11,22,32,0.35))]"
+        aria-labelledby="case-studies-title"
+        className="relative py-20 sm:py-28"
       >
-        {/* Bubbles */}
-        <div className="bubbles opacity-15" aria-hidden="true">
-          <div className="bubble"></div>
-          <div className="bubble"></div>
-          <div className="bubble"></div>
-          <div className="bubble"></div>
-          <div className="bubble"></div>
-          <div className="bubble"></div>
-        </div>
-
-        <div className="container-standard relative z-10">
+        <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <SectionHeader
-            title={t("caseStudies.title")}
-            description={t("caseStudies.description")}
-            className="mb-10"
-          />
+          <header className="max-w-3xl">
+            <h2
+              id="case-studies-title"
+              className="font-serif text-5xl font-normal leading-[1.02] tracking-[-0.02em] text-[var(--uw-ink)] sm:text-7xl lg:text-[5.5rem]"
+            >
+              {t("caseStudies.title")}
+            </h2>
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-[var(--uw-body)]">
+              {t("caseStudies.description")}
+            </p>
+          </header>
 
-          {/* Case Studies Grid */}
-          <div className="grid md:grid-cols-2 gap-5 md:gap-6 max-w-5xl mx-auto">
-            {caseStudies.map((study, index) => (
-              <Card
-                key={study.id}
-                className="card-feature relative gap-0 py-0 p-5 sm:p-6 overflow-hidden"
+          {/* Featured: Hivepower whitelabel platform */}
+          <article
+            id="cs-hive"
+            aria-labelledby="cs-hive-title"
+            className="scroll-mt-24 mt-14 grid gap-8 sm:mt-20 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-x-14 [grid-template-areas:'head'_'visual'_'body'] lg:[grid-template-areas:'head_visual'_'body_visual']"
+          >
+            <div className="[grid-area:head] self-end">
+              <p className="uw-label">{t("caseStudies.hive.kicker")}</p>
+              <h3
+                id="cs-hive-title"
+                className="mt-4 font-serif text-4xl font-normal leading-[1.08] tracking-[-0.015em] text-[var(--uw-ink)] sm:text-5xl"
               >
-                {/* Accent strip */}
-                <div
-                  className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#009293] via-[#4DCCCC] to-transparent"
-                  aria-hidden="true"
-                />
-
-                {/* Icon & Title */}
-                <div className="flex items-start gap-3 mb-4">
-                  <div className="p-2.5 bg-[#009293]/15 rounded-lg ring-1 ring-[#009293]/30 shrink-0">
-                    <study.icon className="h-5 w-5 text-[#4DCCCC]" aria-hidden="true" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-[11px] font-semibold tracking-[0.18em] text-[#4DCCCC]/80 tabular-nums mb-1" aria-hidden="true">
-                      {String(index + 1).padStart(2, "0")}
-                    </p>
-                    <h3 className="text-xl sm:text-[1.375rem] font-semibold leading-snug text-[#F1F5F9] mb-1.5">
-                      {t(study.titleKey)}
-                    </h3>
-                    <p className="text-sm text-[#B6C2CF] leading-relaxed">
-                      {t(study.subtitleKey)}
-                    </p>
-                  </div>
+                {t("caseStudies.hive.title")}
+              </h3>
+            </div>
+            <div className="[grid-area:visual]">
+              <WhitelabelMockup />
+            </div>
+            <div className="[grid-area:body] self-start">
+              <p className="max-w-md text-lg leading-relaxed text-[var(--uw-body)]">
+                {t("caseStudies.hive.summary")}
+              </p>
+              <dl className="mt-6 flex gap-10 border-t border-[var(--uw-line)] pt-5">
+                <div>
+                  <dt className="uw-label">{t("caseStudies.hive.stat1.label")}</dt>
+                  <dd className="mt-1 font-serif text-3xl text-[var(--uw-ink)]">{t("caseStudies.hive.stat1.value")}</dd>
                 </div>
-
-                {/* Problem / Actions / Impact */}
-                <dl className="mb-4 divide-y divide-[rgba(148,163,184,0.14)] rounded-xl border border-[rgba(148,163,184,0.16)] bg-[rgba(11,22,32,0.45)]">
-                  {study.bullets.map((bullet, idx) => {
-                    const isImpact = idx === study.bullets.length - 1
-                    return (
-                      <div
-                        key={idx}
-                        className={`grid grid-cols-[5.5rem_1fr] gap-3 px-3.5 py-2.5 ${
-                          isImpact ? "bg-[rgba(0,146,147,0.12)] rounded-b-xl" : ""
-                        }`}
-                      >
-                        <dt
-                          className={`text-[11px] font-semibold uppercase tracking-wider leading-6 ${
-                            isImpact ? "text-[#5EEAD4]" : "text-[#4DCCCC]"
-                          }`}
-                        >
-                          {t(bullet.labelKey)}
-                        </dt>
-                        <dd
-                          className={`text-sm leading-6 ${
-                            isImpact ? "text-[#F1F5F9] font-medium" : "text-[#D5DEE7]"
-                          }`}
-                        >
-                          {t(bullet.textKey)}
-                        </dd>
-                      </div>
-                    )
-                  })}
-                </dl>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 mt-auto">
-                  {study.tags.map((tag, idx) => (
-                    <Badge key={idx} variant="outline">
-                      {tag}
-                    </Badge>
-                  ))}
+                <div>
+                  <dt className="uw-label">{t("caseStudies.hive.stat2.label")}</dt>
+                  <dd className="mt-1 font-serif text-3xl text-[var(--uw-ink)]">{t("caseStudies.hive.stat2.value")}</dd>
                 </div>
+              </dl>
+              <div className="mt-7">
+                <ReadMore label={t("caseStudies.readMore")} context={t("caseStudies.hive.title")} onClick={() => setOpenId("hive")} />
+              </div>
+            </div>
+          </article>
 
-                {/* Button */}
-                {study.hasModal && (
-                  <Button
-                    onClick={study.onViewDetails}
-                    variant="outline"
-                    size="sm"
-                    className="w-full mt-4"
-                  >
-                    {t("caseStudies.viewFullAudit")}
-                  </Button>
-                )}
-              </Card>
+          <hr className="my-16 border-0 border-t border-[var(--uw-line)] sm:my-20" />
+
+          {/* Three stories in one row: visual, eyebrow, title, summary, link.
+              Each card spans five shared (subgrid) rows, so frames, titles and
+              links line up across columns. 3 columns wide, 2 mid, 1 on phones. */}
+          <div className="grid gap-x-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-10">
+            {ROW.map(({ id, Visual, eyebrowKey, titleKey, summaryKey, linkKey }) => (
+              <article
+                key={id}
+                aria-labelledby={`cs-${id}-title`}
+                className="row-span-5 grid grid-rows-subgrid pb-16 last:pb-0 lg:pb-0"
+              >
+                <Visual />
+                <p className="uw-label mt-7">{t(eyebrowKey)}</p>
+                <h3
+                  id={`cs-${id}-title`}
+                  className="mt-3 font-serif text-3xl font-normal leading-tight tracking-[-0.01em] text-[var(--uw-ink)] lg:text-[1.875rem]"
+                >
+                  {t(titleKey)}
+                </h3>
+                <p className="mt-4 text-base leading-relaxed text-[var(--uw-body)]">{t(summaryKey)}</p>
+                <div className="mt-6 self-end">
+                  <ReadMore label={t(linkKey)} context={t(titleKey)} onClick={() => setOpenId(id)} />
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Nx Audit Modal */}
-      <Modal
-        isOpen={isNxModalOpen}
-        onClose={() => setIsNxModalOpen(false)}
-        title={t("caseStudies.nx.title")}
-      >
-        {/* <div className="prose prose-slate max-w-none"> */}
-          <div className="space-y-6 text-[#475569] px-4 py-4 reading-surface" style={{ lineHeight: '1.8' }}>
-            {/* Context */}
-            <section>
-              <h3 className="text-xl font-semibold text-[#1E293B] mb-3">🧭 {t("caseStudies.modal.context")}</h3>
-              <p className="text-sm leading-relaxed max-w-3xl">
-                {t("caseStudies.modal.contextText")}
-              </p>
-            </section>
-
-            {/* Key Findings */}
-            <section>
-              <h3 className="text-xl font-semibold text-[#1E293B] mb-3">🔍 {t("caseStudies.modal.keyFindings")}</h3>
-              
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-medium text-[#009293] mb-2">Architecture & Structure</h4>
-                  <ul className="space-y-1.5 text-sm list-disc pl-5 leading-relaxed max-w-3xl">
-                    <li>Atomic Design principles existed but weren't consistently applied</li>
-                    <li>Components were duplicated instead of reused through flexible props or composition</li>
-                    <li>Obsolete React Context providers coexisted with Redux, creating confusion</li>
-                    <li>Global variables were used inside React components, causing unpredictable behavior</li>
-                    <li>The factory component was misplaced under templates and lacked type safety, using string literals and <code className="text-[#009293] bg-[#009293]/5 px-1 py-0.5 rounded">JSON.stringify()</code> for prop passing</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="font-medium text-[#009293] mb-2">Code Quality & React Practices</h4>
-                  <ul className="space-y-1.5 text-sm list-disc pl-5 leading-relaxed max-w-3xl">
-                    <li>Misuse of React hooks (<code className="text-[#009293] bg-[#009293]/5 px-1 py-0.5 rounded">useEffect</code> without deps, unnecessary <code className="text-[#009293] bg-[#009293]/5 px-1 py-0.5 rounded">useMemo</code>/<code className="text-[#009293] bg-[#009293]/5 px-1 py-0.5 rounded">useCallback</code>)</li>
-                    <li>Overuse of <code className="text-[#009293] bg-[#009293]/5 px-1 py-0.5 rounded">React.memo</code> with deep comparisons</li>
-                    <li>Unsafe prop spreading (<code className="text-[#009293] bg-[#009293]/5 px-1 py-0.5 rounded">{'{...(props.data as any)}'}</code>) and missing TypeScript types</li>
-                    <li>Full reloads triggered via <code className="text-[#009293] bg-[#009293]/5 px-1 py-0.5 rounded">window.location.href</code> instead of React Router navigation</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="font-medium text-[#009293] mb-2">Hygiene & Maintenance</h4>
-                  <ul className="space-y-1.5 text-sm list-disc pl-5 leading-relaxed max-w-3xl">
-                    <li>Obsolete components and unused folders remained in the repo</li>
-                    <li>Poor file organization: pages inside organisms, inconsistent naming (forgot-password, ForgottenPassword)</li>
-                    <li>Residual legacy code (white-labeling features, modal duplicates)</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="font-medium text-[#009293] mb-2">Collaboration Issues</h4>
-                  <ul className="space-y-1.5 text-sm list-disc pl-5 leading-relaxed max-w-3xl">
-                    <li>No code review system or architectural oversight</li>
-                    <li>Team reworks occurred without alignment, causing merge conflicts and duplicated work</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            {/* Actions Recommended */}
-            <section>
-              <h3 className="text-xl font-semibold text-[#1E293B] mb-3">⚙️ {t("caseStudies.modal.actionsRecommended")}</h3>
-              <ul className="space-y-2 text-sm list-disc pl-5 leading-relaxed max-w-3xl">
-                <li><strong>Refactor & Consolidate:</strong> Merge duplicate components and enforce Atomic Design consistency</li>
-                <li><strong>Improve Typing:</strong> Replace <code className="text-[#009293] bg-[#009293]/5 px-1 py-0.5 rounded">any</code> types with clear interfaces; enable strict TS rules</li>
-                <li><strong>Clean Up Architecture:</strong> Move factory to a neutral utils folder; use a typed registry pattern with discriminated unions</li>
-                <li><strong>Split Core Logic:</strong> Break <code className="text-[#009293] bg-[#009293]/5 px-1 py-0.5 rounded">App.tsx</code> into smaller hooks (auth, SSL setup, theming, etc.)</li>
-                <li><strong>Standardize Routing:</strong> Use <code className="text-[#009293] bg-[#009293]/5 px-1 py-0.5 rounded">useNavigate()</code> for internal navigation; reserve <code className="text-[#009293] bg-[#009293]/5 px-1 py-0.5 rounded">window.location</code> for external redirects</li>
-                <li><strong>Remove Dead Code:</strong> Delete obsolete modals, contexts, and duplicated page folders</li>
-                <li><strong>Introduce Governance:</strong> Add a PR checklist, define ownership for structural decisions, and require team syncs before large-scale refactors</li>
-              </ul>
-            </section>
-
-            {/* Impact */}
-            <section>
-              <h3 className="text-xl font-semibold text-[#1E293B] mb-3">📈 {t("caseStudies.modal.impact")}</h3>
-              <ul className="space-y-2 text-sm list-disc pl-5 leading-relaxed max-w-3xl">
-                <li>Reduced component duplication by ≈40% through shared libraries</li>
-                <li>Improved type safety and stability across web and mobile builds</li>
-                <li>Established a clear component hierarchy (atoms → molecules → organisms → templates)</li>
-                <li>Reduced merge conflicts and increased code review participation</li>
-                <li>Provided a technical foundation for future scalability and performance improvements</li>
-              </ul>
-            </section>
-
-            {/* Takeaway */}
-            <section>
-              <h3 className="text-xl font-semibold text-[#1E293B] mb-3">💬 {t("caseStudies.modal.takeaway")}</h3>
-              <p className="text-sm leading-relaxed max-w-3xl">
-                {t("caseStudies.modal.takeawayText")}
-              </p>
-            </section>
-          </div>
-        {/* </div> */}
+      <Modal isOpen={open !== null} onClose={close} title={open ? t(open.titleKey) : ""}>
+        {open && <open.Body />}
       </Modal>
     </>
   )

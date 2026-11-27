@@ -1,120 +1,75 @@
 "use client";
 
-import { Card } from "@/components/ui/card";
-import { Handshake, Plug, GraduationCap, Wrench } from "lucide-react";
-import SectionHeader from "@/components/SectionHeader";
+import type { CSSProperties } from "react";
+import Image from "next/image";
 import { useLanguage } from "@/components/lang/LanguageProvider";
+
+// Soft local light; the page-wide bubbles already rise along the outer margins.
+const RAYS = [
+  { left: "52%", width: 120, rotate: 14, dur: 20, delay: -6, opacity: 0.38 },
+  { left: "70%", width: 80, rotate: -6, dur: 24, delay: -14, opacity: 0.3 },
+  { left: "86%", width: 110, rotate: -16, dur: 18, delay: -3, opacity: 0.34 },
+];
 
 export default function About() {
   const { t } = useLanguage();
-  
-  const highlights = [
-    {
-      icon: Handshake,
-      titleKey: "about.highlight1.title",
-      descKey: "about.highlight1.desc",
-    },
-    {
-      icon: Plug,
-      titleKey: "about.highlight2.title",
-      descKey: "about.highlight2.desc",
-    },
-    {
-      icon: GraduationCap,
-      titleKey: "about.highlight3.title",
-      descKey: "about.highlight3.desc",
-    },
-    {
-      icon: Wrench,
-      titleKey: "about.highlight4.title",
-      descKey: "about.highlight4.desc",
-    },
-  ];
 
   return (
-    <section id="about" className="section-major relative overflow-hidden">
-      {/* Bubbles */}
-      <div className="bubbles opacity-20">
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
+    <section id="about" aria-labelledby="about-title" className="relative overflow-hidden py-20 sm:py-28">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="uw-section-glow absolute inset-0" />
+        <div className="uw-rays uw-rays--local">
+          {RAYS.map((ray, i) => (
+            <span
+              key={i}
+              className="uw-ray"
+              style={
+                {
+                  left: ray.left,
+                  width: ray.width,
+                  "--r": `${ray.rotate}deg`,
+                  "--o": ray.opacity,
+                  animationDuration: `${ray.dur}s`,
+                  animationDelay: `${ray.delay}s`,
+                } as CSSProperties
+              }
+            />
+          ))}
+        </div>
       </div>
 
-      <div className="container-standard relative z-10">
-        <SectionHeader title={t("about.title")} />
-
-        <div className="grid md:grid-cols-2 gap-10 items-start">
-          {/* Left side - Description */}
-          <div className="space-y-5 max-w-2xl">
-            <p className="text-base text-[#A7B3C2] leading-relaxed">
-              {t("about.intro")}
-            </p>
-            <p className="text-lg text-[#A7B3C2] leading-relaxed mb-1 font-bold">
-              {t("about.howIWork")}
-            </p>
-            <ul className="space-y-2 text-sm text-[#A7B3C2]">
-              <li className="list-disc list-inside">
-                {t("about.work1")}
-              </li>
-              <li className="list-disc list-inside">
-                {t("about.work2")}
-              </li>
-              <li className="list-disc list-inside">
-                {t("about.work3")}
-              </li>
-              <li className="list-disc list-inside">
-                {t("about.work4")}
-              </li>
-            </ul>
-
-            <div className="pt-3">
-              <p className="text-lg text-[#A7B3C2] leading-relaxed mb-1 font-bold">
-                {t("about.quickFacts")}
-              </p>
-              <ul className="space-y-2 text-sm text-[#A7B3C2]">
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-[#009293] rounded-full" />
-                  {t("about.fact1")}
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-[#009293] rounded-full" />
-                  {t("about.fact2")}
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-[#009293] rounded-full" />
-                  {t("about.fact3")}
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-[#009293] rounded-full" />
-                  {t("about.fact4")}
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Right side - Highlights */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {highlights.map((highlight, index) => (
-              <Card
-                key={index}
-                className="p-5 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-              >
-                <highlight.icon className="h-8 w-8 text-[#009293] mb-0" />
-                <h3 className="font-medium text-base mb-0 text-[#E6EDF2]">
-                  {t(highlight.titleKey)}
-                </h3>
-                <p className="text-sm text-[#A7B3C2] leading-relaxed">
-                  {t(highlight.descKey)}
-                </p>
-              </Card>
-            ))}
+      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16 lg:px-8">
+        <div>
+          <p className="font-serif text-lg italic text-[var(--uw-ink)] sm:text-xl">{t("about.title")}</p>
+          <h2
+            id="about-title"
+            className="mt-4 font-serif text-4xl font-normal leading-[1.06] tracking-[-0.015em] text-[var(--uw-ink)] sm:text-5xl lg:text-[3.5rem]"
+          >
+            {t("about.headline")}
+          </h2>
+          <div className="mt-7 max-w-md space-y-5 text-lg leading-relaxed text-[var(--uw-body)]">
+            <p>{t("about.body1")}</p>
+            <p>{t("about.body2")}</p>
           </div>
         </div>
+
+        <figure>
+          {/* Phones: a 4:5 crop that moves in on the face and keeps some water.
+              Larger screens: the full 4:3 frame with the bubble trail. */}
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[8px] shadow-[0_28px_50px_-26px_rgba(6,40,46,0.55)] sm:aspect-[4/3]">
+            <Image
+              src="/about-dive.jpg"
+              alt={t("about.photoAlt")}
+              fill
+              quality={85}
+              sizes="(min-width: 1152px) 640px, (min-width: 1024px) 56vw, 100vw"
+              className="object-cover object-[64%_50%] sm:object-center"
+            />
+          </div>
+          <figcaption className="mt-3 font-serif text-sm italic text-[var(--uw-muted)]">
+            {t("about.caption")}
+          </figcaption>
+        </figure>
       </div>
     </section>
   );

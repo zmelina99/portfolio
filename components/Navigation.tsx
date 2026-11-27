@@ -40,8 +40,8 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#0B1620]/95 backdrop-blur-md shadow-lg shadow-black/15 border-b border-[rgba(20,184,166,0.20)]"
-          : "bg-[#0B1620]/80 backdrop-blur-sm border-b border-[rgba(20,184,166,0.15)]"
+          ? "bg-[#0B4148]/90 backdrop-blur-md shadow-lg shadow-[#063238]/20 border-b border-white/10"
+          : "bg-[#0B4148]/55 backdrop-blur-sm border-b border-white/10"
       }`}
       aria-label="Main navigation"
     >
@@ -50,7 +50,7 @@ export default function Navigation() {
           {/* Logo */}
           <button
             onClick={() => goToSection("home")}
-            className="text-xl font-bold bg-gradient-to-r from-[#009293] to-[#4DCCCC] bg-clip-text text-transparent hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#009293] rounded"
+            className="whitespace-nowrap font-serif text-xl lg:text-2xl text-[#F2FBFA] hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 rounded"
           >
             Melina Zellweger
           </button>
@@ -62,7 +62,7 @@ export default function Navigation() {
                 key={item.id}
                 variant="ghost"
                 onClick={() => goToSection(item.id)}
-                className="text-[#A7B3C2] hover:text-[#009293] hover:bg-[#009293]/10 transition-all duration-200 text-sm"
+                className="text-[#E3F4F2] hover:text-white hover:bg-white/10 transition-all duration-200 text-sm"
               >
                 {t(item.labelKey)}
               </Button>
@@ -74,7 +74,7 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-[#009293] hover:text-[#4DCCCC] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#009293] rounded p-2"
+            className="md:hidden text-[#E3F4F2] hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 rounded p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle mobile menu"
             aria-expanded={isMobileMenuOpen}
@@ -90,14 +90,14 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#0B1620]/95 backdrop-blur-md border-t border-[rgba(20,184,166,0.20)]">
+        <div className="md:hidden bg-[#0B4148]/95 backdrop-blur-md border-t border-white/10">
           <div className="px-4 pt-2 pb-4 space-y-1">
             {navItems.map((item) => (
               <Button
                 key={item.id}
                 variant="ghost"
                 onClick={() => goToSection(item.id)}
-                className="w-full justify-start text-[#A7B3C2] hover:text-[#009293] hover:bg-[#009293]/10 transition-all duration-200"
+                className="w-full justify-start text-[#E3F4F2] hover:text-white hover:bg-white/10 transition-all duration-200"
               >
                 {t(item.labelKey)}
               </Button>

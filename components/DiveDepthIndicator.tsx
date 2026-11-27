@@ -38,11 +38,11 @@ export default function DiveDepthIndicator() {
       {/* Compact rail for narrow screens: sits inside the 16px page gutter,
           below the fixed header, so it never covers content or controls. */}
       <div
-        className="xl:hidden fixed right-1 top-20 bottom-6 w-[3px] z-40 rounded-full bg-[rgba(20,184,166,0.12)] pointer-events-none overflow-hidden"
+        className="xl:hidden fixed right-1 top-20 bottom-6 w-[3px] z-40 rounded-full bg-[rgba(10,74,82,0.14)] pointer-events-none overflow-hidden"
         aria-hidden="true"
       >
         <div
-          className="absolute top-0 w-full rounded-full bg-gradient-to-b from-[#4DCCCC] to-[#009293] transition-[height] duration-150"
+          className="absolute top-0 w-full rounded-full bg-gradient-to-b from-[#13858A] to-[#0A4E54] transition-[height] duration-150"
           style={{ height: fill }}
         />
       </div>
@@ -55,26 +55,26 @@ export default function DiveDepthIndicator() {
       >
         <div className="card-standard px-3 py-4">
           <div className="flex flex-col items-center gap-2">
-            <div className="text-[10px] text-[#4DCCCC] font-serif uppercase tracking-wider">
+            <div className="text-[10px] text-[var(--uw-link)] font-serif uppercase tracking-wider">
               {t("depthMeter.depth")}
             </div>
             <div className="flex items-baseline gap-1">
-              <span className="text-2xl font-bold text-[#E6EDF2] font-serif tabular-nums">
+              <span className="text-2xl font-bold text-[var(--uw-ink)] font-serif tabular-nums">
                 {depth}
               </span>
-              <span className="text-sm text-[#4DCCCC] font-serif">m</span>
+              <span className="text-sm text-[var(--uw-link)] font-serif">m</span>
             </div>
 
             {/* Visual depth bar */}
-            <div className="w-2 h-32 bg-[rgba(15,35,48,0.50)] rounded-full overflow-hidden relative border border-[rgba(20,184,166,0.20)]">
+            <div className="w-2 h-32 bg-[rgba(10,74,82,0.10)] rounded-full overflow-hidden relative border border-[rgba(10,74,82,0.18)]">
               <div
-                className="absolute bottom-0 w-full bg-gradient-to-t from-[#009293] to-[#4DCCCC] transition-[height] duration-300 rounded-full"
+                className="absolute bottom-0 w-full bg-gradient-to-t from-[#0A4E54] to-[#13858A] transition-[height] duration-300 rounded-full"
                 style={{ height: fill }}
               />
             </div>
 
             {/* Depth indicators */}
-            <div className="flex flex-col gap-1 text-xs text-[#94A3B8] font-serif">
+            <div className="flex flex-col gap-1 text-xs text-[var(--uw-muted)] font-serif">
               <div className="flex items-center gap-1">
                 <div className="w-1 h-1 rounded-full bg-[#009293]" />
                 <span>{t("depthMeter.surface")}</span>

@@ -1,169 +1,108 @@
 "use client";
 
-import { Card } from "@/components/ui/card";
-import { Calendar, MapPin } from "lucide-react";
-import SectionHeader from "@/components/SectionHeader";
+import type { CSSProperties } from "react";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/components/lang/LanguageProvider";
+import HiveGrowthIllustration from "@/components/experience/HiveGrowthIllustration";
+import ClearMixIllustration from "@/components/experience/ClearMixIllustration";
+
+// A few local sun shafts so the light carries on from Case Studies.
+const RAYS = [
+  { left: "8%", width: 110, rotate: 18, dur: 19, delay: -4, opacity: 0.4 },
+  { left: "62%", width: 80, rotate: -10, dur: 23, delay: -12, opacity: 0.32 },
+  { left: "78%", width: 130, rotate: -18, dur: 21, delay: -8, opacity: 0.36 },
+];
+
+function Meta({ company, dates }: { company: string; dates: string }) {
+  return (
+    <p className="uw-label text-[0.75rem] text-[var(--uw-ink)]">
+      {company} <span aria-hidden="true">·</span>
+      <span className="sr-only">,</span> <time>{dates}</time>
+    </p>
+  );
+}
 
 export default function Experience() {
   const { t } = useLanguage();
-  
-  const experiences = [
-    {
-      company: "Hive Power",
-      roleKey: "experience.hive.role",
-      typeKey: "experience.fullTime",
-      durationKey: "experience.hive.duration",
-      periodKey: "experience.hive.period",
-      locationKey: "experience.remote",
-      logo: "🔶",
-      achievementKeys: [
-        "experience.hive.achievement1",
-        "experience.hive.achievement2",
-        "experience.hive.achievement3",
-        "experience.hive.achievement4"
-      ],
-      skills: ["React", "Ionic/Capacitor", "Nx", "TypeScript", "D3", "Recharts", "Visx", "FastAPI", "Docker", "Kubernetes", "GCP"]
-    },
-    {
-      company: "ClearMix",
-      roleKey: "experience.clearmix.role",
-      typeKey: "experience.fullTime",
-      durationKey: "experience.clearmix.duration",
-      periodKey: "experience.clearmix.period",
-      locationKey: "experience.remote",
-      logo: "🎬",
-      achievementKeys: [
-        "experience.clearmix.achievement1",
-        "experience.clearmix.achievement2",
-        "experience.clearmix.achievement3",
-        "experience.clearmix.achievement4"
-      ],
-      skills: ["Next.js", "Google Maps API", "REST APIs", "React", "TypeScript"]
-    }
-  ];
 
   return (
-    <section id="experience" className=" section-major relative overflow-hidden">
-      {/* Bubbles */}
-      <div className="bubbles opacity-20">
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <SectionHeader 
-          title={t("experience.title")}
-          description={t("experience.description")}
-        />
-
-        <div className="max-w-4xl mx-auto space-y-8">
-          {experiences.map((exp, index) => (
-            <Card
-              key={index}
-              className="overflow-hidden hover:shadow-2xl hover:shadow-black/20 transition-all duration-300 border border-[#E2E8F0] !bg-white text-[#1E293B] rounded-2xl group"
-            >
-              <div className="relative">
-                {/* Subtle decorative bubbles */}
-                <div className="absolute top-4 right-4 opacity-10 pointer-events-none">
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#009293] animate-pulse"></div>
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#009293] animate-pulse" style={{ animationDelay: '0.3s' }}></div>
-                    <div className="w-2 h-2 rounded-full bg-[#009293] animate-pulse" style={{ animationDelay: '0.6s' }}></div>
-                  </div>
-                </div>
-                <div className="absolute bottom-4 left-4 opacity-8 pointer-events-none">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#009293] animate-pulse" style={{ animationDelay: '0.9s' }}></div>
-                </div>
-                
-                {/* Timeline connector */}
-                {index < experiences.length - 1 && (
-                  <div className="absolute left-[52px] bottom-0 w-0.5 h-8 bg-gradient-to-b from-[#009293] to-transparent translate-y-full z-10" />
-                )}
-
-                <div className="p-6 sm:p-8">
-                  {/* Header */}
-                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-6">
-                    {/* Logo */}
-                    <div className="flex-shrink-0 w-20 h-20 rounded-xl bg-gradient-to-br from-[#009293] to-[#00787A] flex items-center justify-center text-4xl shadow-lg group-hover:scale-105 transition-transform duration-300">
-                      {exp.logo}
-                    </div>
-
-                    {/* Title and meta */}
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
-                        <div>
-                          <h3 className="text-2xl font-medium text-[#1E293B] mb-1">
-                            {t(exp.roleKey)}
-                          </h3>
-                          <p className="text-xl text-[#009293] font-medium">
-                            {exp.company}
-                          </p>
-                        </div>
-                        <span className="inline-flex items-center px-3 py-1 text-xs font-medium text-[#009293] bg-[#009293]/5 border border-[#009293]/20 rounded-md">
-                          {t(exp.typeKey)}
-                        </span>
-                      </div>
-
-                      {/* Meta information */}
-                      <div className="flex flex-wrap gap-4 text-sm text-[#475569]">
-                        <div className="flex items-center gap-1.5">
-                          <Calendar className="h-4 w-4 text-[#009293]" />
-                          <span>{t(exp.durationKey)}</span>
-                          <span className="text-[#009293]">• {t(exp.periodKey)}</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <MapPin className="h-4 w-4 text-[#009293]" />
-                          <span>{t(exp.locationKey)}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Achievements */}
-                  <div className="space-y-3 mb-6">
-                    {exp.achievementKeys.map((achievementKey, achIndex) => (
-                      <div
-                        key={achIndex}
-                        className="flex gap-3 group/item hover:translate-x-1 transition-transform duration-200"
-                      >
-                        <div className="flex-shrink-0 mt-1.5">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#009293] group-hover/item:bg-[#F8A58E] transition-colors" />
-                        </div>
-                        <p className="text-[#1E293B] leading-relaxed text-sm" style={{ lineHeight: '1.8' }}>
-                          {t(achievementKey)}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Skills */}
-                  <div className="border-t border-[#E2E8F0] pt-4">
-                    <div className="flex flex-wrap gap-2">
-                      {exp.skills.map((skill, skillIndex) => (
-                        <span
-                          key={skillIndex}
-                          className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-[#475569] bg-[#F9FAFB] border border-[#E2E8F0] rounded-md hover:border-[#009293]/30 hover:bg-[#009293]/5 transition-all duration-300"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
+    <section id="experience" aria-labelledby="experience-title" className="relative overflow-hidden py-20 sm:py-28">
+      {/* Atmosphere: soft filtered light and sea-glass / lavender tones at the edges */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="uw-section-glow absolute inset-0" />
+        <div className="uw-rays uw-rays--local">
+          {RAYS.map((ray, i) => (
+            <span
+              key={i}
+              className="uw-ray"
+              style={
+                {
+                  left: ray.left,
+                  width: ray.width,
+                  "--r": `${ray.rotate}deg`,
+                  "--o": ray.opacity,
+                  animationDuration: `${ray.dur}s`,
+                  animationDelay: `${ray.delay}s`,
+                } as CSSProperties
+              }
+            />
           ))}
         </div>
+      </div>
 
-        {/* Bottom decoration */}
-        <div className="mt-16 flex justify-center">
-          <div className="w-32 h-px bg-gradient-to-r from-transparent via-[#009293] to-transparent opacity-60 rounded-full" />
-        </div>
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <h2
+          id="experience-title"
+          className="max-w-3xl font-serif text-5xl font-normal leading-[1.02] tracking-[-0.02em] text-[var(--uw-ink)] sm:text-7xl lg:text-[5.5rem]"
+        >
+          {t("experience.heading")}
+        </h2>
+
+        {/* Hive Power: the lead story */}
+        <article
+          aria-labelledby="xp-hive-title"
+          className="mt-14 grid items-center gap-10 sm:mt-20 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14"
+        >
+          <div>
+            <Meta company="Hive Power" dates={t("experience.hive.duration")} />
+            <h3
+              id="xp-hive-title"
+              className="mt-4 font-serif text-4xl font-normal leading-[1.08] tracking-[-0.015em] text-[var(--uw-ink)] sm:text-5xl"
+            >
+              {t("experience.hive.headline")}
+            </h3>
+            <p className="mt-5 text-base font-medium text-[var(--uw-ink)] sm:text-lg">{t("experience.hive.role")}</p>
+            <p className="mt-3 max-w-md text-lg leading-relaxed text-[var(--uw-body)]">{t("experience.hive.copy")}</p>
+            <a href="#cs-hive" className="uw-link mt-7 text-base sm:text-lg">
+              {t("experience.hive.link")}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </div>
+          <HiveGrowthIllustration />
+        </article>
+
+        <hr className="my-16 border-0 border-t border-[var(--uw-line)] sm:my-20" />
+
+        {/* ClearMix: shorter, reversed */}
+        <article
+          aria-labelledby="xp-clearmix-title"
+          className="grid items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-14"
+        >
+          <div className="lg:order-last">
+            <Meta company="ClearMix" dates={t("experience.clearmix.duration")} />
+            <h3
+              id="xp-clearmix-title"
+              className="mt-4 font-serif text-3xl font-normal leading-tight tracking-[-0.01em] text-[var(--uw-ink)] sm:text-4xl"
+            >
+              {t("experience.clearmix.headline")}
+            </h3>
+            <p className="mt-4 text-base font-medium text-[var(--uw-ink)] sm:text-lg">{t("experience.clearmix.role")}</p>
+            <p className="mt-3 max-w-lg text-base leading-relaxed text-[var(--uw-body)] sm:text-lg">
+              {t("experience.clearmix.copy")}
+            </p>
+          </div>
+          <ClearMixIllustration />
+        </article>
       </div>
     </section>
   );

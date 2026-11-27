@@ -1,11 +1,22 @@
 "use client";
 
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Send } from "lucide-react";
-import { useState } from "react";
-import SectionHeader from "@/components/SectionHeader";
+import { ArrowRight, Send } from "lucide-react";
+import { useState, type CSSProperties } from "react";
 import { useLanguage } from "@/components/lang/LanguageProvider";
+
+const EMAIL = "zmelina@gmail.com";
+
+// A few slow bubbles in the outer margins (same classes as the page scene,
+// so they hold still when motion is reduced).
+const BUBBLES = [
+  { x: "2.5%", size: 9, dur: 16, delay: -5, drift: 9, sway: 5, rest: "58%" },
+  { x: "95%", size: 13, dur: 19, delay: -12, drift: 11, sway: 6, rest: "40%" },
+  { x: "6%", size: 5, dur: 13, delay: -2, drift: 6, sway: 4, rest: "76%" },
+  { x: "91%", size: 7, dur: 15, delay: -9, drift: 8, sway: 4.6, rest: "68%" },
+];
+
+const fieldClass =
+  "w-full rounded-lg border border-[rgba(244,239,227,0.28)] bg-[rgba(244,239,227,0.07)] px-4 py-2.5 text-[var(--deep-ivory)] placeholder:text-[rgba(244,239,227,0.6)] transition-colors duration-200 focus:border-[var(--deep-ivory)] focus:outline-none focus:ring-2 focus:ring-[rgba(244,239,227,0.55)]";
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -15,6 +26,7 @@ export default function Contact() {
     message: "",
   });
 
+  // Submission behaviour is unchanged from the previous version.
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
@@ -23,161 +35,112 @@ export default function Contact() {
     setFormData({ name: "", email: "", message: "" });
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      labelKey: "contact.emailLabel",
-      value: "zmelina@gmail.com",
-      link: "mailto:zmelina@gmail.com",
-    },
-    // {
-    //   icon: MapPin,
-    //   labelKey: "contact.locationLabel",
-    //   valueKey: "contact.locationValue",
-    //   link: null,
-    // },
-  ];
-
   return (
-    <section id="contact" className="section-major relative overflow-hidden">
-      {/* Bubbles */}
-      <div className="bubbles opacity-15">
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
+    <section id="contact" aria-labelledby="contact-title" className="deep-water relative overflow-hidden pt-40 pb-20 sm:pt-52 sm:pb-28">
+      <div className="uw-bubbles !absolute" aria-hidden="true">
+        {BUBBLES.map((b, i) => (
+          <span
+            key={i}
+            className="uw-bubble-track"
+            style={{ left: b.x, width: b.size, "--rest": b.rest, animationDuration: `${b.dur}s`, animationDelay: `${b.delay}s` } as CSSProperties}
+          >
+            <span
+              className="uw-bubble"
+              style={{ width: b.size, height: b.size, "--drift": `${b.drift}px`, animationDuration: `${b.sway}s` } as CSSProperties}
+            />
+          </span>
+        ))}
       </div>
 
-      <div className="container-standard relative z-10">
-        <SectionHeader 
-          title={t("contact.title")}
-          description={t("contact.description")}
-        />
+      <div className="relative z-10 mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-16 lg:px-8">
+        <div>
+          <h2
+            id="contact-title"
+            className="font-serif text-5xl font-normal leading-[1.02] tracking-[-0.02em] text-[var(--deep-ivory)] sm:text-7xl"
+          >
+            {t("contact.title")}
+          </h2>
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-[var(--deep-ivory-soft)]">{t("contact.description")}</p>
+          <a
+            href={`mailto:${EMAIL}`}
+            className="group mt-8 inline-flex items-center gap-3 rounded-full bg-[var(--deep-ivory)] px-7 py-3.5 text-lg font-medium text-[#082F38] shadow-lg shadow-black/20 transition-colors hover:bg-white"
+          >
+            {t("contact.emailMe")}
+            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+          </a>
+          <p className="mt-3 text-sm text-[var(--deep-ivory-soft)]">{EMAIL}</p>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* Contact Information */}
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-xl font-semibold mb-4 text-[#E6EDF2]">{t("contact.letsConnect")}</h3>
-              <p className="text-[#A7B3C2] mb-6 leading-relaxed">
-                {t("contact.intro")}
-              </p>
-            </div>
-
-            <div className="space-y-4 pt-4">
-              {contactInfo.map((info, index) => (
-                <Card key={index} className="p-4 hover:shadow-lg transition-shadow">
-                  <div className="flex items-center gap-4">
-                    <div className="bg-[#009293]/10 p-3 rounded-lg">
-                      <info.icon className="h-5 w-5 text-[#009293]" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-[#94A3B8]">{t(info.labelKey)}</p>
-                      {info.link ? (
-                        <a
-                          href={info.link}
-                          className="font-medium text-[#E6EDF2] hover:text-[#009293] transition-colors hover:underline"
-                        >
-                          {info.value}
-                        </a>
-                      ) : (
-                        <p className="font-medium text-[#E6EDF2]">{info?.value ? t(info?.value) : info.value}</p>
-                      )}
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-
-            {/* <Card className="p-5 bg-gradient-to-br from-[#009293]/10 to-[#00787A]/10 border-[#009293]/20">
-              <h4 className="font-medium mb-2 text-[#E6EDF2]">{t("contact.quickResponse")}</h4>
-              <p className="text-sm text-[#A7B3C2] leading-relaxed">
-                {t("contact.quickResponseText")}
-              </p>
-            </Card> */}
+        <form
+          onSubmit={handleSubmit}
+          aria-label={t("contact.formLabel")}
+          className="space-y-5 rounded-2xl border border-[rgba(244,239,227,0.14)] bg-[rgba(4,30,36,0.35)] p-6 sm:p-8"
+        >
+          <div>
+            <label htmlFor="name" className="mb-2 block text-sm font-medium text-[var(--deep-ivory)]">
+              {t("contact.name")}
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              autoComplete="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className={fieldClass}
+              placeholder={t("contact.namePlaceholder")}
+            />
           </div>
 
-          {/* Contact Form */}
-          <Card className="p-6">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-2 text-[#E6EDF2]"
-                >
-                  {t("contact.name")}
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2.5 rounded-lg border border-[rgba(100,116,139,0.60)] bg-[rgba(30,41,59,0.70)] focus:outline-none focus:ring-2 focus:ring-[#009293] focus:border-[#009293] text-[#E6EDF2] placeholder:text-[#94A3B8] transition-all duration-200"
-                  placeholder={t("contact.namePlaceholder")}
-                />
-              </div>
+          <div>
+            <label htmlFor="email" className="mb-2 block text-sm font-medium text-[var(--deep-ivory)]">
+              {t("contact.email")}
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autoComplete="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className={fieldClass}
+              placeholder={t("contact.emailPlaceholder")}
+            />
+          </div>
 
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-2 text-[#E6EDF2]"
-                >
-                  {t("contact.email")}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-2.5 rounded-lg border border-[rgba(100,116,139,0.60)] bg-[rgba(30,41,59,0.70)] focus:outline-none focus:ring-2 focus:ring-[#009293] focus:border-[#009293] text-[#E6EDF2] placeholder:text-[#94A3B8] transition-all duration-200"
-                  placeholder={t("contact.emailPlaceholder")}
-                />
-              </div>
+          <div>
+            <label htmlFor="message" className="mb-2 block text-sm font-medium text-[var(--deep-ivory)]">
+              {t("contact.message")}
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              rows={5}
+              className={`${fieldClass} resize-none`}
+              placeholder={t("contact.messagePlaceholder")}
+            />
+          </div>
 
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2 text-[#E6EDF2]"
-                >
-                  {t("contact.message")}
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-2.5 rounded-lg border border-[rgba(100,116,139,0.60)] bg-[rgba(30,41,59,0.70)] focus:outline-none focus:ring-2 focus:ring-[#009293] focus:border-[#009293] text-[#E6EDF2] placeholder:text-[#94A3B8] resize-none transition-all duration-200"
-                  placeholder={t("contact.messagePlaceholder")}
-                />
-              </div>
-
-              <Button 
-                type="submit" 
-                className="w-full bg-[#009293] hover:bg-[#00787A] text-white shadow-lg shadow-black/20 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-[#14B8BA]" 
-                size="lg"
-              >
-                <Send className="h-4 w-4 mr-2" />
-                {t("contact.send")}
-              </Button>
-            </form>
-          </Card>
-        </div>
+          <button
+            type="submit"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-[rgba(244,239,227,0.45)] px-6 py-3 text-base font-medium text-[var(--deep-ivory)] transition-colors hover:bg-[rgba(244,239,227,0.1)]"
+          >
+            <Send className="h-4 w-4" aria-hidden="true" />
+            {t("contact.send")}
+          </button>
+        </form>
       </div>
     </section>
   );

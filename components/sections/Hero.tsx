@@ -13,54 +13,33 @@ export default function Hero() {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      {/* Subtle radial light behind heading */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,146,147,0.08)_0%,_transparent_60%)] pointer-events-none z-[1]" />
-
-      {/* Dark overlay for mobile to improve text visibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0B1620]/60 via-[#0B1620]/40 to-transparent md:from-transparent md:via-transparent pointer-events-none z-[1]" />
-
-      {/* Bubbles */}
-      <div className="bubbles opacity-30 md:opacity-25">
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-        <div className="bubble"></div>
-      </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-32 relative z-10">
         <div className="text-center space-y-5 animate-fade-in">
           {/* Greeting */}
           <div className="inline-block">
-            <p className="text-base sm:text-lg text-[#A7B3C2] drop-shadow-[0_2px_4px_rgba(11,22,32,0.8)]">
+            <p className="text-base sm:text-lg text-[var(--uw-body)]">
               {t("hero.greeting")} 👋
             </p>
           </div>
 
           {/* Name - tighter spacing */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold drop-shadow-[0_4px_8px_rgba(11,22,32,0.8)] -mt-2">
-            <span className="bg-gradient-to-r from-[#009293] via-[#4DCCCC] to-[#009293] bg-clip-text text-transparent animate-shimmer">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold -mt-2">
+            <span className="bg-gradient-to-r from-[#0A4E54] via-[#13858A] to-[#0A4E54] bg-clip-text text-transparent animate-shimmer">
               Meli
             </span>
           </h1>
 
           {/* Title - tighter spacing */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[#E6EDF2] drop-shadow-[0_2px_6px_rgba(11,22,32,0.8)] -mt-1 mb-1">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-[var(--uw-ink)] -mt-1 mb-1">
             {t("hero.roleLabel")}
           </h2>
-          <p className="text-base sm:text-lg text-[#A7B3C2] max-w-xl mx-auto drop-shadow-[0_2px_4px_rgba(11,22,32,0.8)] leading-relaxed pt-0 mt-0">
+          <p className="text-base sm:text-lg text-[var(--uw-body)] max-w-xl mx-auto leading-relaxed pt-0 mt-0">
             {t("hero.title")}
           </p>
 
           {/* Description - improved readability */}
-          <p className="text-base sm:text-base text-[#A7B3C2] max-w-2xl mx-auto drop-shadow-[0_2px_4px_rgba(11,22,32,0.8)] leading-relaxed pt-2">
+          <p className="text-base sm:text-base text-[var(--uw-body)] max-w-2xl mx-auto leading-relaxed pt-2">
             {t("hero.subtitle")}
           </p>
 
@@ -69,7 +48,7 @@ export default function Hero() {
             <Button
               size="lg"
               onClick={() => scrollToSection("case-studies")}
-              className="text-base px-8 group bg-[#009293] hover:bg-[#00787A] text-white border-0 shadow-lg shadow-black/20 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-[#14B8BA] focus-visible:ring-offset-2"
+              className="text-base px-8 group bg-[#00787A] hover:bg-[#005E5F] text-white border-0 shadow-lg shadow-[#063238]/20 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-[#14B8BA] focus-visible:ring-offset-2"
             >
               {t("hero.cta.caseStudies")}
               <ArrowDown className="ml-2 h-4 w-4 group-hover:translate-y-1 transition-transform" />
@@ -78,7 +57,7 @@ export default function Hero() {
               size="lg"
               variant="outline"
               onClick={() => scrollToSection("contact")}
-              className="text-base px-8 border border-[rgba(20,184,166,0.20)] text-[#E6EDF2] bg-transparent hover:bg-[#009293]/10 hover:border-[rgba(20,184,166,0.40)] backdrop-blur-sm transition-all duration-300"
+              className="text-base px-8 border border-[rgba(10,74,82,0.30)] text-[var(--uw-ink)] bg-white/30 hover:bg-white/50 hover:border-[rgba(10,74,82,0.45)] backdrop-blur-sm transition-all duration-300"
             >
               {t("hero.cta.contact")}
             </Button>
@@ -89,7 +68,7 @@ export default function Hero() {
             <Button
               size="icon"
               variant="ghost"
-              className="rounded-full hover:bg-[#009293]/10 text-[#009293] hover:text-[#009293] hover:scale-110 transition-all duration-300"
+              className="rounded-full hover:bg-[#0A5A60]/10 text-[var(--uw-link)] hover:text-[var(--uw-ink)] hover:scale-110 transition-all duration-300"
               asChild
             >
               <a
@@ -104,7 +83,7 @@ export default function Hero() {
             <Button
               size="icon"
               variant="ghost"
-              className="rounded-full hover:bg-[#009293]/10 text-[#009293] hover:text-[#009293] hover:scale-110 transition-all duration-300"
+              className="rounded-full hover:bg-[#0A5A60]/10 text-[var(--uw-link)] hover:text-[var(--uw-ink)] hover:scale-110 transition-all duration-300"
               asChild
             >
               <a
@@ -119,7 +98,7 @@ export default function Hero() {
             <Button
               size="icon"
               variant="ghost"
-              className="rounded-full hover:bg-[#009293]/10 text-[#009293] hover:text-[#009293] hover:scale-110 transition-all duration-300"
+              className="rounded-full hover:bg-[#0A5A60]/10 text-[var(--uw-link)] hover:text-[var(--uw-ink)] hover:scale-110 transition-all duration-300"
               asChild
             >
               <a href="mailto:zmelina@gmail.com" aria-label="Email">
@@ -132,10 +111,10 @@ export default function Hero() {
 
       {/* Scroll indicator with dive deeper text */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center gap-2 z-10 pointer-events-none">
-        <span className="text-sm text-[#009293] font-medium tracking-wide drop-shadow-[0_2px_4px_rgba(11,22,32,0.8)]">
+        <span className="text-sm text-[var(--uw-link)] font-medium tracking-wide">
           {t("hero.cta.diveDeeper")}
         </span>
-        <ArrowDown className="h-6 w-6 text-[#009293] drop-shadow-[0_2px_4px_rgba(11,22,32,0.8)]" />
+        <ArrowDown className="h-6 w-6 text-[var(--uw-link)]" />
       </div>
     </section>
   );
